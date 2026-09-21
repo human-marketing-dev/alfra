@@ -1,12 +1,12 @@
 /* Pie de página — bloque 06 de la landing: boilerplate, accesos directos
-   a las seis empresas y contacto. Los datos de contacto que siguen por
-   confirmar (lib/grupo.ts) simplemente no se renderizan. */
+   a las empresas del grupo y contacto. Los datos de contacto que siguen
+   por confirmar (lib/grupo.ts) simplemente no se renderizan. */
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { Logo } from "@/components/site/Logo";
+import { LogoGrupo } from "@/components/site/Logo";
 import { EMPRESAS } from "@/lib/empresas";
-import { BOILERPLATE, CONTACTO, correoHref, telefonoHref } from "@/lib/grupo";
+import { BOILERPLATE, CONTACTO, GRUPO, correoHref, telefonoHref } from "@/lib/grupo";
 
 export function SiteFooter() {
   const correo = correoHref();
@@ -43,7 +43,8 @@ export function SiteFooter() {
           style={{ paddingBottom: "var(--space-9)", borderBottom: "1px solid var(--border-on-dark)", alignItems: "start" }}
         >
           <div>
-            <Logo marca="hifra" fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
+            {/* TODO: logo pendiente — firma tipográfica del grupo. */}
+            <LogoGrupo fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
             <p
               style={{
                 fontFamily: "var(--font-serif)",
@@ -108,7 +109,7 @@ export function SiteFooter() {
           }}
         >
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(244,240,232,0.45)" }}>
-            © {new Date().getFullYear()} HIFRA Grupo Inmobiliario
+            © {new Date().getFullYear()} {GRUPO.nombre}
           </span>
           <div style={{ display: "flex", gap: "var(--space-4)" }}>
             <a href="#" aria-label="LinkedIn" style={{ color: "var(--text-on-dark-muted)" }}>

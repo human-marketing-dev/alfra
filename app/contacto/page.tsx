@@ -14,7 +14,7 @@ import { OtrasEmpresas } from "@/components/empresa/OtrasEmpresas";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Cuéntanos qué proyecto tienes en mente y te conectamos con la empresa de HIFRA Grupo Inmobiliario que lo resuelve. Monterrey, Nuevo León.",
+    "Cuéntanos qué proyecto tienes en mente y te conectamos con la empresa de ALFRA Grupo Inmobiliario que lo resuelve. Monterrey, Nuevo León.",
 };
 
 export default function Page() {

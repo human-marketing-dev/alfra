@@ -1,6 +1,6 @@
 "use client";
 
-/* HIFRA Card — a hairline-bordered surface with optional media. The default
+/* ALFRA Card — a hairline-bordered surface with optional media. The default
    has a tight radius and a soft warm shadow; `interactive` adds a hover lift.
    Compose project tiles by passing a `media` image and children. */
 import React from "react";

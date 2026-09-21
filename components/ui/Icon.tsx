@@ -1,4 +1,4 @@
-/* HIFRA — set de iconos local. Trazos Lucide (ISC) de 24px, con el mismo
+/* ALFRA — set de iconos local. Trazos Lucide (ISC) de 24px, con el mismo
    peso de línea que el resto del sistema. currentColor, nunca rellenos. */
 import React from "react";
 

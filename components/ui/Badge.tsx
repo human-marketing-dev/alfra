@@ -1,4 +1,4 @@
-/* HIFRA Badge — a small status / category label. Wide-tracked uppercase,
+/* ALFRA Badge — a small status / category label. Wide-tracked uppercase,
    minimal radius. Use `dot` for a status indicator. */
 import React from "react";
 

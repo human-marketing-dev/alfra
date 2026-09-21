@@ -1,12 +1,15 @@
 /* Página de empresa — qué resuelve.
    Los cuatro frentes de trabajo de la empresa, numerados, con el mismo
-   tratamiento de retícula del sistema. */
+   tratamiento de retícula del sistema. Sin servicios confirmados en
+   `lib/empresas.ts`, la sección no se pinta. */
 import React from "react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import type { Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function Servicios({ empresa }: { empresa: Empresa }) {
+  if (empresa.servicios.length === 0) return null;
+
   return (
     <section id="servicios" className="hf-section" style={{ background: "var(--bg-page)" }}>
       <div className="hf-container">

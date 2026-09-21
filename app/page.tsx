@@ -1,4 +1,4 @@
-/* Landing corporativa de HIFRA Grupo Inmobiliario.
+/* Landing corporativa de ALFRA Grupo Inmobiliario.
 
    Estructura de la Landing Corporativa v1.0. El bloque 04 · Sinergia
    queda fuera por indicación del propio documento («no incluir»), igual

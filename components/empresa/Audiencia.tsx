@@ -1,7 +1,10 @@
 /* Página de empresa — a quién sirve.
    Toma el público del brief §7 que corresponde a esta empresa: quién es,
-   qué busca y qué le dice HIFRA. El panel lateral lleva el modelo de
-   referencia y, cuando existen, las pruebas publicables. */
+   qué busca y qué le dice ALFRA. El panel lateral lleva el modelo de
+   referencia y, cuando existen, las pruebas publicables.
+
+   Con la audiencia todavía marcada «confirmar» en `lib/empresas.ts`, la
+   sección entera no se pinta: nada se inventa ni queda en hueco. */
 import React from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -10,6 +13,9 @@ import type { Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function Audiencia({ empresa }: { empresa: Empresa }) {
+  const { promesa, quien, busca } = empresa.audiencia;
+  if (!promesa && !quien && !busca && !empresa.modeloReferencia) return null;
+
   const label: React.CSSProperties = {
     fontFamily: "var(--font-sans)",
     fontWeight: 600,
@@ -32,17 +38,21 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
     <section className="hf-section" style={{ background: "var(--bg-page-alt)" }}>
       <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
         <div>
-          <SectionHeading eyebrow="A quién sirve" title={conCursivas(empresa.audiencia.promesa)} maxWidth="620px" />
+          <SectionHeading eyebrow="A quién sirve" title={conCursivas(promesa)} maxWidth="620px" />
 
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", marginTop: "var(--space-7)" }}>
-            <div>
-              <div style={label}>Quién es</div>
-              <p style={body}>{conCursivas(empresa.audiencia.quien)}</p>
-            </div>
-            <div>
-              <div style={label}>Qué busca</div>
-              <p style={body}>{conCursivas(empresa.audiencia.busca)}</p>
-            </div>
+            {quien && (
+              <div>
+                <div style={label}>Quién es</div>
+                <p style={body}>{conCursivas(quien)}</p>
+              </div>
+            )}
+            {busca && (
+              <div>
+                <div style={label}>Qué busca</div>
+                <p style={body}>{conCursivas(busca)}</p>
+              </div>
+            )}
 
             {empresa.sitio && (
               <Button
@@ -68,20 +78,24 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
             padding: "var(--space-7)",
           }}
         >
-          <div style={label}>Modelo de referencia</div>
-          <p
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 600,
-              fontSize: "20px",
-              lineHeight: 1.3,
-              letterSpacing: "-0.01em",
-              color: "var(--text-strong)",
-              margin: 0,
-            }}
-          >
-            {empresa.modeloReferencia}
-          </p>
+          {empresa.modeloReferencia && (
+            <>
+              <div style={label}>Modelo de referencia</div>
+              <p
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 600,
+                  fontSize: "20px",
+                  lineHeight: 1.3,
+                  letterSpacing: "-0.01em",
+                  color: "var(--text-strong)",
+                  margin: 0,
+                }}
+              >
+                {empresa.modeloReferencia}
+              </p>
+            </>
+          )}
 
           {empresa.pruebas.length > 0 && (
             <div style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-6)", borderTop: "1px solid var(--border-hair)" }}>

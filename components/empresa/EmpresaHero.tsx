@@ -45,7 +45,9 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             {empresa.frente}
           </Eyebrow>
 
-          {/* Con logo entregado manda el logo; si no, el lockup tipográfico. */}
+          {/* Con logo entregado manda el logo; si no, el lockup tipográfico.
+              TODO: logo pendiente — ALFRA Grupo Inmobiliario y ALFRA Agencia
+              Inmobiliaria todavía no tienen archivo y caen aquí. */}
           {empresa.logo ? (
             <Logo
               marca={empresa.logo}
@@ -71,33 +73,39 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             </div>
           )}
 
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 800,
-              fontSize: "clamp(34px, 5.4vw, 68px)",
-              lineHeight: 1.04,
-              letterSpacing: "-0.03em",
-              color: "var(--neutral-0)",
-              margin: "0 0 var(--space-5)",
-              textWrap: "balance",
-            }}
-          >
-            {empresa.titular}
-          </h1>
+          {/* Titular y resumen marcados «confirmar» quedan vacíos: se
+              omiten en lugar de dejar un hueco con su margen. */}
+          {empresa.titular && (
+            <h1
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 800,
+                fontSize: "clamp(34px, 5.4vw, 68px)",
+                lineHeight: 1.04,
+                letterSpacing: "-0.03em",
+                color: "var(--neutral-0)",
+                margin: "0 0 var(--space-5)",
+                textWrap: "balance",
+              }}
+            >
+              {empresa.titular}
+            </h1>
+          )}
 
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(17px, 1.7vw, 20px)",
-              lineHeight: 1.6,
-              color: "rgba(244,240,232,0.86)",
-              maxWidth: "640px",
-              margin: "0 0 var(--space-7)",
-            }}
-          >
-            {conCursivas(empresa.resumen)}
-          </p>
+          {empresa.resumen && (
+            <p
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(17px, 1.7vw, 20px)",
+                lineHeight: 1.6,
+                color: "rgba(244,240,232,0.86)",
+                maxWidth: "640px",
+                margin: "0 0 var(--space-7)",
+              }}
+            >
+              {conCursivas(empresa.resumen)}
+            </p>
+          )}
 
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
             <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
@@ -113,21 +121,25 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             </Button>
           </div>
 
-          <div
-            style={{
-              marginTop: "var(--space-8)",
-              paddingTop: "var(--space-5)",
-              borderTop: "1px solid var(--border-on-dark)",
-              fontFamily: "var(--font-sans)",
-              fontWeight: 600,
-              fontSize: "11px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--wood-300)",
-            }}
-          >
-            {GRUPO.lineaRespaldo}
-          </div>
+          {/* El grupo no se endosa a sí mismo: su propia página va sin la
+              línea de respaldo. */}
+          {!empresa.esElGrupo && (
+            <div
+              style={{
+                marginTop: "var(--space-8)",
+                paddingTop: "var(--space-5)",
+                borderTop: "1px solid var(--border-on-dark)",
+                fontFamily: "var(--font-sans)",
+                fontWeight: 600,
+                fontSize: "11px",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--wood-300)",
+              }}
+            >
+              {GRUPO.lineaRespaldo}
+            </div>
+          )}
         </div>
       </div>
     </section>

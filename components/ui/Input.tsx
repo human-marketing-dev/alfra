@@ -1,6 +1,6 @@
 "use client";
 
-/* HIFRA Input — a hairline-bordered field with an uppercase label. Square
+/* ALFRA Input — a hairline-bordered field with an uppercase label. Square
    edges; focus brings a wood-tone ring. Pass `as="textarea"` for multiline. */
 import React from "react";
 

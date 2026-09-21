@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   HIFRA Grupo Inmobiliario — hoja de estilos global.
+   ALFRA Grupo Inmobiliario — hoja de estilos global.
 
    Los tokens (paleta, tipografía, escalas, sombras, motion) vienen
    del design system de STRATA y se usan aquí tal cual. El contenido
-   y la nomenclatura son de HIFRA; de STRATA sólo se toma el diseño.
+   y la nomenclatura son de ALFRA; de STRATA sólo se toma el diseño.
 
    Las familias tipográficas se inyectan desde `app/layout.tsx` con
    next/font (Montserrat, Spectral, IBM Plex Mono) y llegan aquí como

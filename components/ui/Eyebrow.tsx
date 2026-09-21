@@ -1,4 +1,4 @@
-/* HIFRA Eyebrow — the wide-tracked uppercase overline derived from the
+/* ALFRA Eyebrow — the wide-tracked uppercase overline derived from the
    "DESARROLLOS" treatment. Optionally prefixed with a short rule. */
 import React from "react";
 

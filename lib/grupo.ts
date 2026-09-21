@@ -1,24 +1,28 @@
-/* Contenido institucional de HIFRA Grupo Inmobiliario.
+/* Contenido institucional de ALFRA Grupo Inmobiliario.
    Fuente: Brief Maestro de Comunicación v2.1 y Landing Corporativa v1.0.
 
    ─────────────────────────────────────────────────────────────
    PENDIENTES POR CONFIRMAR  (Brief Maestro §11 · Landing bloque 06)
-   Todo lo que falta por validar con HIFRA vive en este archivo y
+   Todo lo que falta por validar con ALFRA vive en este archivo y
    en `lib/empresas.ts`. Ningún componente inventa datos: lo que
    está vacío no se renderiza.
 
    · CONTACTO.correo, CONTACTO.telefono, CONTACTO.whatsapp
    · GRUPO.anioFundacion, GRUPO.proyectosAcumulados
+   · BOILERPLATE.medio
    · EMPRESAS[].sitio — URL del sitio propio de cada empresa
    ───────────────────────────────────────────────────────────── */
 
+import { EMPRESAS, enLetras } from "@/lib/empresas";
+
 export const GRUPO = {
-  nombre: "HIFRA Grupo Inmobiliario",
-  nombreCorto: "HIFRA",
+  nombre: "ALFRA Grupo Inmobiliario",
+  nombreCorto: "ALFRA",
   descriptor: "Grupo inmobiliario integral · Noreste de México",
   ideaRectora: "Convertimos oportunidades inmobiliarias en negocio.",
   sede: "Monterrey, Nuevo León",
-  numeroEmpresas: 6,
+  /** Se deriva del arreglo de empresas; nunca se escribe a mano. */
+  numeroEmpresas: EMPRESAS.length,
 
   /** «confirmar» — Brief Maestro §1, Datos institucionales. */
   anioFundacion: "",
@@ -26,15 +30,18 @@ export const GRUPO = {
   proyectosAcumulados: "",
 
   /** Línea de endoso para materiales de empresa (Brief Maestro §4). */
-  lineaRespaldo: "Empresa de HIFRA Grupo Inmobiliario",
+  lineaRespaldo: "Empresa de ALFRA Grupo Inmobiliario",
 } as const;
 
 /** Boilerplates oficiales (Brief Maestro §9). */
 export const BOILERPLATE = {
-  corto:
-    "HIFRA Grupo Inmobiliario agrupa seis empresas especializadas del sector inmobiliario: comercialización, expansión corporativa, estructuración comercial, inversión, desarrollo y construcción, con sede en Monterrey, Nuevo León.",
-  medio:
-    "HIFRA Grupo Inmobiliario agrupa seis empresas especializadas del sector inmobiliario en el noreste de México: Epika en comercialización, F&S Real Estate Solutions en expansión corporativa, Lead Pro en estructuración comercial, ALFRA Inversiones en inversión, ALFRA Desarrollos en desarrollo y Grupo FAC en construcción. Un cliente entra por la empresa que ejecuta su oportunidad y queda respaldado por todo el grupo.",
+  corto: `ALFRA Grupo Inmobiliario agrupa ${enLetras(EMPRESAS.length)} empresas especializadas del sector inmobiliario, con sede en Monterrey, Nuevo León.`,
+  /**
+   * «confirmar» — el boilerplate medio enumera cada empresa con su
+   * frente, y dos de las cuatro siguen sin contenido confirmado.
+   * Vacío mientras tanto; no se publica en ningún lado.
+   */
+  medio: "",
 } as const;
 
 interface Contacto {
@@ -46,7 +53,7 @@ interface Contacto {
 }
 
 export const CONTACTO: Contacto = {
-  /** «confirmar» — p. ej. "contacto@hifra.mx" */
+  /** «confirmar» — p. ej. "contacto@alfra.mx" */
   correo: "",
   /** «confirmar» — formato de lectura, p. ej. "+52 81 1234 5678" */
   telefono: "",

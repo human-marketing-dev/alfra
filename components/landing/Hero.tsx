@@ -2,6 +2,7 @@
    Antetítulo, titular, subtitular y dos botones, tal como los fija la
    Landing Corporativa v1.0. El titular es la idea rectora del brief. */
 import React from "react";
+import { EMPRESAS, enLetras } from "@/lib/empresas";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
@@ -56,8 +57,8 @@ export function Hero() {
               margin: "0 0 var(--space-7)",
             }}
           >
-            HIFRA Grupo Inmobiliario agrupa seis empresas especializadas del sector inmobiliario. Comercializar,
-            expandirse, invertir, desarrollar, construir o vender más: cada oportunidad tiene adentro una empresa que la
+            ALFRA Grupo Inmobiliario agrupa {enLetras(EMPRESAS.length)} empresas especializadas del sector
+            inmobiliario. Invertir, desarrollar o comercializar: cada oportunidad tiene adentro una empresa que la
             ejecuta.
           </p>
 

@@ -1,12 +1,19 @@
 /* Listado-índice de empresas.
    Cierra una página devolviendo al visitante a las empresas del grupo:
    la misma función de distribución que cumple la landing. Con `excluir`
-   omite una —la que ya se está viendo—; sin él, lista las seis. */
+   omite una —la que ya se está viendo—; sin él, las lista todas.
+
+   El titular por defecto dice cuántas quedan, y ese número sale de la
+   lista que se está pintando, no del copy.
+
+   El listado incluye a ALFRA Grupo Inmobiliario como una empresa más,
+   igual que la landing y la navegación. */
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { EMPRESAS, otrasEmpresas } from "@/lib/empresas";
+import { EMPRESAS, enLetras, otrasEmpresas } from "@/lib/empresas";
+import { GRUPO } from "@/lib/grupo";
 
 export interface OtrasEmpresasProps {
   /** Slug de la empresa que se está viendo, para dejarla fuera del listado. */
@@ -16,18 +23,31 @@ export interface OtrasEmpresasProps {
   fondo?: string;
 }
 
+/**
+ * «confirmar» — antetítulo del listado. El anterior («El resto del
+ * grupo») dejó de ser exacto en cuanto el propio grupo entró al arreglo
+ * como una empresa más. Vacío mientras no haya copy validado: el
+ * encabezado se pinta sin antetítulo y no se inventa nada.
+ */
+const ANTETITULO = "";
+
 export function OtrasEmpresas({
   excluir,
-  eyebrow = "El resto del grupo",
-  title = "Las otras cinco empresas de HIFRA.",
+  eyebrow = ANTETITULO,
+  title,
   fondo = "var(--bg-page)",
 }: OtrasEmpresasProps) {
   const otras = excluir ? otrasEmpresas(excluir) : EMPRESAS;
+  const titular =
+    title ??
+    (excluir
+      ? `Las otras ${enLetras(otras.length)} empresas de ${GRUPO.nombreCorto}.`
+      : `Las ${enLetras(otras.length)} empresas de ${GRUPO.nombreCorto}.`);
 
   return (
     <section className="hf-section" style={{ background: fondo }}>
       <div className="hf-container">
-        <SectionHeading eyebrow={eyebrow} title={title} maxWidth="760px" />
+        <SectionHeading eyebrow={eyebrow} title={titular} maxWidth="760px" />
 
         <div style={{ marginTop: "var(--space-7)", borderTop: "1px solid var(--border-hair)" }}>
           {otras.map((e) => (

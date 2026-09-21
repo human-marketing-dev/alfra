@@ -1,6 +1,6 @@
 "use client";
 
-/* HIFRA Button — geometric, uppercase, wide-tracked. Square-edged by default
+/* ALFRA Button — geometric, uppercase, wide-tracked. Square-edged by default
    to echo the architectural mark. */
 import React from "react";
 import Link from "next/link";

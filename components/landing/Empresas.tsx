@@ -1,19 +1,22 @@
 /* Landing · bloque 03 — Las empresas.
-   Seis tarjetas con salida a la página de cada empresa. El orden es el
-   canónico del brief: Epika, F&S y Lead Pro van seguidas para que la
-   diferencia entre las tres se lea de corrido. */
+   Una tarjeta por empresa, con salida a su página. El orden es el
+   canónico de `lib/empresas.ts`, y cuántas son sale del arreglo. */
 import React from "react";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { EMPRESAS } from "@/lib/empresas";
+import { EMPRESAS, enLetrasCapital } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function Empresas() {
   return (
     <section id="empresas" className="hf-section" style={{ background: "var(--bg-page-alt)" }}>
       <div className="hf-container">
-        <SectionHeading eyebrow="Las empresas" title="Seis especialistas. Todo el sector." maxWidth="820px" />
+        <SectionHeading
+          eyebrow="Las empresas"
+          title={`${enLetrasCapital(EMPRESAS.length)} especialistas. Todo el sector.`}
+          maxWidth="820px"
+        />
 
         <div className="hf-grid-3" style={{ marginTop: "var(--space-8)" }}>
           {EMPRESAS.map((e) => (

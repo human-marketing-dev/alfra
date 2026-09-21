@@ -4,7 +4,7 @@
    crema al hacer scroll. El contenido va dentro de .hf-container, así que
    se alinea al mismo eje de 1450px que el resto del sitio.
 
-   «Empresas» abre un panel con las seis: se despliega al pasar el cursor
+   «Empresas» abre un panel con todas: se despliega al pasar el cursor
    y también con teclado (clic o Enter sobre el disparador, Escape para
    cerrar). Debajo de 900px todo se pliega en el menú, donde «Empresas»
    se abre como acordeón. */
@@ -12,8 +12,9 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { Logo } from "@/components/site/Logo";
-import { EMPRESAS, type Empresa } from "@/lib/empresas";
+import { LogoGrupo } from "@/components/site/Logo";
+import { EMPRESAS, enLetras, type Empresa } from "@/lib/empresas";
+import { GRUPO } from "@/lib/grupo";
 
 const ENLACE: React.CSSProperties = {
   fontFamily: "var(--font-sans)",
@@ -100,26 +101,18 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          aria-label="HIFRA Grupo Inmobiliario"
+          aria-label={GRUPO.nombre}
           style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
         >
-          {/* Las dos versiones se montan a la vez y se cruzan por opacidad:
-              así el cambio al pasar a barra crema no espera a una descarga. */}
-          <span style={{ position: "relative", display: "block", lineHeight: 0 }}>
-            <Logo marca="hifra" fondo="claro" alto={30} priority />
-            <Logo
-              marca="hifra"
-              fondo="oscuro"
-              alto={30}
-              priority
-              style={{
-                position: "absolute",
-                inset: 0,
-                opacity: onDark ? 1 : 0,
-                transition: "opacity var(--dur-base) var(--ease-out)",
-              }}
-            />
-          </span>
+          {/* TODO: logo pendiente — sin archivo del grupo, la firma es
+              tipográfica y el paso a barra crema se cruza por color. */}
+          <LogoGrupo
+            alto={30}
+            style={{
+              color: onDark ? "var(--neutral-0)" : "var(--text-strong)",
+              transition: "color var(--dur-base) var(--ease-out)",
+            }}
+          />
         </Link>
 
         <nav className="hf-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "var(--space-7)" }}>
@@ -190,7 +183,7 @@ export function SiteHeader() {
                       textDecoration: "none",
                     }}
                   >
-                    Ver las seis empresas
+                    Ver las {enLetras(EMPRESAS.length)} empresas
                     <Icon name="arrow-right" size={15} />
                   </Link>
                 </div>

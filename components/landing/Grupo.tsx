@@ -1,10 +1,12 @@
 /* Landing · bloque 02 — Conoce nuestro grupo.
-   Justifica la estructura de seis especialistas. La franja de cifras usa
-   sólo datos confirmados del brief §1; el año de fundación y los
-   proyectos acumulados siguen marcados «confirmar» y no se publican. */
+   Justifica la estructura de especialistas. La franja de cifras usa sólo
+   datos confirmados del brief §1 —el número de empresas sale del arreglo,
+   no del copy—; el año de fundación y los proyectos acumulados siguen
+   marcados «confirmar» y no se publican. */
 import React from "react";
 import { Stat } from "@/components/ui/Stat";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { EMPRESAS } from "@/lib/empresas";
 
 export function Grupo() {
   return (
@@ -26,9 +28,8 @@ export function Grupo() {
               margin: 0,
             }}
           >
-            El sector inmobiliario abarca frentes muy distintos entre sí. Vender una propiedad, aterrizar una empresa
-            extranjera, estructurar un área comercial, colocar capital, desarrollar un proyecto y construirlo requieren
-            equipos, métodos y experiencia diferentes.
+            El sector inmobiliario abarca frentes muy distintos entre sí. Vender una propiedad, colocar capital y
+            desarrollar un proyecto requieren equipos, métodos y experiencia diferentes.
           </p>
 
           <div
@@ -40,7 +41,12 @@ export function Grupo() {
               borderLeft: "1px solid var(--border-hair)",
             }}
           >
-            <Stat value="06" label="Empresas" sublabel="especializadas del sector" size="sm" />
+            <Stat
+              value={String(EMPRESAS.length).padStart(2, "0")}
+              label="Empresas"
+              sublabel="especializadas del sector"
+              size="sm"
+            />
             <Stat value="01" label="Interlocutor" sublabel="para todo tu proyecto" size="sm" />
             <Stat value="MTY" label="Sede" sublabel="Monterrey, Nuevo León" size="sm" />
           </div>

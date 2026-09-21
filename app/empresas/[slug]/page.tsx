@@ -1,4 +1,4 @@
-/* Página de empresa — una por cada una de las seis del grupo.
+/* Página de empresa — una por cada empresa del grupo.
    Todas comparten estructura: hero con el frente del sector, las cuatro
    capacidades que resuelve, el público al que sirve y la salida al resto
    del grupo. El contenido vive en `lib/empresas.ts`. */

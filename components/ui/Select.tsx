@@ -1,6 +1,6 @@
 "use client";
 
-/* HIFRA Select — misma caja de línea fina y etiqueta en versalitas que
+/* ALFRA Select — misma caja de línea fina y etiqueta en versalitas que
    el Input, con la flecha del sistema de iconos. */
 import React from "react";
 import { Icon } from "@/components/ui/Icon";

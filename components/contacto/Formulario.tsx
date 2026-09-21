@@ -14,6 +14,9 @@ import { EMPRESAS } from "@/lib/empresas";
 import { CONTACTO } from "@/lib/grupo";
 import { abrirCorreo } from "@/lib/correo";
 
+/** «confirmar dominio» — el dominio del sitio, para el asunto del correo. */
+const DOMINIO = "confirmar dominio";
+
 const CAMPOS = [
   ["nombre", "Nombre"],
   ["correo", "Correo"],
@@ -45,7 +48,7 @@ export function Formulario() {
 
     abrirCorreo(
       destino,
-      `Nueva solicitud desde hifra.mx — ${linea("nombre") || "sin nombre"}`,
+      `Nueva solicitud desde ${DOMINIO} — ${linea("nombre") || "sin nombre"}`,
       CAMPOS.map(([clave, etiqueta]) => [etiqueta, linea(clave)] as [string, string]),
     );
     setEnviado(true);

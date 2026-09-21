@@ -1,4 +1,4 @@
-/* HIFRA Stat — a headline figure paired with a label, used in investor
+/* ALFRA Stat — a headline figure paired with a label, used in investor
    materials and project spec strips. Numerals are set in the mono face. */
 import React from "react";
 
