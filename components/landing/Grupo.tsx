@@ -28,8 +28,8 @@ export function Grupo() {
               margin: 0,
             }}
           >
-            El sector inmobiliario abarca frentes muy distintos entre sí. Vender una propiedad, colocar capital y
-            desarrollar un proyecto requieren equipos, métodos y experiencia diferentes.
+            El sector inmobiliario abarca frentes muy distintos entre sí. Vender una propiedad, colocar capital,
+            desarrollar un proyecto y construirlo requieren equipos, métodos y experiencia diferentes.
           </p>
 
           <div

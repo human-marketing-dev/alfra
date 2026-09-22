@@ -121,25 +121,21 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             </Button>
           </div>
 
-          {/* El grupo no se endosa a sí mismo: su propia página va sin la
-              línea de respaldo. */}
-          {!empresa.esElGrupo && (
-            <div
-              style={{
-                marginTop: "var(--space-8)",
-                paddingTop: "var(--space-5)",
-                borderTop: "1px solid var(--border-on-dark)",
-                fontFamily: "var(--font-sans)",
-                fontWeight: 600,
-                fontSize: "11px",
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "var(--wood-300)",
-              }}
-            >
-              {GRUPO.lineaRespaldo}
-            </div>
-          )}
+          <div
+            style={{
+              marginTop: "var(--space-8)",
+              paddingTop: "var(--space-5)",
+              borderTop: "1px solid var(--border-on-dark)",
+              fontFamily: "var(--font-sans)",
+              fontWeight: 600,
+              fontSize: "11px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--wood-300)",
+            }}
+          >
+            {GRUPO.lineaRespaldo}
+          </div>
         </div>
       </div>
     </section>

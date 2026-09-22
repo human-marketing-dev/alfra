@@ -58,8 +58,8 @@ export function Hero() {
             }}
           >
             ALFRA Grupo Inmobiliario agrupa {enLetras(EMPRESAS.length)} empresas especializadas del sector
-            inmobiliario. Invertir, desarrollar o comercializar: cada oportunidad tiene adentro una empresa que la
-            ejecuta.
+            inmobiliario. Construir, desarrollar, invertir o comercializar: cada oportunidad tiene adentro una empresa
+            que la ejecuta.
           </p>
 
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap" }}>

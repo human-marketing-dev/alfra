@@ -1,19 +1,19 @@
 /* Las empresas de ALFRA Grupo Inmobiliario.
    Fuente: Brief Maestro §4 (nomenclatura) y §5 (frentes), Landing §03.
 
-   El orden del arreglo es el orden canónico: abre el grupo y siguen las
-   empresas operativas. Ningún texto del sitio escribe a mano cuántas
-   son: el número sale de `EMPRESAS.length` (ver `numeroEmpresas` y
-   `enLetras`), para que agregar o quitar una empresa no deje cifras
-   viejas por el camino.
+   Aquí viven las empresas del grupo, no el grupo: ALFRA Grupo
+   Inmobiliario es la matriz y vive en `lib/grupo.ts`. Ningún texto del
+   sitio escribe a mano cuántas son: el número sale de `EMPRESAS.length`
+   (ver `numeroEmpresas` y `enLetras`), para que agregar o quitar una
+   empresa no deje cifras viejas por el camino.
 
    ─────────────────────────────────────────────────────────────
    PENDIENTES POR CONFIRMAR
    Las cuatro marcas ya tienen logotipo. Lo que sigue pendiente es el
-   texto de ALFRA Grupo Inmobiliario y ALFRA Agencia Inmobiliaria:
-   fuera de lo que se deriva de su propio nombre, titular, resumen,
-   tarjeta, modelo de referencia, servicios y audiencia quedan marcados
-   «confirmar» y no se renderizan mientras sigan vacíos.
+   texto de ALFRA Agencia Inmobiliaria: fuera de lo que se deriva de su
+   propio nombre, titular, resumen, tarjeta, modelo de referencia,
+   servicios y audiencia quedan marcados «confirmar» y no se renderizan
+   mientras sigan vacíos.
    ───────────────────────────────────────────────────────────── */
 
 import type { IconName } from "@/components/ui/Icon";
@@ -58,38 +58,51 @@ export interface Empresa {
    * estructura propios, en lugar de la plantilla compartida de `[slug]`.
    */
   paginaPropia?: boolean;
-  /**
-   * Esta entrada es el grupo mismo, no una de sus empresas. Conserva su
-   * página, pero no lleva la línea de endoso: el grupo no se respalda a
-   * sí mismo. Sólo la marca ALFRA Grupo Inmobiliario.
-   */
-  esElGrupo?: boolean;
 }
 
 export const EMPRESAS: Empresa[] = [
   {
-    slug: "alfra-grupo-inmobiliario",
-    nombre: "ALFRA Grupo Inmobiliario",
-    nombreCorto: "ALFRA",
-    /** Tomado de su propio nombre; no hay frente confirmado aparte. */
-    frente: "Grupo Inmobiliario",
-    /** «confirmar» — titular de la página de empresa. */
-    titular: "",
-    /** «confirmar» — qué resuelve. */
-    resumen: "",
-    /** «confirmar» — texto de la tarjeta en la landing. */
-    tarjeta: "",
-    /** «confirmar» — modelo de referencia. */
-    modeloReferencia: "",
-    /** «confirmar» — las cuatro capacidades del frente. */
-    servicios: [],
-    /** «confirmar» — a quién sirve: quién es, qué busca, qué promete. */
-    audiencia: { quien: "", busca: "", promesa: "" },
-    pruebas: [],
-    icono: "building",
-    logo: "alfra-grupo",
-    sitio: "",
-    esElGrupo: true,
+    slug: "grupo-fac",
+    nombre: "Grupo FAC",
+    nombreCorto: "Grupo FAC",
+    frente: "Construcción",
+    titular: "Construimos llave en mano, con maquinaria y equipo técnico propios.",
+    resumen:
+      "Construcción llave en mano con especialización industrial: construcción industrial integral, cimentaciones profundas, terracerías y pavimentos, y renta de maquinaria pesada.",
+    tarjeta:
+      "Construcción llave en mano con especialización industrial, más de una década de experiencia y maquinaria propia.",
+    modeloReferencia: "Constructora industrial con capacidad propia",
+    servicios: [
+      {
+        titulo: "Construcción industrial integral",
+        descripcion: "Nave, planta y adecuación industrial bajo esquema llave en mano.",
+      },
+      {
+        titulo: "Cimentaciones profundas",
+        descripcion: "Solución de cimentación para suelos y cargas que la obra convencional no resuelve.",
+      },
+      {
+        titulo: "Terracerías y pavimentos",
+        descripcion: "Preparación de sitio, movimiento de tierras y pavimentación con equipo propio.",
+      },
+      {
+        titulo: "Renta de maquinaria pesada",
+        descripcion: "Flota propia disponible para obra de terceros, con operación y mantenimiento.",
+      },
+    ],
+    audiencia: {
+      quien: "Empresa industrial, desarrollador o inversionista que necesita construir su operación o su proyecto.",
+      busca: "Plazos, especificación y capacidad demostrable.",
+      promesa: "Construimos tu operación llave en mano, con control de obra y capacidad instalada propia.",
+    },
+    pruebas: [
+      "Más de una década de experiencia en construcción industrial",
+      "Flota propia de maquinaria pesada",
+      "Proyectos llave en mano entregados",
+    ],
+    icono: "hard-hat",
+    logo: "grupo-fac",
+    sitio: "https://grupofac.com/",
   },
   {
     slug: "alfra-desarrollos",
@@ -162,7 +175,7 @@ export const EMPRESAS: Empresa[] = [
       quien: "Persona, familia o vehículo con capital que busca destino inmobiliario.",
       busca: "Rendimiento con respaldo, visibilidad del proyecto y claridad sobre el horizonte de salida.",
       promesa:
-        "Estructuramos tu estrategia y la ejecutamos con las empresas del grupo: desarrollo y comercialización bajo el mismo techo.",
+        "Estructuramos tu estrategia y la ejecutamos con las empresas del grupo: desarrollo, construcción y comercialización bajo el mismo techo.",
     },
     pruebas: [],
     icono: "trending-up",

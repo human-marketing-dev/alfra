@@ -4,10 +4,7 @@
    omite una —la que ya se está viendo—; sin él, las lista todas.
 
    El titular por defecto dice cuántas quedan, y ese número sale de la
-   lista que se está pintando, no del copy.
-
-   El listado incluye a ALFRA Grupo Inmobiliario como una empresa más,
-   igual que la landing y la navegación. */
+   lista que se está pintando, no del copy. */
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
@@ -24,10 +21,10 @@ export interface OtrasEmpresasProps {
 }
 
 /**
- * «confirmar» — antetítulo del listado. El anterior («El resto del
- * grupo») dejó de ser exacto en cuanto el propio grupo entró al arreglo
- * como una empresa más. Vacío mientras no haya copy validado: el
- * encabezado se pinta sin antetítulo y no se inventa nada.
+ * «confirmar» — antetítulo del listado. Vacío mientras no haya copy
+ * validado: el encabezado se pinta sin antetítulo y no se inventa nada.
+ * El anterior («El resto del grupo») volvió a ser exacto al salir la
+ * matriz del arreglo, por si se quiere recuperar.
  */
 const ANTETITULO = "";
 

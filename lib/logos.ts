@@ -19,12 +19,12 @@
    de leerse, así que `altoFirma` le da más aire.
 
    ── Variantes que la entrega trae y el sitio no usa ───────────────
-   De cada marca llegaron tres tintas —negro, blanco y color— y, aparte
-   del logotipo completo, el isotipo suelto; del grupo llegó además el
-   lockup con la casa (`Alfra_Grupo_logo_casa_*`, un apilado de ratio
-   1.60). El sistema es monocromo sobre fondo crema o carbón, así que
-   aquí sólo entran negro y blanco del logotipo completo. El resto sigue
-   en `public/logos/` para cuando haga falta. */
+   De cada marca ALFRA llegaron tres tintas —negro, blanco y color— y,
+   aparte del logotipo completo, el isotipo suelto; de la matriz llegó
+   además el lockup con la casa (`Alfra_Grupo_logo_casa_*`, un apilado
+   de ratio 1.60). El sistema es monocromo sobre fondo crema o carbón,
+   así que aquí sólo entran negro y blanco del logotipo completo. El
+   resto sigue en `public/logos/` para cuando haga falta. */
 
 export interface Logo {
   /** Versión para fondos claros —crema, superficie. */
@@ -39,7 +39,8 @@ export interface Logo {
 
 const dir = "/logos/recortado";
 
-const REGISTRO = {
+export const LOGOS = {
+  /** La matriz. Firma el header y el pie, no una página de empresa. */
   "alfra-grupo": {
     sobreClaro: `${dir}/alfra-grupo-negro.png`,
     sobreOscuro: `${dir}/alfra-grupo-blanco.png`,
@@ -68,15 +69,19 @@ const REGISTRO = {
     forma: "horizontal",
     alt: "ALFRA Agencia Inmobiliaria",
   },
-} satisfies Record<string, Logo>;
+  "grupo-fac": {
+    // Sin versión monocroma oscura: para fondo claro va el logo a color.
+    // El archivo llegó nombrado «cimentaciones-profundas», pero no es una
+    // submarca: es la versión a color del mismo logotipo.
+    sobreClaro: `${dir}/logo-grupo-fac-cimentaciones-profundas-logo.png`,
+    sobreOscuro: `${dir}/logo-grupo-fac-blanco.png`,
+    ratio: 1.33,
+    forma: "apilado",
+    alt: "Grupo FAC · Construcciones y Edificaciones",
+  },
+} as const satisfies Record<string, Logo>;
 
-export type MarcaLogo = keyof typeof REGISTRO;
-
-/* El registro se reexpone tipado como `Logo` y no por sus literales: hoy
-   los cuatro logos entregados son horizontales, y sin esto el compilador
-   daría por muerta la rama de `altoFirma` que atiende a un lockup
-   apilado —una regla del sistema que sigue vigente para el que entre. */
-export const LOGOS: Record<MarcaLogo, Logo> = REGISTRO;
+export type MarcaLogo = keyof typeof LOGOS;
 
 /**
  * Altura a la que el logo funciona como firma de marca en un hero.
