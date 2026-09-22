@@ -9,11 +9,11 @@
 
    ─────────────────────────────────────────────────────────────
    PENDIENTES POR CONFIRMAR
-   Las entradas de ALFRA Grupo Inmobiliario y ALFRA Agencia
-   Inmobiliaria están vacías salvo por lo que se deriva de su propio
-   nombre. Todo lo demás —titular, resumen, tarjeta, modelo de
-   referencia, servicios y audiencia— queda marcado «confirmar» y no se
-   renderiza mientras siga vacío.
+   Las cuatro marcas ya tienen logotipo. Lo que sigue pendiente es el
+   texto de ALFRA Grupo Inmobiliario y ALFRA Agencia Inmobiliaria:
+   fuera de lo que se deriva de su propio nombre, titular, resumen,
+   tarjeta, modelo de referencia, servicios y audiencia quedan marcados
+   «confirmar» y no se renderizan mientras sigan vacíos.
    ───────────────────────────────────────────────────────────── */
 
 import type { IconName } from "@/components/ui/Icon";
@@ -87,8 +87,7 @@ export const EMPRESAS: Empresa[] = [
     audiencia: { quien: "", busca: "", promesa: "" },
     pruebas: [],
     icono: "building",
-    // TODO: logo pendiente — sin archivo de ALFRA Grupo Inmobiliario, la
-    // página cae en el lockup tipográfico de respaldo.
+    logo: "alfra-grupo",
     sitio: "",
     esElGrupo: true,
   },
@@ -190,8 +189,7 @@ export const EMPRESAS: Empresa[] = [
     audiencia: { quien: "", busca: "", promesa: "" },
     pruebas: [],
     icono: "home",
-    // TODO: logo pendiente — sin archivo de ALFRA Agencia Inmobiliaria, la
-    // página cae en el lockup tipográfico de respaldo.
+    logo: "alfra-agencia",
     sitio: "",
   },
 ];

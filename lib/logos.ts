@@ -1,12 +1,12 @@
-/* Logotipos de las empresas de ALFRA Grupo Inmobiliario.
+/* Logotipos de ALFRA Grupo Inmobiliario y de sus empresas.
 
    ── Sobre los archivos ────────────────────────────────────────────
-   Los que entrega la marca vienen en lienzo cuadrado con el wordmark
-   centrado: ocupa entre el 18% y el 37% del alto y el resto es aire.
-   Servidos así, un logo con altura de 30px se vería a 6px. Por eso
-   `public/logos/recortado/` guarda cada uno recortado a su caja real y
-   es de ahí de donde lee el sitio. Los originales siguen intactos en
-   `public/logos/`.
+   Los que entrega la marca traen aire alrededor del wordmark —entre un
+   11% del ancho y un 26% del alto, distinto en cada marca—. Servidos
+   así, dos logos pedidos a la misma altura no pesarían lo mismo: el que
+   trae más aire se vería más chico. Por eso `public/logos/recortado/`
+   guarda cada uno recortado a su caja real y es de ahí de donde lee el
+   sitio. Los originales siguen intactos en `public/logos/`.
 
    ── Por qué «sobreClaro» y «sobreOscuro» ──────────────────────────
    Cada variante se nombra por el fondo al que va, no por su color de
@@ -18,15 +18,13 @@
    misma altura: el apilado se ve mucho más chico y su descriptor deja
    de leerse, así que `altoFirma` le da más aire.
 
-   ── TODO: logos pendientes ────────────────────────────────────────
-   Sólo hay archivo de ALFRA Desarrollos y ALFRA Inversiones. Faltan:
-
-   · El logotipo del grupo, para el header y el pie. Mientras no llegue,
-     `LogoGrupo` (components/site/Logo.tsx) firma con el nombre en la
-     tipografía display del sistema.
-   · ALFRA Grupo Inmobiliario y ALFRA Agencia Inmobiliaria como
-     empresas. Sin `logo` en `lib/empresas.ts`, su página cae en el
-     lockup tipográfico de respaldo del hero. */
+   ── Variantes que la entrega trae y el sitio no usa ───────────────
+   De cada marca llegaron tres tintas —negro, blanco y color— y, aparte
+   del logotipo completo, el isotipo suelto; del grupo llegó además el
+   lockup con la casa (`Alfra_Grupo_logo_casa_*`, un apilado de ratio
+   1.60). El sistema es monocromo sobre fondo crema o carbón, así que
+   aquí sólo entran negro y blanco del logotipo completo. El resto sigue
+   en `public/logos/` para cuando haga falta. */
 
 export interface Logo {
   /** Versión para fondos claros —crema, superficie. */
@@ -42,26 +40,40 @@ export interface Logo {
 const dir = "/logos/recortado";
 
 const REGISTRO = {
+  "alfra-grupo": {
+    sobreClaro: `${dir}/alfra-grupo-negro.png`,
+    sobreOscuro: `${dir}/alfra-grupo-blanco.png`,
+    ratio: 2.473,
+    forma: "horizontal",
+    alt: "ALFRA Grupo Inmobiliario",
+  },
   "alfra-desarrollos": {
-    sobreClaro: `${dir}/logo-alfra-desarrollos-negro.png`,
-    sobreOscuro: `${dir}/logo-alfra-desarrollos-blanco.png`,
-    ratio: 3.27,
+    sobreClaro: `${dir}/alfra-desarrollos-negro.png`,
+    sobreOscuro: `${dir}/alfra-desarrollos-blanco.png`,
+    ratio: 3.341,
     forma: "horizontal",
     alt: "ALFRA Desarrollos",
   },
   "alfra-inversiones": {
-    sobreClaro: `${dir}/logo-alfra-inversiones-negro.png`,
-    sobreOscuro: `${dir}/logo-alfra-inversiones-blanco.png`,
-    ratio: 3.099,
+    sobreClaro: `${dir}/alfra-inversiones-negro.png`,
+    sobreOscuro: `${dir}/alfra-inversiones-blanco.png`,
+    ratio: 3.327,
     forma: "horizontal",
     alt: "ALFRA Inversiones",
+  },
+  "alfra-agencia": {
+    sobreClaro: `${dir}/alfra-agencia-negro.png`,
+    sobreOscuro: `${dir}/alfra-agencia-blanco.png`,
+    ratio: 2.894,
+    forma: "horizontal",
+    alt: "ALFRA Agencia Inmobiliaria",
   },
 } satisfies Record<string, Logo>;
 
 export type MarcaLogo = keyof typeof REGISTRO;
 
 /* El registro se reexpone tipado como `Logo` y no por sus literales: hoy
-   los dos logos entregados son horizontales, y sin esto el compilador
+   los cuatro logos entregados son horizontales, y sin esto el compilador
    daría por muerta la rama de `altoFirma` que atiende a un lockup
    apilado —una regla del sistema que sigue vigente para el que entre. */
 export const LOGOS: Record<MarcaLogo, Logo> = REGISTRO;

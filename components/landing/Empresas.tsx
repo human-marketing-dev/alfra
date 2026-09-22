@@ -18,7 +18,9 @@ export function Empresas() {
           maxWidth="820px"
         />
 
-        <div className="hf-grid-3" style={{ marginTop: "var(--space-8)" }}>
+        {/* Cuatro empresas, retícula de 2×2: `hf-grid-2` es la columna
+            doble del sistema y se pliega sola a una columna en móvil. */}
+        <div className="hf-grid-2" style={{ marginTop: "var(--space-8)" }}>
           {EMPRESAS.map((e) => (
             <Card key={e.slug} interactive href={`/empresas/${e.slug}`} padding="var(--space-6)">
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "var(--space-5)" }}>

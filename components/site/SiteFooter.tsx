@@ -4,7 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { LogoGrupo } from "@/components/site/Logo";
+import { Logo } from "@/components/site/Logo";
 import { EMPRESAS } from "@/lib/empresas";
 import { BOILERPLATE, CONTACTO, GRUPO, correoHref, telefonoHref } from "@/lib/grupo";
 
@@ -43,8 +43,7 @@ export function SiteFooter() {
           style={{ paddingBottom: "var(--space-9)", borderBottom: "1px solid var(--border-on-dark)", alignItems: "start" }}
         >
           <div>
-            {/* TODO: logo pendiente — firma tipográfica del grupo. */}
-            <LogoGrupo fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
+            <Logo marca="alfra-grupo" fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
             <p
               style={{
                 fontFamily: "var(--font-serif)",

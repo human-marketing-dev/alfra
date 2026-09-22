@@ -46,8 +46,8 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           </Eyebrow>
 
           {/* Con logo entregado manda el logo; si no, el lockup tipográfico.
-              TODO: logo pendiente — ALFRA Grupo Inmobiliario y ALFRA Agencia
-              Inmobiliaria todavía no tienen archivo y caen aquí. */}
+              Hoy las cuatro marcas tienen archivo, pero el respaldo se
+              queda para la empresa que entre sin él. */}
           {empresa.logo ? (
             <Logo
               marca={empresa.logo}

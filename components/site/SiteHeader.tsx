@@ -12,7 +12,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { LogoGrupo } from "@/components/site/Logo";
+import { Logo } from "@/components/site/Logo";
 import { EMPRESAS, enLetras, type Empresa } from "@/lib/empresas";
 import { GRUPO } from "@/lib/grupo";
 
@@ -104,15 +104,23 @@ export function SiteHeader() {
           aria-label={GRUPO.nombre}
           style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
         >
-          {/* TODO: logo pendiente — sin archivo del grupo, la firma es
-              tipográfica y el paso a barra crema se cruza por color. */}
-          <LogoGrupo
-            alto={30}
-            style={{
-              color: onDark ? "var(--neutral-0)" : "var(--text-strong)",
-              transition: "color var(--dur-base) var(--ease-out)",
-            }}
-          />
+          {/* Las dos versiones se montan a la vez y se cruzan por opacidad:
+              así el cambio al pasar a barra crema no espera a una descarga. */}
+          <span style={{ position: "relative", display: "block", lineHeight: 0 }}>
+            <Logo marca="alfra-grupo" fondo="claro" alto={30} priority />
+            <Logo
+              marca="alfra-grupo"
+              fondo="oscuro"
+              alto={30}
+              priority
+              style={{
+                position: "absolute",
+                inset: 0,
+                opacity: onDark ? 1 : 0,
+                transition: "opacity var(--dur-base) var(--ease-out)",
+              }}
+            />
+          </span>
         </Link>
 
         <nav className="hf-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "var(--space-7)" }}>
