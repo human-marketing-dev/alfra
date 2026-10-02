@@ -6,7 +6,6 @@
    Con la audiencia todavía marcada «confirmar» en `lib/empresas.ts`, la
    sección entera no se pinta: nada se inventa ni queda en hueco. */
 import React from "react";
-import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import type { Empresa } from "@/lib/empresas";
@@ -54,19 +53,6 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
               </div>
             )}
 
-            {empresa.sitio && (
-              <Button
-                variant="primary"
-                size="lg"
-                href={empresa.sitio}
-                target="_blank"
-                rel="noopener noreferrer"
-                rightIcon={<Icon name="arrow-up-right" size={16} />}
-                style={{ alignSelf: "flex-start" }}
-              >
-                Ir al sitio de {empresa.nombreCorto}
-              </Button>
-            )}
           </div>
         </div>
 

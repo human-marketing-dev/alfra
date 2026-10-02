@@ -107,18 +107,37 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             </p>
           )}
 
+          {/* La salida al sitio propio vive aquí y no en «A quién sirve»:
+              esa sección desaparece cuando su texto sigue en «confirmar»,
+              y el botón se iría con ella. «Qué resuelve» sólo aparece si
+              hay servicios que ver —sin ellos el ancla no lleva a nada. */}
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
             <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
               Hablar con el grupo
             </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              href="#servicios"
-              style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
-            >
-              Qué resuelve
-            </Button>
+            {empresa.servicios.length > 0 && (
+              <Button
+                variant="ghost"
+                size="lg"
+                href="#servicios"
+                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
+              >
+                Qué resuelve
+              </Button>
+            )}
+            {empresa.sitio && (
+              <Button
+                variant="ghost"
+                size="lg"
+                href={empresa.sitio}
+                target="_blank"
+                rel="noopener noreferrer"
+                rightIcon={<Icon name="arrow-up-right" size={16} />}
+                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
+              >
+                Ir al sitio de {empresa.nombreCorto}
+              </Button>
+            )}
           </div>
 
           <div
