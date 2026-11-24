@@ -1,16 +1,17 @@
 /* Contenido institucional de ALFRA Grupo Inmobiliario.
-   Fuente: Brief Maestro de Comunicación v2.1 y Landing Corporativa v1.0.
+   Fuente: Brief Maestro de Comunicación v1.0 (noviembre 2026).
 
    ─────────────────────────────────────────────────────────────
-   PENDIENTES POR CONFIRMAR  (Brief Maestro §11 · Landing bloque 06)
+   PENDIENTES POR CONFIRMAR  (Brief Maestro §1 y §10)
    Todo lo que falta por validar con ALFRA vive en este archivo y
    en `lib/empresas.ts`. Ningún componente inventa datos: lo que
    está vacío no se renderiza.
 
    · CONTACTO.correo, CONTACTO.telefono, CONTACTO.whatsapp
    · GRUPO.anioFundacion, GRUPO.proyectosAcumulados
-   · BOILERPLATE.medio
-   · EMPRESAS[].sitio — URL del sitio propio de cada empresa
+   · GRUPO.sede — el brief v1.0 la marca «confirmar»; se mantiene
+     Monterrey porque los boilerplates del propio brief la usan
+   · EMPRESAS[].sitio — URL del sitio propio de cada unidad
    ───────────────────────────────────────────────────────────── */
 
 import { EMPRESAS, enLetras } from "@/lib/empresas";
@@ -30,18 +31,14 @@ export const GRUPO = {
   proyectosAcumulados: "",
 
   /** Línea de endoso para materiales de empresa (Brief Maestro §4). */
-  lineaRespaldo: "Empresa de ALFRA Grupo Inmobiliario",
+  lineaRespaldo: "Unidad de negocio de ALFRA Grupo Inmobiliario",
 } as const;
 
-/** Boilerplates oficiales (Brief Maestro §9). */
+/** Boilerplates oficiales (Brief Maestro §8.3 y §8.4). */
 export const BOILERPLATE = {
-  corto: `ALFRA Grupo Inmobiliario agrupa ${enLetras(EMPRESAS.length)} empresas especializadas del sector inmobiliario, con sede en Monterrey, Nuevo León.`,
-  /**
-   * «confirmar» — el boilerplate medio enumera cada empresa con su
-   * frente, y dos de las cuatro siguen sin contenido confirmado.
-   * Vacío mientras tanto; no se publica en ningún lado.
-   */
-  medio: "",
+  corto: `ALFRA Grupo Inmobiliario opera ${enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Convierte oportunidades inmobiliarias en negocio desde Monterrey.`,
+  medio:
+    "ALFRA Grupo Inmobiliario opera cuatro unidades especializadas en el noreste de México: ALFRA Asesores Inmobiliarios en compra, venta y renta; ALFRA Desarrollo Industrial en construcción industrial llave en mano; ALFRA Desarrollo Residencial en terreno y construcción con un solo proveedor; y ALFRA Capital en portafolios de inversión inmobiliaria. Un cliente entra por la unidad que ejecuta su oportunidad y queda respaldado por todo el grupo.",
 } as const;
 
 interface Contacto {

@@ -1,4 +1,4 @@
-/* Listado-índice de empresas.
+/* Listado-índice de unidades de negocio.
    Cierra una página devolviendo al visitante a las empresas del grupo:
    la misma función de distribución que cumple la landing. Con `excluir`
    omite una —la que ya se está viendo—; sin él, las lista todas.
@@ -38,8 +38,8 @@ export function OtrasEmpresas({
   const titular =
     title ??
     (excluir
-      ? `Las otras ${enLetras(otras.length)} empresas de ${GRUPO.nombreCorto}.`
-      : `Las ${enLetras(otras.length)} empresas de ${GRUPO.nombreCorto}.`);
+      ? `Las otras ${enLetras(otras.length)} unidades de ${GRUPO.nombreCorto}.`
+      : `Las ${enLetras(otras.length)} unidades de ${GRUPO.nombreCorto}.`);
 
   return (
     <section className="hf-section" style={{ background: fondo }}>
@@ -50,7 +50,7 @@ export function OtrasEmpresas({
           {otras.map((e) => (
             <Link
               key={e.slug}
-              href={`/empresas/${e.slug}`}
+              href={`/unidades/${e.slug}`}
               style={{
                 display: "flex",
                 alignItems: "center",

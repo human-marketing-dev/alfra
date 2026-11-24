@@ -1,5 +1,5 @@
 /* Pie de página — bloque 06 de la landing: boilerplate, accesos directos
-   a las empresas del grupo y contacto. Los datos de contacto que siguen
+   a las unidades de negocio y contacto. Los datos de contacto que siguen
    por confirmar (lib/grupo.ts) simplemente no se renderizan. */
 import React from "react";
 import Link from "next/link";
@@ -60,10 +60,10 @@ export function SiteFooter() {
 
           <div className="hf-grid-2" style={{ gap: "var(--space-6)" }}>
             <div>
-              <div style={heading}>Las empresas</div>
+              <div style={heading}>Unidades de negocio</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {EMPRESAS.map((e) => (
-                  <Link key={e.slug} href={`/empresas/${e.slug}`} style={item}>
+                  <Link key={e.slug} href={`/unidades/${e.slug}`} style={item}>
                     {e.nombre}
                   </Link>
                 ))}

@@ -2,7 +2,7 @@
 
    Es la ruta única para quien llega sin destino definido: recoge la
    solicitud, la clasifica por frente del sector y de ahí sale la
-   conexión con la empresa que la ejecuta. El bloque de cierre de la
+   conexión con la unidad que la ejecuta. El bloque de cierre de la
    landing y el header apuntan aquí. */
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -14,7 +14,7 @@ import { OtrasEmpresas } from "@/components/empresa/OtrasEmpresas";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Cuéntanos qué proyecto tienes en mente y te conectamos con la empresa de ALFRA Grupo Inmobiliario que lo resuelve. Monterrey, Nuevo León.",
+    "Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad de ALFRA Grupo Inmobiliario que lo resuelve. Monterrey, Nuevo León.",
 };
 
 export default function Page() {
@@ -55,7 +55,7 @@ export default function Page() {
                 margin: 0,
               }}
             >
-              Cuéntanos qué proyecto tienes en mente y te conectamos con la empresa del grupo que lo resuelve. Si
+              Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve. Si
               todavía no sabes por dónde entrar, escríbenos igual: para eso está el grupo completo.
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function Page() {
                 maxWidth: "460px",
               }}
             >
-              Marca el frente que más se parece a tu proyecto y la solicitud llega a la empresa que lo atiende. Si no
+              Marca el frente que más se parece a tu proyecto y la solicitud llega a la unidad que lo atiende. Si no
               es claro cuál, deja la opción abierta y lo resolvemos en la primera conversación.
             </p>
 
@@ -101,7 +101,7 @@ export default function Page() {
 
       <OtrasEmpresas
         eyebrow="Ir directo"
-        title="O escribe a la empresa que resuelve tu frente."
+        title="O ve directo a la unidad que resuelve tu frente."
         fondo="var(--bg-page-alt)"
       />
     </>

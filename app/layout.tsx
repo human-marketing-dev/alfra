@@ -3,7 +3,7 @@ import { Montserrat, Spectral, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { EMPRESAS, enLetras, enLetrasCapital } from "@/lib/empresas";
+import { EMPRESAS, enLetras } from "@/lib/empresas";
 
 /* Las tres familias del design system. Se exponen como variables CSS y
    `app/globals.css` las mapea a --font-display / --font-serif / --font-mono. */
@@ -29,14 +29,14 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-/* Cuántas empresas son sale del arreglo, no del copy: así el título y la
-   descripción no se quedan con una cifra vieja al mover una empresa. */
+/* Cuántas unidades son sale del arreglo, no del copy: así el título y la
+   descripción no se quedan con una cifra vieja al mover una unidad. */
 export const metadata: Metadata = {
   title: {
-    default: `ALFRA Grupo Inmobiliario | ${enLetrasCapital(EMPRESAS.length)} empresas del sector inmobiliario en Monterrey`,
+    default: `ALFRA Grupo Inmobiliario | Grupo inmobiliario integral en Monterrey`,
     template: "%s | ALFRA Grupo Inmobiliario",
   },
-  description: `ALFRA agrupa ${enLetras(EMPRESAS.length)} empresas especializadas del sector inmobiliario en Monterrey, Nuevo León.`,
+  description: `ALFRA Grupo Inmobiliario opera ${enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Monterrey, Nuevo León.`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -57,14 +57,14 @@ export function Hero() {
               margin: "0 0 var(--space-7)",
             }}
           >
-            ALFRA Grupo Inmobiliario agrupa {enLetras(EMPRESAS.length)} empresas especializadas del sector
-            inmobiliario. Construir, desarrollar, invertir o comercializar: cada oportunidad tiene adentro una empresa
-            que la ejecuta.
+            ALFRA Grupo Inmobiliario opera {enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría
+            inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Cada oportunidad tiene adentro una
+            unidad que la ejecuta.
           </p>
 
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap" }}>
-            <Button variant="inverse" size="lg" href="/#empresas" rightIcon={<Icon name="arrow-down" size={16} />}>
-              Ver las empresas
+            <Button variant="inverse" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
+              Ver las unidades
             </Button>
             <Button
               variant="ghost"

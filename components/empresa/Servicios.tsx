@@ -1,10 +1,10 @@
 /* Página de empresa — qué resuelve.
-   Los cuatro frentes de trabajo de la empresa, numerados, con el mismo
+   Los frentes de trabajo de la unidad, numerados, con el mismo
    tratamiento de retícula del sistema. Sin servicios confirmados en
    `lib/empresas.ts`, la sección no se pinta. */
 import React from "react";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import type { Empresa } from "@/lib/empresas";
+import { enLetras, type Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function Servicios({ empresa }: { empresa: Empresa }) {
@@ -13,9 +13,12 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
   return (
     <section id="servicios" className="hf-section" style={{ background: "var(--bg-page)" }}>
       <div className="hf-container">
-        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en cuatro capacidades.`} />
+        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en ${enLetras(empresa.servicios.length)} capacidades.`} />
 
-        <div className="hf-grid-4" style={{ marginTop: "var(--space-8)", gap: 0, borderTop: "1px solid var(--border-hair)" }}>
+        <div
+          className={empresa.servicios.length === 3 ? "hf-grid-3" : "hf-grid-4"}
+          style={{ marginTop: "var(--space-8)", gap: 0, borderTop: "1px solid var(--border-hair)" }}
+        >
           {empresa.servicios.map((s, i) => (
             <div
               key={s.titulo}

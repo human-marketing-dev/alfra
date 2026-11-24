@@ -4,9 +4,9 @@
    crema al hacer scroll. El contenido va dentro de .hf-container, así que
    se alinea al mismo eje de 1450px que el resto del sitio.
 
-   «Empresas» abre un panel con todas: se despliega al pasar el cursor
+   «Unidades» abre un panel con todas: se despliega al pasar el cursor
    y también con teclado (clic o Enter sobre el disparador, Escape para
-   cerrar). Debajo de 900px todo se pliega en el menú, donde «Empresas»
+   cerrar). Debajo de 900px todo se pliega en el menú, donde «Unidades»
    se abre como acordeón. */
 import React from "react";
 import Link from "next/link";
@@ -142,7 +142,7 @@ export function SiteHeader() {
               onClick={() => setEmpresas((v) => !v)}
               style={{ ...ENLACE, color, display: "inline-flex", alignItems: "center", gap: "7px" }}
             >
-              Empresas
+              Unidades
               <Icon
                 name="chevron-down"
                 size={14}
@@ -172,7 +172,7 @@ export function SiteHeader() {
                   ))}
 
                   <Link
-                    href="/#empresas"
+                    href="/#unidades"
                     onClick={cerrarTodo}
                     style={{
                       gridColumn: "1 / -1",
@@ -191,7 +191,7 @@ export function SiteHeader() {
                       textDecoration: "none",
                     }}
                   >
-                    Ver las {enLetras(EMPRESAS.length)} empresas
+                    Ver las {enLetras(EMPRESAS.length)} unidades
                     <Icon name="arrow-right" size={15} />
                   </Link>
                 </div>
@@ -263,7 +263,7 @@ export function SiteHeader() {
                 width: "100%",
               }}
             >
-              Empresas
+              Unidades
               <Icon
                 name="chevron-down"
                 size={16}
@@ -309,7 +309,7 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
 
   return (
     <Link
-      href={`/empresas/${empresa.slug}`}
+      href={`/unidades/${empresa.slug}`}
       onClick={onNavigate}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

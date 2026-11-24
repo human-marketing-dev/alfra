@@ -1,6 +1,6 @@
 /* Landing · bloque 02 — Conoce nuestro grupo.
    Justifica la estructura de especialistas. La franja de cifras usa sólo
-   datos confirmados del brief §1 —el número de empresas sale del arreglo,
+   datos confirmados del brief §1 —el número de unidades sale del arreglo,
    no del copy—; el año de fundación y los proyectos acumulados siguen
    marcados «confirmar» y no se publican. */
 import React from "react";
@@ -28,8 +28,9 @@ export function Grupo() {
               margin: 0,
             }}
           >
-            El sector inmobiliario abarca frentes muy distintos entre sí. Vender una propiedad, colocar capital,
-            desarrollar un proyecto y construirlo requieren equipos, métodos y experiencia diferentes.
+            El sector inmobiliario abarca frentes muy distintos entre sí. Comprar o rentar una propiedad, construir una
+            operación industrial, construir una casa e invertir en un portafolio requieren equipos, métodos y experiencia
+            diferentes. Cada frente lo atiende una unidad dedicada y, cuando la oportunidad crece, activa a las demás.
           </p>
 
           <div
@@ -43,7 +44,7 @@ export function Grupo() {
           >
             <Stat
               value={String(EMPRESAS.length).padStart(2, "0")}
-              label="Empresas"
+              label="Unidades de negocio"
               sublabel="especializadas del sector"
               size="sm"
             />

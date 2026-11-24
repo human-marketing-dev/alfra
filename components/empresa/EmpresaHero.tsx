@@ -21,7 +21,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
 
       <div className="hf-container" style={{ position: "relative", paddingTop: "148px", paddingBottom: "var(--space-10)" }}>
         <Link
-          href="/#empresas"
+          href="/#unidades"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -37,7 +37,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           }}
         >
           <Icon name="arrow-left" size={15} />
-          Las empresas
+          Las unidades
         </Link>
 
         <div style={{ maxWidth: "940px" }}>
@@ -46,8 +46,8 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           </Eyebrow>
 
           {/* Con logo entregado manda el logo; si no, el lockup tipográfico.
-              Hoy las cuatro marcas tienen archivo, pero el respaldo se
-              queda para la empresa que entre sin él. */}
+              Hoy ninguna unidad tiene logotipo con su nombre nuevo, así
+              que todas usan este respaldo hasta que lleguen. */}
           {empresa.logo ? (
             <Logo
               marca={empresa.logo}

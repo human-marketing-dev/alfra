@@ -1,5 +1,5 @@
 /* Página de empresa — a quién sirve.
-   Toma el público del brief §7 que corresponde a esta empresa: quién es,
+   Toma el público del brief §5 y §6 que corresponde a esta unidad: quién es,
    qué busca y qué le dice ALFRA. El panel lateral lleva el modelo de
    referencia y, cuando existen, las pruebas publicables.
 
