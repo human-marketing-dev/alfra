@@ -107,7 +107,7 @@ export function Button({
   );
 
   // Las rutas internas navegan con <Link> para conservar el prefetch;
-  // los sitios de las empresas salen como <a> normal.
+  // anclas, mailto y WhatsApp salen como <a> normal.
   const Tag: React.ElementType = href ? (href.startsWith("/") ? Link : "a") : "button";
   return (
     <Tag

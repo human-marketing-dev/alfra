@@ -24,7 +24,15 @@
    además el lockup con la casa (`Alfra_Grupo_logo_casa_*`, un apilado
    de ratio 1.60). El sistema es monocromo sobre fondo crema o carbón,
    así que aquí sólo entran negro y blanco del logotipo completo. El
-   resto sigue en `public/logos/` para cuando haga falta. */
+   resto sigue en `public/logos/` para cuando haga falta.
+
+   ── Unidades de negocio ───────────────────────────────────────────
+   Con el Brief Maestro v1.0 las unidades cambiaron de nombre (ALFRA
+   Asesores Inmobiliarios, Desarrollo Industrial, Desarrollo Residencial,
+   Capital) y todavía no hay logotipo con esos nombres. Los archivos de
+   ALFRA Desarrollos, Inversiones y Agencia siguen en `public/logos/`,
+   pero ya no se registran aquí: son nombres fuera de uso. Cuando
+   lleguen los nuevos, se agregan como una entrada más. */
 
 export interface Logo {
   /** Versión para fondos claros —crema, superficie. */
@@ -48,37 +56,6 @@ export const LOGOS = {
     forma: "horizontal",
     alt: "ALFRA Grupo Inmobiliario",
   },
-  "alfra-desarrollos": {
-    sobreClaro: `${dir}/alfra-desarrollos-negro.png`,
-    sobreOscuro: `${dir}/alfra-desarrollos-blanco.png`,
-    ratio: 3.341,
-    forma: "horizontal",
-    alt: "ALFRA Desarrollos",
-  },
-  "alfra-inversiones": {
-    sobreClaro: `${dir}/alfra-inversiones-negro.png`,
-    sobreOscuro: `${dir}/alfra-inversiones-blanco.png`,
-    ratio: 3.327,
-    forma: "horizontal",
-    alt: "ALFRA Inversiones",
-  },
-  "alfra-agencia": {
-    sobreClaro: `${dir}/alfra-agencia-negro.png`,
-    sobreOscuro: `${dir}/alfra-agencia-blanco.png`,
-    ratio: 2.894,
-    forma: "horizontal",
-    alt: "ALFRA Agencia Inmobiliaria",
-  },
-  "grupo-fac": {
-    // Sin versión monocroma oscura: para fondo claro va el logo a color.
-    // El archivo llegó nombrado «cimentaciones-profundas», pero no es una
-    // submarca: es la versión a color del mismo logotipo.
-    sobreClaro: `${dir}/logo-grupo-fac-cimentaciones-profundas-logo.png`,
-    sobreOscuro: `${dir}/logo-grupo-fac-blanco.png`,
-    ratio: 1.33,
-    forma: "apilado",
-    alt: "Grupo FAC · Construcciones y Edificaciones",
-  },
 } as const satisfies Record<string, Logo>;
 
 export type MarcaLogo = keyof typeof LOGOS;
@@ -89,5 +66,6 @@ export type MarcaLogo = keyof typeof LOGOS;
  * para pesar lo mismo y para que su descriptor siga leyéndose.
  */
 export function altoFirma(marca: MarcaLogo): number {
-  return LOGOS[marca].forma === "apilado" ? 92 : 46;
+  const logo: Logo = LOGOS[marca];
+  return logo.forma === "apilado" ? 92 : 46;
 }

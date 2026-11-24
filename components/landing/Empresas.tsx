@@ -1,5 +1,5 @@
-/* Landing · bloque 03 — Las empresas.
-   Una tarjeta por empresa, con salida a su página. El orden es el
+/* Landing · bloque 03 — Las unidades de negocio.
+   Una tarjeta por unidad, con salida a su página. El orden es el
    canónico de `lib/empresas.ts`, y cuántas son sale del arreglo. */
 import React from "react";
 import { Card } from "@/components/ui/Card";
@@ -10,19 +10,19 @@ import { conCursivas } from "@/lib/tipografia";
 
 export function Empresas() {
   return (
-    <section id="empresas" className="hf-section" style={{ background: "var(--bg-page-alt)" }}>
+    <section id="unidades" className="hf-section" style={{ background: "var(--bg-page-alt)" }}>
       <div className="hf-container">
         <SectionHeading
-          eyebrow="Las empresas"
-          title={`${enLetrasCapital(EMPRESAS.length)} especialistas. Todo el sector.`}
+          eyebrow="Unidades de negocio"
+          title={`${enLetrasCapital(EMPRESAS.length)} especialistas. Todo el sector inmobiliario.`}
           maxWidth="820px"
         />
 
-        {/* Cuatro empresas, retícula de 2×2: `hf-grid-2` es la columna
+        {/* Cuatro unidades, retícula de 2×2: `hf-grid-2` es la columna
             doble del sistema y se pliega sola a una columna en móvil. */}
         <div className="hf-grid-2" style={{ marginTop: "var(--space-8)" }}>
           {EMPRESAS.map((e) => (
-            <Card key={e.slug} interactive href={`/empresas/${e.slug}`} padding="var(--space-6)">
+            <Card key={e.slug} interactive href={`/unidades/${e.slug}`} padding="var(--space-6)">
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "var(--space-5)" }}>
                 <Icon name={e.icono} size={24} color="var(--green-700)" stroke={1.4} />
                 <span

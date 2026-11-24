@@ -96,7 +96,7 @@ export function Formulario() {
           Gracias.
         </h2>
         <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", lineHeight: 1.6, color: "var(--text-body)", margin: 0 }}>
-          Abrimos tu programa de correo con la solicitud lista. Envíala y te conectamos con la empresa del grupo que
+          Abrimos tu programa de correo con la solicitud lista. Envíala y te conectamos con la unidad del grupo que
           resuelve tu proyecto.
         </p>
         <Button variant="secondary" size="md" onClick={() => setEnviado(false)}>

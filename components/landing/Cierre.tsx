@@ -1,5 +1,5 @@
 /* Bloque de cierre — ruta de contacto para quien llega sin destino
-   definido. Se usa al final de la landing y de cada página de empresa.
+   definido. Se usa al final de la landing y de cada página de unidad.
 
    «Agendar una conversación» lleva a /contacto. El botón de WhatsApp
    sólo aparece cuando el número esté confirmado en lib/grupo.ts. */
@@ -22,7 +22,7 @@ export function Cierre() {
           <SectionHeading
             eyebrow="Contacto"
             title="Empieza por una conversación."
-            lead="Cuéntanos qué proyecto tienes en mente y te conectamos con la empresa del grupo que lo resuelve."
+            lead="Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve."
             onDark
             maxWidth="740px"
           />
