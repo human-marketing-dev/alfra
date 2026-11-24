@@ -25,7 +25,7 @@
    · Capital: esquemas, ticket, horizontes y el argumento de acceso a
      oportunidades antes del mercado abierto (fuera mientras tanto).
    · Asesores: si atiende el segmento corporativo e industrial; cifras de
-     inventario y de desarrolladores; sitio propio.
+     inventario y de desarrolladores.
    · Ninguna unidad tiene todavía logotipo con su nombre nuevo: el hero
      usa el respaldo tipográfico (icono + nombre).
    ───────────────────────────────────────────────────────────── */
@@ -65,8 +65,6 @@ export interface Empresa {
    * tratamiento tipográfico de respaldo (icono + nombre).
    */
   logo?: MarcaLogo;
-  /** URL del sitio propio. Vacío = la empresa aún no tiene sitio. */
-  sitio: string;
   /**
    * Argumento central de la unidad, cuando lo tiene (brief §5.3). Se
    * pinta como bloque propio entre el hero y los servicios.
@@ -121,8 +119,6 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — tamaño de inventario, desarrolladores, operaciones cerradas.
     pruebas: [],
     icono: "key",
-    /** «confirmar» — sitio propio de la unidad. */
-    sitio: "",
   },
   {
     slug: "alfra-desarrollo-industrial",
@@ -166,7 +162,6 @@ export const EMPRESAS: Empresa[] = [
       "Control total de la obra",
     ],
     icono: "hard-hat",
-    sitio: "",
   },
   {
     slug: "alfra-desarrollo-residencial",
@@ -217,7 +212,6 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — casas construidas que ALFRA pueda comunicar como propias.
     pruebas: [],
     icono: "home",
-    sitio: "",
   },
   {
     slug: "alfra-capital",
@@ -255,7 +249,6 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — esquemas, ticket de entrada, horizontes de referencia.
     pruebas: [],
     icono: "trending-up",
-    sitio: "",
   },
 ];
 

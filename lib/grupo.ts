@@ -11,7 +11,6 @@
    · GRUPO.anioFundacion, GRUPO.proyectosAcumulados
    · GRUPO.sede — el brief v1.0 la marca «confirmar»; se mantiene
      Monterrey porque los boilerplates del propio brief la usan
-   · EMPRESAS[].sitio — URL del sitio propio de cada unidad
    ───────────────────────────────────────────────────────────── */
 
 import { EMPRESAS, enLetras } from "@/lib/empresas";
