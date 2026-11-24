@@ -74,7 +74,7 @@ export interface Empresa {
    * Fotografía de fondo del hero (ruta en `public/`). Sin ella, el hero
    * usa el fondo verde con retícula.
    */
-  heroImagen?: { src: string; alt: string };
+  heroImagen?: { src: string; alt: string; /** object-position; por defecto "60% 50%". */ posicion?: string };
   /**
    * La empresa tiene su propia ruta en `app/empresas/<slug>/`, con brief y
    * estructura propios, en lugar de la plantilla compartida de `[slug]`.
@@ -222,6 +222,13 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — casas construidas que ALFRA pueda comunicar como propias.
     pruebas: [],
     icono: "home",
+    heroImagen: {
+      src: "/fotos/hero-desarrollo-residencial.webp",
+      alt: "Casa residencial contemporánea de dos niveles con fachada blanca y piedra gris",
+      // Foto cuadrada con mucho cielo: se ancla abajo para que la casa
+      // quede en cuadro.
+      posicion: "70% 100%",
+    },
   },
   {
     slug: "alfra-capital",

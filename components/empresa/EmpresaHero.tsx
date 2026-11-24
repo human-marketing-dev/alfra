@@ -29,7 +29,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             fill
             priority
             sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "60% 50%" }}
+            style={{ objectFit: "cover", objectPosition: empresa.heroImagen.posicion ?? "60% 50%" }}
           />
           <div
             aria-hidden
