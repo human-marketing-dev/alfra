@@ -124,6 +124,11 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — tamaño de inventario, desarrolladores, operaciones cerradas.
     pruebas: [],
     icono: "key",
+    heroImagen: {
+      src: "/fotos/hero-asesores-inmobiliarios.webp",
+      alt: "Edificio residencial blanco con balcones, visto desde abajo",
+      posicion: "70% 50%",
+    },
   },
   {
     slug: "alfra-desarrollo-industrial",
