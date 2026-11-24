@@ -110,14 +110,6 @@ export function SiteFooter() {
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(244,240,232,0.45)" }}>
             © {new Date().getFullYear()} {GRUPO.nombre}
           </span>
-          <div style={{ display: "flex", gap: "var(--space-4)" }}>
-            <a href="#" aria-label="LinkedIn" style={{ color: "var(--text-on-dark-muted)" }}>
-              <Icon name="linkedin" size={18} />
-            </a>
-            <a href="#" aria-label="Instagram" style={{ color: "var(--text-on-dark-muted)" }}>
-              <Icon name="instagram" size={18} />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
