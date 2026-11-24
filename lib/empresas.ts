@@ -271,6 +271,11 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — esquemas, ticket de entrada, horizontes de referencia.
     pruebas: [],
     icono: "trending-up",
+    heroImagen: {
+      src: "/fotos/hero-capital.webp",
+      alt: "Torre residencial vista desde abajo, entre árboles",
+      posicion: "65% 40%",
+    },
   },
 ];
 
