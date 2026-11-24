@@ -71,6 +71,11 @@ export interface Empresa {
    */
   argumentoCentral?: { titulo: string; parrafos: string[] };
   /**
+   * Fotografía de fondo del hero (ruta en `public/`). Sin ella, el hero
+   * usa el fondo verde con retícula.
+   */
+  heroImagen?: { src: string; alt: string };
+  /**
    * La empresa tiene su propia ruta en `app/empresas/<slug>/`, con brief y
    * estructura propios, en lugar de la plantilla compartida de `[slug]`.
    */
@@ -162,6 +167,11 @@ export const EMPRESAS: Empresa[] = [
       "Control total de la obra",
     ],
     icono: "hard-hat",
+    // Retocada: se borraron las rotulaciones del aliado en grúa y pilotera.
+    heroImagen: {
+      src: "/fotos/hero-desarrollo-industrial.webp",
+      alt: "Obra de cimentación profunda con grúa y piloteadora en Monterrey",
+    },
   },
   {
     slug: "alfra-desarrollo-residencial",

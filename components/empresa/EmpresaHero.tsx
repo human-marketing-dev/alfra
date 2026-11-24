@@ -4,6 +4,7 @@
    endoso del grupo que fija el brief §4. */
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
@@ -18,6 +19,29 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
   return (
     <section style={{ position: "relative", overflow: "hidden", marginTop: "-84px" }}>
       <DarkBackdrop />
+      {/* Con fotografía, la imagen va sobre el fondo verde y un velo del
+          mismo verde la oscurece hacia la izquierda, donde vive el texto. */}
+      {empresa.heroImagen && (
+        <>
+          <Image
+            src={empresa.heroImagen.src}
+            alt={empresa.heroImagen.alt}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "60% 50%" }}
+          />
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, rgba(16,32,24,0.93) 0%, rgba(16,32,24,0.8) 42%, rgba(16,32,24,0.5) 100%), linear-gradient(180deg, rgba(16,32,24,0.35) 0%, rgba(16,32,24,0.1) 40%, rgba(16,32,24,0.7) 100%)",
+            }}
+          />
+        </>
+      )}
 
       <div className="hf-container" style={{ position: "relative", paddingTop: "148px", paddingBottom: "var(--space-10)" }}>
         <Link
