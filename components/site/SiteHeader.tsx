@@ -199,10 +199,6 @@ export function SiteHeader() {
             )}
           </div>
 
-          <Link href="/contacto" onClick={cerrarTodo} style={{ ...ENLACE, color }}>
-            Contacto
-          </Link>
-
           <Button
             size="sm"
             variant={onDark ? "inverse" : "primary"}
@@ -210,7 +206,7 @@ export function SiteHeader() {
             onClick={cerrarTodo}
             rightIcon={<Icon name="arrow-right" size={14} />}
           >
-            Hablar con el grupo
+            Solicita información
           </Button>
         </nav>
 
@@ -290,12 +286,8 @@ export function SiteHeader() {
               </div>
             )}
 
-            <Link href="/contacto" onClick={cerrarTodo} style={{ ...ENLACE, color: "var(--text-body)" }}>
-              Contacto
-            </Link>
-
             <Button size="sm" variant="primary" href="/contacto" onClick={cerrarTodo} rightIcon={<Icon name="arrow-right" size={14} />}>
-              Hablar con el grupo
+              Solicita información
             </Button>
           </div>
         </div>

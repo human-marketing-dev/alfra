@@ -72,7 +72,7 @@ export function Hero() {
               href="/#contacto"
               style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
             >
-              Hablar con el grupo
+              Solicita información
             </Button>
           </div>
         </div>

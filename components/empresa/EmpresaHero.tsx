@@ -112,7 +112,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
               ellos el ancla no lleva a nada. */}
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
             <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
-              Hablar con el grupo
+              Solicita información
             </Button>
             {empresa.servicios.length > 0 && (
               <Button
