@@ -88,6 +88,14 @@ export function SiteFooter() {
           <span className="t-label" style={{ letterSpacing: "0.08em", color: "rgba(255,255,255,0.45)" }}>
             © {new Date().getFullYear()} {GRUPO.nombre}
           </span>
+          <nav aria-label="Legal" style={{ display: "flex", gap: "var(--gap-stack)", flexWrap: "wrap" }}>
+            <Link href="/aviso-de-privacidad" className="t-small" style={item}>
+              Aviso de privacidad
+            </Link>
+            <Link href="/terminos-y-condiciones" className="t-small" style={item}>
+              Términos y condiciones
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
