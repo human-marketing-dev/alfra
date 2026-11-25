@@ -29,6 +29,7 @@ Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
 - Encabezado de sección → contenido: `--gap-block` (48 px; 40 en móvil)
 - Ritmo de sección: `--section-y` (96 px; 80 en tablet; 64 en móvil)
 - Heros: `--hero-top` / `--hero-bottom`
+- **Hero de unidad con altura fija** (`.hf-hero-unidad`, `--hero-unidad-h`): las cuatro páginas de unidad miden exactamente lo mismo en cada ancho — 860 px (escritorio), 780 px (≤1080), 790 px (≤860), 920 px (≤560). La altura cabe el texto más largo de las cuatro; si un titular nuevo no cabe, se sube el valor del tramo.
 
 ## Componentes base
 

@@ -408,6 +408,16 @@
   .hf-presencia-mapa { min-height: 340px; order: -1; }
 }
 
+/* Hero de unidad: las cuatro páginas miden exactamente lo mismo en
+   cada ancho. La altura es fija por tramo y cabe el texto más largo de
+   las cuatro; el sobrante queda abajo. Si un titular nuevo no cabe,
+   se sube --hero-unidad-h del tramo (ver DESIGN.md). */
+.hf-hero-unidad { height: var(--hero-unidad-h); }
+:root { --hero-unidad-h: 860px; }
+@media (max-width: 1080px) { :root { --hero-unidad-h: 780px; } }
+@media (max-width: 860px)  { :root { --hero-unidad-h: 790px; } }
+@media (max-width: 560px)  { :root { --hero-unidad-h: 920px; } }
+
 /* Hero del home: texto + mosaico de las cuatro unidades. */
 .hf-hero-home {
   display: grid;

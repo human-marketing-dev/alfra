@@ -26,6 +26,7 @@ export interface HeroFotoProps {
   bajoHeader?: boolean;
   priority?: boolean;
   id?: string;
+  className?: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
 }
@@ -43,13 +44,14 @@ export function HeroFoto({
   bajoHeader = false,
   priority = false,
   id,
+  className = "",
   children,
   style = {},
 }: HeroFotoProps) {
   return (
     <section
       id={id}
-      className="is-dark"
+      className={`is-dark ${className}`}
       style={{ position: "relative", overflow: "hidden", marginTop: bajoHeader ? "-84px" : undefined, ...style }}
     >
       <DarkBackdrop tone={tone} />

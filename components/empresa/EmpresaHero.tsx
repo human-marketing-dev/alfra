@@ -12,7 +12,7 @@ import { conCursivas } from "@/lib/tipografia";
 
 export function EmpresaHero({ empresa }: { empresa: Empresa }) {
   return (
-    <HeroFoto foto={empresa.heroImagen} bajoHeader priority>
+    <HeroFoto foto={empresa.heroImagen} bajoHeader priority className="hf-hero-unidad">
       <div className="hf-container" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
         <Link
           href="/#unidades"
