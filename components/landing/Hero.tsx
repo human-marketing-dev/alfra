@@ -68,7 +68,7 @@ export function Hero() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(180deg, rgba(16,32,24,0.05) 30%, rgba(16,32,24,0.85) 100%)",
+                  background: "linear-gradient(180deg, rgba(11,22,52,0.05) 30%, rgba(11,22,52,0.85) 100%)",
                 }}
               />
               <span

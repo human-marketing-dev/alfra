@@ -84,7 +84,7 @@ export interface Empresa {
   argumentoCentral?: { titulo: string; parrafos: string[] };
   /**
    * Fotografía de fondo del hero (ruta en `public/`). Sin ella, el hero
-   * usa el fondo verde con retícula.
+   * usa el fondo azul marino con retícula.
    */
   /**
    * Mapa de presencia de la unidad. Sin ubicaciones, la sección no se

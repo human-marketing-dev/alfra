@@ -97,7 +97,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
                 >
                   {empresa.pruebas.map((p) => (
                     <li key={p} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
-                      <Icon name="check" size={16} color="var(--green-700)" style={{ marginTop: "4px", flex: "none" }} />
+                      <Icon name="check" size={16} color="var(--brand-700)" style={{ marginTop: "4px", flex: "none" }} />
                       <span className="t-small">{p}</span>
                     </li>
                   ))}

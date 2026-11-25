@@ -37,7 +37,7 @@
 export interface Logo {
   /** Versión para fondos claros —crema, superficie. */
   sobreClaro: string;
-  /** Versión para fondos oscuros —hero, paneles verdes, pie. */
+  /** Versión para fondos oscuros —hero, paneles azules, pie. */
   sobreOscuro: string;
   /** ancho ÷ alto del archivo recortado */
   ratio: number;

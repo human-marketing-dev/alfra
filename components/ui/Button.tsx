@@ -26,7 +26,7 @@ function variantStyle(variant: Variant): React.CSSProperties {
       return { background: "var(--wood-500)", color: "var(--neutral-0)", boxShadow: "none" };
     case "primary":
     default:
-      return { background: "var(--green-700)", color: "var(--neutral-0)", boxShadow: "none" };
+      return { background: "var(--brand-700)", color: "var(--neutral-0)", boxShadow: "none" };
   }
 }
 
@@ -89,7 +89,7 @@ export function Button({
 
   const onEnter = (e: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
-    if (variant === "primary") e.currentTarget.style.background = "var(--green-800)";
+    if (variant === "primary") e.currentTarget.style.background = "var(--brand-800)";
     else if (variant === "warm") e.currentTarget.style.background = "var(--wood-600)";
     else e.currentTarget.style.background = "var(--neutral-100)";
   };

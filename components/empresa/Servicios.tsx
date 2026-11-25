@@ -32,7 +32,7 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
                 display: "flex",
                 flexDirection: "column",
                 gap: "var(--space-3)",
-                borderTop: "3px solid var(--green-700)",
+                borderTop: "3px solid var(--brand-700)",
               }}
             >
               <div
@@ -46,7 +46,7 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
                 <span className="t-stat" style={{ fontSize: "var(--fs-h3)", color: "var(--text-accent)" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <Icon name="check" size={18} color="var(--green-700)" />
+                <Icon name="check" size={18} color="var(--brand-700)" />
               </div>
               <h3 className="t-h4">{conCursivas(s.titulo)}</h3>
               <p className="t-small">{conCursivas(s.descripcion)}</p>

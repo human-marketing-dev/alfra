@@ -33,13 +33,19 @@ Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
 ## Componentes base
 
 - `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna.
-- `HeroFoto`: panel oscuro con foto y velo verde (heros, pilares, cierre).
+- `HeroFoto`: panel oscuro con foto y velo azul marino (heros, pilares, cierre).
 - `UnidadCard`: tarjeta de unidad con foto (`completa` / `compacta`).
 - `Button`, `Eyebrow`, `Stat`, `Icon`.
 
 ## Color
 
-Verde bosque (`--green-700`) como primario, madera (`--wood-*`) como acento, neutros cálidos (crema `--neutral-50`, carbón `--neutral-900`). Radios mínimos (2–4 px), sombras bajas.
+- **Azul de marca `#2563EB`** (`--brand-700`): botones, enlaces, iconos y acentos. Hover `--brand-800` (`#1D4ED8`).
+- **Azul marino** (`--brand-900` `#142B6B`, `--brand-950` `#0B1634`): fondos oscuros de heros, pilares y cierre, y el velo sobre las fotos.
+- **Escala completa** `--brand-50` … `--brand-950` para fondos suaves (50–200) y estados.
+- **Madera** (`--wood-*`) como acento secundario: antetítulos sobre oscuro, halos del mapa.
+- **Neutros cálidos**: crema `--neutral-50`, carbón `--neutral-900`.
+
+Contraste: blanco sobre `#2563EB` es 5.2:1 y `#2563EB` sobre crema es ≈4.7:1, ambos AA para texto normal. Radios mínimos (2–4 px), sombras bajas.
 
 ## Mapa de presencia
 

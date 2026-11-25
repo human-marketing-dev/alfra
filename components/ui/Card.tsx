@@ -33,7 +33,7 @@ export function Card({
 }: CardProps) {
   const bg =
     tone === "forest"
-      ? "var(--green-700)"
+      ? "var(--brand-700)"
       : tone === "charcoal"
         ? "var(--neutral-900)"
         : tone === "cream"

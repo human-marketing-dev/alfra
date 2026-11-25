@@ -17,7 +17,7 @@ export function DatosDirectos() {
       {vias.map((v) => {
         const contenido = (
           <>
-            <Icon name={v.icono} size={19} color="var(--green-700)" stroke={1.5} style={{ marginTop: "5px" }} />
+            <Icon name={v.icono} size={19} color="var(--brand-700)" stroke={1.5} style={{ marginTop: "5px" }} />
             <span style={{ display: "flex", flexDirection: "column" }}>
               <span className="t-label" style={{ marginBottom: "3px" }}>{v.etiqueta}</span>
               <span className="t-body" style={{ color: "var(--text-strong)" }}>{v.valor}</span>

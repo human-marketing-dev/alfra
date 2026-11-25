@@ -27,17 +27,21 @@
   --neutral-900: #1E2120; /* charcoal */
   --neutral-950: #14100B;
 
-  /* ── Verde bosque — primario de marca ─────────────────── */
-  --green-50:  #E8EEE9;
-  --green-100: #CBDAD0;
-  --green-200: #A5BFAF;
-  --green-300: #7C9E8B;
-  --green-400: #547A65;
-  --green-500: #3A5C4A;
-  --green-600: #294736;
-  --green-700: #1F3A2E; /* verde oscuro core */
-  --green-800: #172C23;
-  --green-900: #102018;
+  /* ── Azul — primario de marca (#2563EB) ──────────────────
+     brand-700 es el azul de marca: botones, enlaces, iconos.
+     brand-800 es su hover. brand-900/950 son los azules marino de
+     los paneles oscuros (heros, pilares, cargas del mapa). */
+  --brand-50:  #EFF4FF;
+  --brand-100: #DBE6FE;
+  --brand-200: #BFD3FE;
+  --brand-300: #93B4FD;
+  --brand-400: #6090FA;
+  --brand-500: #3B76F6;
+  --brand-600: #2F6BF0;
+  --brand-700: #2563EB; /* azul de marca */
+  --brand-800: #1D4ED8;
+  --brand-900: #142B6B;
+  --brand-950: #0B1634;
 
   /* ── Madera / bronce — acento secundario ──────────────── */
   --wood-100: #EFE3D2;
@@ -59,7 +63,7 @@
   --surface:         var(--neutral-0);
   --surface-sunken:  var(--neutral-100);
   --surface-inverse: var(--neutral-900);
-  --surface-brand:   var(--green-700);
+  --surface-brand:   var(--brand-700);
 
   /* ── Texto semántico ──────────────────────────────────── */
   --text-strong:  var(--neutral-900);
@@ -68,7 +72,7 @@
   --text-faint:   var(--neutral-400);
   --text-on-dark: var(--neutral-50);
   --text-on-dark-muted: var(--neutral-300);
-  --text-brand:   var(--green-700);
+  --text-brand:   var(--brand-700);
   --text-accent:  var(--wood-600);
 
   /* ── Líneas y bordes ──────────────────────────────────── */
@@ -78,8 +82,8 @@
   --border-on-dark: rgba(244, 240, 232, 0.18);
 
   /* ── Acentos ──────────────────────────────────────────── */
-  --accent:       var(--green-700);
-  --accent-hover: var(--green-800);
+  --accent:       var(--brand-700);
+  --accent-hover: var(--brand-800);
   --accent-warm:  var(--wood-500);
   --focus-ring:   var(--wood-500);
 
@@ -354,7 +358,7 @@
   transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 .hf-presencia-item:hover { background: var(--surface); }
-.hf-presencia-item.is-activa { background: var(--surface); border-left-color: var(--green-700); }
+.hf-presencia-item.is-activa { background: var(--surface); border-left-color: var(--brand-700); }
 .hf-presencia-mapa {
   position: relative;
   min-height: 460px;
@@ -365,7 +369,7 @@
 }
 .hf-presencia-mapa .maplibregl-ctrl-group { border-radius: var(--radius-xs); box-shadow: var(--shadow-sm); }
 
-/* Marcador: punto verde con halo madera y nombre en etiqueta. */
+/* Marcador: punto azul con halo madera y nombre en etiqueta. */
 .hf-pin {
   display: flex;
   align-items: center;
@@ -380,7 +384,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--green-700);
+  background: var(--brand-700);
   box-shadow: 0 0 0 4px rgba(201, 174, 132, 0.45), var(--shadow-sm);
 }
 .hf-pin.is-activa .hf-pin-punto::after {
@@ -398,7 +402,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--neutral-0);
-  background: var(--green-700);
+  background: var(--brand-700);
   padding: 5px 9px;
   border-radius: var(--radius-xs);
   white-space: nowrap;
@@ -472,7 +476,7 @@ a {
 }
 
 ::selection {
-  background: var(--green-200);
+  background: var(--brand-200);
 }
 
 /* Las secciones ancladas libran el header pegajoso. */
@@ -545,7 +549,7 @@ a {
 
 /* Mercados: la celda entera se invierte al pasar el cursor. */
 .hf-market { transition: background var(--dur-base) var(--ease-out); }
-.hf-market:hover { background: var(--green-700); }
+.hf-market:hover { background: var(--brand-700); }
 .hf-market:hover .hf-market-name { color: var(--neutral-0); }
 .hf-market:hover .hf-market-sub { color: var(--text-on-dark-muted); }
 

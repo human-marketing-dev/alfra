@@ -316,7 +316,7 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
         transition: "background var(--dur-fast) var(--ease-out)",
       }}
     >
-      <Icon name={empresa.icono} size={19} color="var(--green-700)" stroke={1.4} />
+      <Icon name={empresa.icono} size={19} color="var(--brand-700)" stroke={1.4} />
       <span style={{ display: "flex", flexDirection: "column", gap: "3px", minWidth: 0 }}>
         <span
           style={{

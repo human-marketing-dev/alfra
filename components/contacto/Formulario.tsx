@@ -75,13 +75,13 @@ export function Formulario() {
             width: "48px",
             height: "48px",
             borderRadius: "999px",
-            background: "var(--green-50)",
+            background: "var(--brand-50)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Icon name="check" size={22} color="var(--green-700)" />
+          <Icon name="check" size={22} color="var(--brand-700)" />
         </span>
         <h2 className="t-h3">
           Gracias.
