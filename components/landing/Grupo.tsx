@@ -26,7 +26,7 @@ export function Grupo() {
             { value: "01", label: "Interlocutor", sub: "para todo tu proyecto" },
             { value: "MTY", label: "Sede", sub: "Monterrey, Nuevo León" },
           ].map((s) => (
-            <div key={s.label} style={{ background: "var(--surface)", padding: "var(--space-6) var(--space-5)" }}>
+            <div key={s.label} style={{ background: "var(--surface)", padding: "var(--pad-card)" }}>
               <Stat value={s.value} label={s.label} sublabel={s.sub} />
             </div>
           ))}

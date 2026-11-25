@@ -15,7 +15,7 @@ export function Argumento({ empresa }: { empresa: Empresa }) {
     <section className="hf-section" style={{ background: "var(--bg-page)" }}>
       <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
         <SectionHeading eyebrow="Por qué ahorras" title={argumento.titulo} maxWidth="560px" />
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)", paddingTop: "var(--space-2)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--gap-stack)" }}>
           {argumento.parrafos.map((p, i) => (
             <p key={p} className={i === 0 ? "t-lead" : "t-body"}>
               {conCursivas(p)}

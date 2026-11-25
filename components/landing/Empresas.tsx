@@ -16,7 +16,7 @@ export function Empresas() {
           layout="split"
           lead="Entra por la unidad que resuelve tu oportunidad de hoy y queda respaldado por todo el grupo."
         />
-        <div className="hf-grid-2" data-reveal-group style={{ marginTop: "var(--gap-block)", gap: "var(--space-6)" }}>
+        <div className="hf-grid-2" data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {EMPRESAS.map((e) => (
             <UnidadCard key={e.slug} empresa={e} />
           ))}

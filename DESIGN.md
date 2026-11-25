@@ -20,28 +20,39 @@ Los tokens y clases están en `app/globals.css`. Ningún componente escribe tama
 
 El color sale del contexto: dentro de `.is-dark` todo se invierte solo (blancos y azul claro).
 
-## Espaciado
+## Espaciado (ritmo vertical)
 
-Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
+Base de 8 px (`--space-1` … `--space-12`), pero **los componentes no usan `--space-*` sueltos para separar piezas**: todo sale de estos tokens, definidos en `app/globals.css`, y se ajustan solos por tramo.
 
-- Antetítulo → titular: `--gap-eyebrow` (16 px)
-- Titular → entrada: `--gap-title` (24 px)
-- Encabezado de sección → contenido: `--gap-block` (48 px; 40 en móvil)
-- Ritmo de sección: `--section-y` (128 px; 80 en tablet; 64 en móvil)
-- Heros: `--hero-top` / `--hero-bottom`
+| Token | Uso | Escritorio | ≤860 | ≤560 |
+|---|---|---|---|---|
+| `--section-y` | arriba y abajo de **toda** sección (`.hf-section`), incluido el cierre | 112 | 80 | 64 |
+| `--gap-block` | encabezado de sección → contenido | 64 | 48 | 40 |
+| `--gap-columns` | entre columnas de un layout a dos (`.hf-grid-2`) | 64 | 48 | 40 |
+| `--gap-actions` | texto → botones | 40 | 40 | 40 |
+| `--gap-grid` | entre tarjetas (`.hf-grid-3/4`, presencia) | 24 | 24 | 24 |
+| `--gap-stack` | entre bloques hermanos de texto | 24 | 24 | 24 |
+| `--gap-title` | titular → entrada | 24 | 24 | 24 |
+| `--gap-eyebrow` | antetítulo → titular | 16 | 16 | 16 |
+| `--gap-item` | dentro de una tarjeta (etiqueta, título, texto) | 12 | 12 | 12 |
+| `--pad-card` | relleno de tarjetas, paneles y formulario | 32 | 32 | 24 |
+
+Heros: `--hero-top` = alto del header + `--section-y`; `--hero-bottom` = `--section-y`.
+
 - **Hero de unidad con altura fija** (`.hf-hero-unidad`, `--hero-unidad-h`): las cuatro páginas de unidad miden exactamente lo mismo en cada ancho — 860 px (escritorio), 780 px (≤1080), 790 px (≤860), 920 px (≤560). La altura cabe el texto más largo de las cuatro; si un titular nuevo no cabe, se sube el valor del tramo.
 
 ## Componentes base
 
 - `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna. `layout="split"` pone la entrada a la derecha del titular en escritorio (encabezado editorial).
-- `HeroFoto`: panel oscuro con foto y velo azul marino (heros, pilares, cierre).
+- `HeroFoto`: panel oscuro con foto y/o video (`video`) y velo azul marino (heros, pilares, cierre). El video (`VideoFondo`) va silenciado y en bucle; si no existe o el usuario pide reducir movimiento, queda la foto.
+- **Hero del inicio**: video de fondo en `public/video/hero-inicio.mp4` (ruta en `HERO_INICIO`, `lib/grupo.ts`). Para cambiarlo basta con subir el archivo con ese nombre.
 - `UnidadCard`: tarjeta de unidad con foto (`completa` / `compacta`).
-- `Button` (forma de píldora, sube 2 px en hover), `Eyebrow`, `Stat`, `Icon`.
+- `Button` (sube 2 px en hover), `Eyebrow`, `Stat`, `Icon`.
 - `.hf-tile`: tarjeta de contenido sin enlace (servicios) con hover suave.
 
 ## Forma y movimiento
 
-- Radios: `--radius-xs` 8 px (iconos, campos), `--radius-sm` 14 px (tarjetas, imágenes, paneles), `--radius-md` 20 px (fotos grandes), `--radius-pill` (botones). En `UnidadCard` la foto va inserta con 8 px de margen.
+- **Esquinas rectas** en todo el sitio: todos los `--radius-*` valen 0 (botones, tarjetas, fotos, paneles, campos). Sólo los marcadores del mapa son redondos.
 - Sombras: dobles y difusas en azul marino (`--shadow-xs`…`--shadow-xl`), con borde interior casi invisible; en hover el borde toma azul de marca.
 - Aparición al hacer scroll: `data-reveal` en un elemento o `data-reveal-group` en una retícula (los hijos entran en cascada). Lo activa `components/site/Reveal.tsx`; sin JS o con *reduced motion* todo se ve sin animar.
 - Heros: `.hf-enter` al cargar la página.

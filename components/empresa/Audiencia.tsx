@@ -72,7 +72,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
                 background: "var(--surface)",
                 boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-lg)",
                 borderRadius: "var(--radius-sm)",
-                padding: "var(--space-6)",
+                padding: "var(--pad-card)",
               }}
             >
               {empresa.modeloReferencia && (
@@ -87,12 +87,12 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
                 <ul
                   style={{
                     listStyle: "none",
-                    margin: "var(--space-5) 0 0",
-                    padding: "var(--space-5) 0 0",
+                    margin: "var(--gap-stack) 0 0",
+                    padding: "var(--gap-stack) 0 0",
                     borderTop: "1px solid var(--border-hair)",
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                    gap: "var(--space-3) var(--space-5)",
+                    gap: "var(--gap-item) var(--gap-stack)",
                   }}
                 >
                   {empresa.pruebas.map((p) => (

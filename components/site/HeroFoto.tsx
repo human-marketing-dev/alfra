@@ -8,6 +8,7 @@
 import React from "react";
 import Image from "next/image";
 import { DarkBackdrop } from "@/components/site/DarkBackdrop";
+import { VideoFondo } from "@/components/site/VideoFondo";
 
 export interface FotoFondo {
   src: string;
@@ -18,6 +19,9 @@ export interface FotoFondo {
 
 export interface HeroFotoProps {
   foto?: FotoFondo;
+  /** Ruta de un video de fondo (mp4). Se pinta encima de la foto, que
+      queda como respaldo mientras carga o si el archivo no existe. */
+  video?: string;
   /** "lado": velo cargado a la izquierda (texto a la izquierda).
       "pleno": velo parejo, para texto centrado o bandas. */
   velo?: "lado" | "pleno";
@@ -39,6 +43,7 @@ const VELOS = {
 
 export function HeroFoto({
   foto,
+  video,
   velo = "lado",
   tone = "forest",
   bajoHeader = false,
@@ -56,18 +61,17 @@ export function HeroFoto({
     >
       <DarkBackdrop tone={tone} />
       {foto && (
-        <>
-          <Image
-            src={foto.src}
-            alt={foto.alt}
-            fill
-            priority={priority}
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
-          />
-          <div aria-hidden style={{ position: "absolute", inset: 0, background: VELOS[velo] }} />
-        </>
+        <Image
+          src={foto.src}
+          alt={foto.alt}
+          fill
+          priority={priority}
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
+        />
       )}
+      {video && <VideoFondo src={video} />}
+      {(foto || video) && <div aria-hidden style={{ position: "absolute", inset: 0, background: VELOS[velo] }} />}
       <div style={{ position: "relative" }}>{children}</div>
     </section>
   );

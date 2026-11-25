@@ -39,7 +39,7 @@ export default function Page() {
         <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
           <div>
             <h2 className="t-h2">Cuéntanos qué tienes en mente.</h2>
-            <p className="t-body measure-sm" style={{ marginTop: "var(--gap-title)", marginBottom: "var(--space-7)" }}>
+            <p className="t-body measure-sm" style={{ marginTop: "var(--gap-title)", marginBottom: "var(--gap-actions)" }}>
               Marca el frente que más se parece a tu proyecto y la solicitud llega a la unidad que lo atiende. Si no es
               claro cuál, deja la opción abierta y lo resolvemos en la primera conversación.
             </p>

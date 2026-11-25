@@ -34,6 +34,18 @@ export const GRUPO = {
 } as const;
 
 /** Boilerplates oficiales (Brief Maestro §8.3 y §8.4). */
+/* Hero del inicio. Para cambiar el video basta con subir el archivo a
+   `public/video/` con este nombre (mp4, H.264, sin audio, idealmente
+   menos de 8 MB). Mientras no exista se ve la foto de respaldo. */
+export const HERO_INICIO = {
+  video: "/video/hero-inicio.mp4",
+  foto: {
+    src: "/fotos/hero-asesores-inmobiliarios.webp",
+    alt: "",
+    posicion: "70% 50%",
+  },
+};
+
 export const BOILERPLATE = {
   corto: `ALFRA Grupo Inmobiliario opera ${enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Convierte oportunidades inmobiliarias en negocio desde Monterrey.`,
   medio:

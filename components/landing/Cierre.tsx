@@ -13,14 +13,14 @@ export function Cierre({ foto }: { foto?: FotoFondo }) {
 
   return (
     <HeroFoto id="contacto" foto={foto} velo="pleno" tone="charcoal">
-      <div className="hf-container hf-section" style={{ paddingBlock: "calc(var(--section-y) * 1.15)" }}>
+      <div className="hf-container hf-section">
         <SectionHeading
           eyebrow="Contacto"
           title="Traes una oportunidad. La ejecuta todo el grupo."
           lead="Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve."
           maxWidth="820px"
         />
-        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--space-7)" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
           <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
             Solicita información
           </Button>

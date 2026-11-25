@@ -21,7 +21,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            marginBottom: "var(--space-8)",
+            marginBottom: "var(--gap-block)",
             textDecoration: "none",
           }}
         >
@@ -30,7 +30,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
         </Link>
 
         <div className="hf-enter" style={{ maxWidth: "940px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "var(--space-6)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--gap-item)", marginBottom: "var(--gap-stack)" }}>
             <span
               style={{
                 width: 44,
@@ -54,7 +54,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             </p>
           )}
 
-          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--space-7)" }}>
+          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
             <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
               Solicita información
             </Button>

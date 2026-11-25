@@ -21,8 +21,6 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
           position: "relative",
           aspectRatio: compacta ? "16 / 9" : "16 / 8",
           overflow: "hidden",
-          margin: "8px 8px 0",
-          borderRadius: "calc(var(--radius-sm) - 4px)",
           background: "var(--brand-700)",
         }}
       >
@@ -66,10 +64,10 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
 
       <div
         style={{
-          padding: compacta ? "var(--space-5)" : "var(--space-6)",
+          padding: "var(--pad-card)",
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-3)",
+          gap: "var(--gap-item)",
           flex: 1,
         }}
       >

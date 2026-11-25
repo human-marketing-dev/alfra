@@ -28,10 +28,10 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
               style={{
                 background: "var(--surface)",
                 borderRadius: "var(--radius-sm)",
-                padding: "var(--space-6)",
+                padding: "var(--pad-card)",
                 display: "flex",
                 flexDirection: "column",
-                gap: "var(--space-3)",
+                gap: "var(--gap-item)",
               }}
             >
               <div
@@ -39,7 +39,7 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  marginBottom: "var(--space-4)",
+                  marginBottom: "var(--gap-item)",
                 }}
               >
                 <span className="t-stat" style={{ fontSize: "var(--fs-h3)", color: "var(--text-accent)" }}>
@@ -51,7 +51,7 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
                     height: 36,
                     display: "grid",
                     placeItems: "center",
-                    borderRadius: "50%",
+                    borderRadius: "var(--radius-xs)",
                     background: "var(--brand-50)",
                   }}
                 >
