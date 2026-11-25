@@ -38,6 +38,18 @@ export interface Servicio {
   descripcion: string;
 }
 
+/** Un punto del mapa de presencia. */
+export interface Ubicacion {
+  /** Nombre corto que se lee en la lista y en el marcador. */
+  nombre: string;
+  /** Zona o municipio, p. ej. "San Pedro Garza García, N.L.". */
+  zona: string;
+  /** [longitud, latitud] — en ese orden, al revés de como los copia Google Maps. */
+  coords: [number, number];
+  /** Línea opcional: qué hay ahí (oficina, obra, desarrollo…). */
+  detalle?: string;
+}
+
 export interface Empresa {
   slug: string;
   /** Nombre completo — primera mención (Brief Maestro §4). */
@@ -74,6 +86,11 @@ export interface Empresa {
    * Fotografía de fondo del hero (ruta en `public/`). Sin ella, el hero
    * usa el fondo verde con retícula.
    */
+  /**
+   * Mapa de presencia de la unidad. Sin ubicaciones, la sección no se
+   * pinta. Para editar: agregar o quitar objetos de `ubicaciones`.
+   */
+  presencia?: { ubicaciones: Ubicacion[] };
   heroImagen?: { src: string; alt: string; /** object-position; por defecto "60% 50%". */ posicion?: string };
   /**
    * La empresa tiene su propia ruta en `app/empresas/<slug>/`, con brief y
@@ -124,6 +141,13 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — tamaño de inventario, desarrolladores, operaciones cerradas.
     pruebas: [],
     icono: "key",
+    // EJEMPLO — «confirmar»: ubicaciones provisionales hasta que ALFRA
+    // entregue las reales de esta unidad.
+    presencia: {
+      ubicaciones: [
+        { nombre: "Monterrey", zona: "Área metropolitana, N.L.", coords: [-100.3161, 25.6866], detalle: "Sede del grupo" },
+      ],
+    },
     heroImagen: {
       src: "/fotos/hero-asesores-inmobiliarios.webp",
       alt: "Edificio residencial blanco con balcones, visto desde abajo",
@@ -172,6 +196,13 @@ export const EMPRESAS: Empresa[] = [
       "Control total de la obra",
     ],
     icono: "hard-hat",
+    // EJEMPLO — «confirmar»: ubicaciones provisionales hasta que ALFRA
+    // entregue las reales de esta unidad.
+    presencia: {
+      ubicaciones: [
+        { nombre: "Monterrey", zona: "Área metropolitana, N.L.", coords: [-100.3161, 25.6866], detalle: "Sede del grupo" },
+      ],
+    },
     // Retocada: se borraron las rotulaciones del aliado en grúa y pilotera.
     heroImagen: {
       src: "/fotos/hero-desarrollo-industrial.webp",
@@ -227,6 +258,15 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — casas construidas que ALFRA pueda comunicar como propias.
     pruebas: [],
     icono: "home",
+    // EJEMPLO — «confirmar»: el brief §10 menciona el sur de Monterrey sobre
+    // Carretera Nacional; ubicaciones provisionales hasta que ALFRA
+    // entregue las reales de esta unidad.
+    presencia: {
+      ubicaciones: [
+        { nombre: "Carretera Nacional", zona: "Sur de Monterrey, N.L.", coords: [-100.2387, 25.5452], detalle: "Zona de desarrollo" },
+        { nombre: "Monterrey", zona: "Área metropolitana, N.L.", coords: [-100.3161, 25.6866], detalle: "Sede del grupo" },
+      ],
+    },
     heroImagen: {
       src: "/fotos/hero-desarrollo-residencial.webp",
       alt: "Casa residencial contemporánea de dos niveles con fachada blanca y piedra gris",
@@ -271,6 +311,13 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — esquemas, ticket de entrada, horizontes de referencia.
     pruebas: [],
     icono: "trending-up",
+    // EJEMPLO — «confirmar»: ubicaciones provisionales hasta que ALFRA
+    // entregue las reales de esta unidad.
+    presencia: {
+      ubicaciones: [
+        { nombre: "Monterrey", zona: "Área metropolitana, N.L.", coords: [-100.3161, 25.6866], detalle: "Sede del grupo" },
+      ],
+    },
     heroImagen: {
       src: "/fotos/hero-capital.webp",
       alt: "Torre residencial vista desde abajo, entre árboles",

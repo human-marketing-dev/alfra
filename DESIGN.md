@@ -40,3 +40,7 @@ Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
 ## Color
 
 Verde bosque (`--green-700`) como primario, madera (`--wood-*`) como acento, neutros cálidos (crema `--neutral-50`, carbón `--neutral-900`). Radios mínimos (2–4 px), sombras bajas.
+
+## Mapa de presencia
+
+`components/empresa/MapaPresencia.tsx` usa MapLibre GL con el estilo Positron de OpenFreeMap: libre, sin API key ni costo (datos © OpenStreetMap). Se tiñe con la paleta al cargar. Las ubicaciones se editan en `lib/empresas.ts` → `presencia.ubicaciones` (nombre, zona, `[longitud, latitud]`, detalle). El worker del mapa se copia a `public/vendor/` antes de `dev` y `build`.
