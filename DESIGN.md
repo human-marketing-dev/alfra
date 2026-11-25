@@ -14,7 +14,7 @@ Los tokens y clases están en `app/globals.css`. Ningún componente escribe tama
 | `.t-lead` | Entrada bajo un titular | 18 → 21 px | Spectral |
 | `.t-body` | Texto corrido | 17 px | Spectral |
 | `.t-small` | Texto de tarjeta, notas | 15 px | Spectral |
-| `.t-eyebrow` | Antetítulo en versales | 12 px, tracking 0.18em | Montserrat 600 |
+| `.t-eyebrow` | Antetítulo en versales, sin línea decorativa | 12 px, tracking 0.18em | Montserrat 600 |
 | `.t-label` | Etiqueta de dato | 11 px, tracking 0.14em | Montserrat 600 |
 | `.t-stat` | Cifras | 36 → 56 px | IBM Plex Mono |
 

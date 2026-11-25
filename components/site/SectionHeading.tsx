@@ -36,7 +36,7 @@ export function SectionHeading({
       }}
     >
       {eyebrow && (
-        <Eyebrow rule={align === "left"} style={{ marginBottom: "var(--gap-eyebrow)" }}>
+        <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
           {eyebrow}
         </Eyebrow>
       )}

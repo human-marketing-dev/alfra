@@ -32,7 +32,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
         </Link>
 
         <div style={{ maxWidth: "940px" }}>
-          <Eyebrow rule style={{ marginBottom: "var(--space-5)" }}>
+          <Eyebrow style={{ marginBottom: "var(--space-5)" }}>
             {empresa.frente}
           </Eyebrow>
 

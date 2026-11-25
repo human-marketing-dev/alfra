@@ -25,7 +25,7 @@ export function Hero() {
         style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
         <div>
-          <Eyebrow rule style={{ marginBottom: "var(--gap-eyebrow)" }}>
+          <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
             Grupo inmobiliario integral · Monterrey
           </Eyebrow>
           <h1 className="t-display">Convertimos oportunidades inmobiliarias en negocio.</h1>
