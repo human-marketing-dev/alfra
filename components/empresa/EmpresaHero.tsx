@@ -1,14 +1,12 @@
 /* Página de unidad — hero.
-   Ubica a la unidad en su frente del sector antes de decir nada más
-   (principio 05 del sistema verbal) y cierra con la línea de endoso del
-   grupo (brief §4). La fotografía de la unidad va de fondo. */
+   Breve a propósito: regreso a las unidades, nombre, titular, entrada y
+   llamadas a la acción. El frente del sector ya lo dicen la tarjeta y el
+   menú; la foto de la unidad va de fondo. */
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
 import { HeroFoto } from "@/components/site/HeroFoto";
-import { GRUPO } from "@/lib/grupo";
 import type { Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
@@ -32,10 +30,6 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
         </Link>
 
         <div style={{ maxWidth: "940px" }}>
-          <Eyebrow style={{ marginBottom: "var(--space-5)" }}>
-            {empresa.frente}
-          </Eyebrow>
-
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "var(--space-6)" }}>
             <span
               style={{
@@ -74,13 +68,6 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 Qué resuelve
               </Button>
             )}
-          </div>
-
-          <div
-            className="t-label t-accent"
-            style={{ marginTop: "var(--space-9)", paddingTop: "var(--space-5)", borderTop: "1px solid var(--c-line)" }}
-          >
-            {GRUPO.lineaRespaldo}
           </div>
         </div>
       </div>
