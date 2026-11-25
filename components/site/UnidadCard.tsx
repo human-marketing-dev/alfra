@@ -21,6 +21,8 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
           position: "relative",
           aspectRatio: compacta ? "16 / 9" : "16 / 8",
           overflow: "hidden",
+          margin: "8px 8px 0",
+          borderRadius: "calc(var(--radius-sm) - 4px)",
           background: "var(--brand-700)",
         }}
       >
@@ -85,13 +87,13 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
             alignItems: "center",
             gap: "8px",
             marginTop: compacta ? "var(--space-2)" : "var(--space-4)",
-            paddingTop: "var(--space-4)",
-            borderTop: "1px solid var(--border-hair)",
             color: "var(--text-brand)",
           }}
         >
           Conocer la unidad
-          <Icon name="arrow-right" size={15} />
+          <span className="hf-flecha" style={{ display: "inline-flex" }}>
+            <Icon name="arrow-right" size={15} />
+          </span>
         </span>
       </div>
     </Link>

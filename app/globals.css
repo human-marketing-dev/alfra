@@ -133,12 +133,12 @@
   --space-11: 6rem;
   --space-12: 8rem;
 
-  /* ── Radios (mínimos — cantos arquitectónicos) ────────── */
+  /* ── Radios (suaves y consistentes) ─────────────────────── */
   --radius-none: 0;
-  --radius-xs:   2px;
-  --radius-sm:   4px;
-  --radius-md:   6px;
-  --radius-lg:   10px;
+  --radius-xs:   8px;   /* iconos, chips cuadrados */
+  --radius-sm:   14px;  /* tarjetas, imágenes, paneles */
+  --radius-md:   20px;
+  --radius-lg:   28px;  /* bloques grandes */
   --radius-pill: 999px;
   --radius-card: var(--radius-sm);
 
@@ -146,11 +146,11 @@
   --border-width-bold: 2px;
 
   /* ── Sombras (azul marino, bajas y suaves) ────────── */
-  --shadow-xs: 0 1px 2px rgba(15, 26, 51, 0.06);
-  --shadow-sm: 0 2px 6px rgba(15, 26, 51, 0.07);
-  --shadow-md: 0 6px 18px rgba(15, 26, 51, 0.09);
-  --shadow-lg: 0 18px 44px rgba(15, 26, 51, 0.13);
-  --shadow-xl: 0 32px 72px rgba(15, 26, 51, 0.18);
+  --shadow-xs: 0 1px 2px rgba(15, 26, 51, 0.05);
+  --shadow-sm: 0 1px 2px rgba(15, 26, 51, 0.04), 0 6px 16px -6px rgba(15, 26, 51, 0.08);
+  --shadow-md: 0 2px 4px rgba(15, 26, 51, 0.04), 0 16px 32px -12px rgba(15, 26, 51, 0.14);
+  --shadow-lg: 0 4px 8px rgba(15, 26, 51, 0.04), 0 28px 56px -16px rgba(15, 26, 51, 0.22);
+  --shadow-xl: 0 40px 80px -24px rgba(15, 26, 51, 0.3);
   --shadow-inset-hair: inset 0 0 0 1px var(--border-hair);
 
   /* ── Layout ───────────────────────────────────────────── */
@@ -163,7 +163,7 @@
   /* Margen lateral de la página. El contenido siempre mide
      --container-page; este gutter vive por fuera de esa medida. */
   --gutter-x:  var(--space-8);
-  --section-y: var(--space-11);
+  --section-y: var(--space-12);
 
   /* ── Motion ───────────────────────────────────────────── */
   --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -298,16 +298,66 @@
   flex-direction: column;
   background: var(--surface);
   border-radius: var(--radius-sm);
-  box-shadow: inset 0 0 0 1px var(--border-hair), var(--shadow-sm);
+  box-shadow: inset 0 0 0 1px rgba(15, 26, 51, 0.06), var(--shadow-sm);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
 .hf-card:hover {
-  transform: translateY(-4px);
-  box-shadow: inset 0 0 0 1px var(--border-hair), var(--shadow-lg);
+  transform: translateY(-6px);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.25), var(--shadow-lg);
 }
+.hf-card .hf-flecha { transition: transform var(--dur-base) var(--ease-out); }
+.hf-card:hover .hf-flecha { transform: translateX(4px); }
+
+/* Tarjeta de contenido (sin enlace): borde fino y elevación suave. */
+.hf-tile {
+  box-shadow: inset 0 0 0 1px rgba(15, 26, 51, 0.06), var(--shadow-xs);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.hf-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.2), var(--shadow-md);
+}
+
+/* Entrada del hero al cargar la página. */
+@keyframes hf-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.hf-enter { animation: hf-enter 800ms var(--ease-out) both; }
+
+/* Encabezado editorial: titular a la izquierda, entrada a la derecha. */
+.hf-heading-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--space-6) var(--space-10);
+  align-items: end;
+}
+@media (max-width: 860px) {
+  .hf-heading-split { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Aparición al hacer scroll. Sólo con JS activo (clase en <html>), así
+   que sin JS todo se ve. Respeta reduced-motion (ver al final). */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
+/* Grupo: los hijos aparecen en cascada. */
+.js-reveal [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+}
+.js-reveal [data-reveal-group] > :nth-child(2) { transition-delay: 90ms; }
+.js-reveal [data-reveal-group] > :nth-child(3) { transition-delay: 180ms; }
+.js-reveal [data-reveal-group] > :nth-child(4) { transition-delay: 270ms; }
+.js-reveal [data-reveal-group].is-visible > * { opacity: 1; transform: none; }
 
 /* A quién sirve: el panel se monta sobre la foto; en celular baja y
    sólo se encima un poco. */
@@ -600,4 +650,7 @@ a {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+  .hf-enter { animation: none; }
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal-group] > * { opacity: 1; transform: none; }
 }

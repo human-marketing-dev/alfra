@@ -20,7 +20,7 @@ export function Grupo() {
           </p>
         </div>
 
-        <div className="hf-cells-3" style={{ background: "var(--border-hair)" }}>
+        <div className="hf-cells-3" data-reveal style={{ background: "var(--border-hair)", borderRadius: "var(--radius-sm)", overflow: "hidden", boxShadow: "var(--shadow-sm)" }}>
           {[
             { value: String(EMPRESAS.length).padStart(2, "0"), label: "Unidades de negocio", sub: "especializadas del sector" },
             { value: "01", label: "Interlocutor", sub: "para todo tu proyecto" },

@@ -20,19 +20,18 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
       <div className="hf-container">
         <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en ${enLetras(n)} capacidades.`} />
 
-        <div className={n === 3 ? "hf-grid-3" : "hf-grid-4"} style={{ marginTop: "var(--gap-block)" }}>
+        <div className={n === 3 ? "hf-grid-3" : "hf-grid-4"} data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {empresa.servicios.map((s, i) => (
             <div
               key={s.titulo}
+              className="hf-tile"
               style={{
                 background: "var(--surface)",
                 borderRadius: "var(--radius-sm)",
-                boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-xs)",
                 padding: "var(--space-6)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "var(--space-3)",
-                borderTop: "3px solid var(--brand-700)",
               }}
             >
               <div
@@ -46,7 +45,18 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
                 <span className="t-stat" style={{ fontSize: "var(--fs-h3)", color: "var(--text-accent)" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <Icon name="check" size={18} color="var(--brand-700)" />
+                <span
+                  style={{
+                    width: 36,
+                    height: 36,
+                    display: "grid",
+                    placeItems: "center",
+                    borderRadius: "50%",
+                    background: "var(--brand-50)",
+                  }}
+                >
+                  <Icon name="check" size={16} color="var(--brand-700)" />
+                </span>
               </div>
               <h3 className="t-h4">{conCursivas(s.titulo)}</h3>
               <p className="t-small">{conCursivas(s.descripcion)}</p>

@@ -27,7 +27,7 @@ export function OtrasEmpresas({ excluir, eyebrow = "El resto del grupo", title, 
     <section className="hf-section" style={{ background: fondo }}>
       <div className="hf-container">
         <SectionHeading eyebrow={eyebrow} title={titular} />
-        <div className={otras.length === 3 ? "hf-grid-3" : "hf-grid-4"} style={{ marginTop: "var(--gap-block)" }}>
+        <div className={otras.length === 3 ? "hf-grid-3" : "hf-grid-4"} data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {otras.map((e) => (
             <UnidadCard key={e.slug} empresa={e} variante="compacta" />
           ))}

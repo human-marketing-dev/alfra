@@ -17,6 +17,7 @@ export function Presencia({ empresa, fondo }: { empresa: Empresa; fondo: string 
         <SectionHeading
           eyebrow="Presencia"
           title="Dónde operamos."
+          layout="split"
           lead={`Las zonas donde ${empresa.nombreCorto} tiene operación hoy.`}
         />
         <div style={{ marginTop: "var(--gap-block)" }}>

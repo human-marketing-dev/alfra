@@ -46,7 +46,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
               style={{
                 position: "relative",
                 aspectRatio: "4 / 3",
-                borderRadius: "var(--radius-sm)",
+                borderRadius: "var(--radius-md)",
                 overflow: "hidden",
                 boxShadow: "var(--shadow-md)",
               }}

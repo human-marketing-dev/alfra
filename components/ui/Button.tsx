@@ -1,7 +1,7 @@
 "use client";
 
-/* ALFRA Button — geometric, uppercase, wide-tracked. Square-edged by default
-   to echo the architectural mark. */
+/* ALFRA Button — geométrico, en altas y con tracking amplio. Forma de
+   píldora y un leve desplazamiento al pasar el cursor. */
 import React from "react";
 import Link from "next/link";
 
@@ -75,12 +75,12 @@ export function Button({
     letterSpacing: s.tracking,
     textTransform: "uppercase",
     textDecoration: "none",
-    borderRadius: "var(--radius-xs)",
+    borderRadius: "var(--radius-pill)",
     border: "none",
     cursor: disabled ? "not-allowed" : "pointer",
     opacity: disabled ? 0.45 : 1,
     transition:
-      "background var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out)",
+      "background var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out)",
     whiteSpace: "nowrap",
     boxSizing: "border-box",
     ...v,
@@ -89,12 +89,14 @@ export function Button({
 
   const onEnter = (e: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
+    e.currentTarget.style.transform = "translateY(-2px)";
     if (variant === "primary") e.currentTarget.style.background = "var(--brand-800)";
     else if (variant === "warm") e.currentTarget.style.background = "var(--brand-700)";
     else e.currentTarget.style.background = "var(--neutral-100)";
   };
   const onLeave = (e: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
+    e.currentTarget.style.transform = "";
     e.currentTarget.style.background = (v.background as string) ?? "transparent";
   };
 

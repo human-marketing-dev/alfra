@@ -29,7 +29,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           Las unidades
         </Link>
 
-        <div style={{ maxWidth: "940px" }}>
+        <div className="hf-enter" style={{ maxWidth: "940px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "var(--space-6)" }}>
             <span
               style={{

@@ -24,7 +24,7 @@ export function Hero() {
         className="hf-container hf-hero-home"
         style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
-        <div>
+        <div className="hf-enter">
           <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
             Grupo inmobiliario integral · Monterrey
           </Eyebrow>
@@ -44,7 +44,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hf-mosaico" aria-label="Unidades de negocio">
+        <div className="hf-mosaico hf-enter" style={{ animationDelay: "120ms" }} aria-label="Unidades de negocio">
           {EMPRESAS.map((e, i) => (
             <Link
               key={e.slug}

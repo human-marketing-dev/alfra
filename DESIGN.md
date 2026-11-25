@@ -27,16 +27,24 @@ Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
 - Antetítulo → titular: `--gap-eyebrow` (16 px)
 - Titular → entrada: `--gap-title` (24 px)
 - Encabezado de sección → contenido: `--gap-block` (48 px; 40 en móvil)
-- Ritmo de sección: `--section-y` (96 px; 80 en tablet; 64 en móvil)
+- Ritmo de sección: `--section-y` (128 px; 80 en tablet; 64 en móvil)
 - Heros: `--hero-top` / `--hero-bottom`
 - **Hero de unidad con altura fija** (`.hf-hero-unidad`, `--hero-unidad-h`): las cuatro páginas de unidad miden exactamente lo mismo en cada ancho — 860 px (escritorio), 780 px (≤1080), 790 px (≤860), 920 px (≤560). La altura cabe el texto más largo de las cuatro; si un titular nuevo no cabe, se sube el valor del tramo.
 
 ## Componentes base
 
-- `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna.
+- `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna. `layout="split"` pone la entrada a la derecha del titular en escritorio (encabezado editorial).
 - `HeroFoto`: panel oscuro con foto y velo azul marino (heros, pilares, cierre).
 - `UnidadCard`: tarjeta de unidad con foto (`completa` / `compacta`).
-- `Button`, `Eyebrow`, `Stat`, `Icon`.
+- `Button` (forma de píldora, sube 2 px en hover), `Eyebrow`, `Stat`, `Icon`.
+- `.hf-tile`: tarjeta de contenido sin enlace (servicios) con hover suave.
+
+## Forma y movimiento
+
+- Radios: `--radius-xs` 8 px (iconos, campos), `--radius-sm` 14 px (tarjetas, imágenes, paneles), `--radius-md` 20 px (fotos grandes), `--radius-pill` (botones). En `UnidadCard` la foto va inserta con 8 px de margen.
+- Sombras: dobles y difusas en azul marino (`--shadow-xs`…`--shadow-xl`), con borde interior casi invisible; en hover el borde toma azul de marca.
+- Aparición al hacer scroll: `data-reveal` en un elemento o `data-reveal-group` en una retícula (los hijos entran en cascada). Lo activa `components/site/Reveal.tsx`; sin JS o con *reduced motion* todo se ve sin animar.
+- Heros: `.hf-enter` al cargar la página.
 
 ## Color
 
@@ -47,7 +55,7 @@ Paleta solo de azules y blancos; no hay acentos cálidos.
 - **Azul marino** (`--brand-950` `#0B1634`, `--neutral-900` `#0F1A33`): heros, pilares, cierre, pie y velo sobre fotos.
 - **Blancos y grises azulados**: blanco `--neutral-0`, página `--neutral-50` `#F6F8FC`, alterno `--neutral-100` `#EDF1F8`, líneas `--neutral-200`, texto `--neutral-800`.
 
-Contraste: blanco sobre `#2563EB` 5.2:1 y `#2563EB` sobre `#F6F8FC` ≈4.9:1, ambos AA. Radios mínimos (2–4 px), sombras bajas en azul marino.
+Contraste: blanco sobre `#2563EB` 5.2:1 y `#2563EB` sobre `#F6F8FC` ≈4.9:1, ambos AA. 
 
 ## Mapa de presencia
 

@@ -13,6 +13,8 @@ export interface SectionHeadingProps {
   maxWidth?: string;
   /** Nivel del titular. h2 por defecto; h1 sólo en heros. */
   as?: "h1" | "h2";
+  /** "split": titular a la izquierda y entrada a la derecha (escritorio). */
+  layout?: "stack" | "split";
   style?: React.CSSProperties;
 }
 
@@ -23,11 +25,24 @@ export function SectionHeading({
   align = "left",
   maxWidth = "760px",
   as = "h2",
+  layout = "stack",
   style = {},
 }: SectionHeadingProps) {
   const Titulo = as;
+  if (layout === "split" && lead && align === "left") {
+    return (
+      <div className="hf-heading-split" data-reveal style={style}>
+        <div style={{ maxWidth }}>
+          {eyebrow && <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>{eyebrow}</Eyebrow>}
+          <Titulo className="t-h2">{title}</Titulo>
+        </div>
+        <p className="t-lead" style={{ maxWidth: "460px" }}>{lead}</p>
+      </div>
+    );
+  }
   return (
     <div
+      data-reveal
       style={{
         maxWidth,
         marginInline: align === "center" ? "auto" : undefined,
