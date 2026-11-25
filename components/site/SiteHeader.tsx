@@ -19,7 +19,7 @@ import { GRUPO } from "@/lib/grupo";
 const ENLACE: React.CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontWeight: 600,
-  fontSize: "12px",
+  fontSize: "var(--fs-eyebrow)",
   letterSpacing: "0.12em",
   textTransform: "uppercase",
   textDecoration: "none",
@@ -184,7 +184,7 @@ export function SiteHeader() {
                       borderTop: "1px solid var(--border-hair)",
                       fontFamily: "var(--font-sans)",
                       fontWeight: 600,
-                      fontSize: "11px",
+                      fontSize: "var(--fs-label)",
                       letterSpacing: "0.14em",
                       textTransform: "uppercase",
                       color: "var(--text-brand)",
@@ -322,7 +322,7 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 600,
-            fontSize: "14px",
+            fontSize: "var(--fs-small)",
             letterSpacing: "-0.005em",
             color: "var(--text-strong)",
             lineHeight: 1.25,
@@ -334,7 +334,7 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
           style={{
             fontFamily: "var(--font-sans)",
             fontWeight: 600,
-            fontSize: "10px",
+            fontSize: "var(--fs-label)",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--text-accent)",

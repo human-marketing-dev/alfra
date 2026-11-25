@@ -178,6 +178,184 @@
   --dur-slow:   420ms;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   SISTEMA TIPOGRÁFICO Y DE ESPACIADO
+
+   Única fuente de tamaños de texto del sitio. Ningún componente
+   escribe un `fontSize` a mano: usa una de las clases `.t-*` de abajo.
+   Montserrat para titulares y etiquetas, Spectral para texto corrido,
+   IBM Plex Mono para cifras.
+
+   Escala (fluida entre 390px y 1440px de ancho):
+     display  44 → 88   titular del home
+     h1       38 → 68   titular de página (unidad, contacto)
+     h2       30 → 52   titular de sección
+     h3       20 → 24   titular de tarjeta / bloque
+     h4       17 → 18   subtítulo menor
+     lead     18 → 21   entrada bajo un titular
+     body     17        texto corrido
+     small    15        texto de tarjeta y notas
+     eyebrow  12        antetítulo en versales
+     label    11        etiqueta de dato
+     stat     36 → 56   cifra
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --fs-display: clamp(2.75rem, 1.11rem + 4.19vw, 5.5rem);
+  --fs-h1:      clamp(2.375rem, 1.26rem + 2.86vw, 4.25rem);
+  --fs-h2:      clamp(1.875rem, 1.06rem + 2.1vw, 3.25rem);
+  --fs-h3:      clamp(1.25rem, 1.1rem + 0.38vw, 1.5rem);
+  --fs-h4:      clamp(1.0625rem, 1.03rem + 0.1vw, 1.125rem);
+  --fs-lead:    clamp(1.125rem, 1.04rem + 0.29vw, 1.3125rem);
+  --fs-body:    1.0625rem;
+  --fs-small:   0.9375rem;
+  --fs-eyebrow: 0.75rem;
+  --fs-label:   0.6875rem;
+  --fs-stat:    clamp(2.25rem, 1.78rem + 1.9vw, 3.5rem);
+
+  /* Ritmo vertical: siempre los mismos saltos entre piezas. */
+  --gap-eyebrow: var(--space-4);  /* antetítulo → titular */
+  --gap-title:   var(--space-5);  /* titular → entrada */
+  --gap-block:   var(--space-8);  /* encabezado de sección → contenido */
+  --gap-stack:   var(--space-6);  /* entre bloques hermanos */
+  --hero-top:    calc(84px + var(--space-11)); /* header + aire */
+  --hero-bottom: var(--space-11);
+
+  /* Color contextual: cada clase .t-* lo toma de aquí, y `.is-dark`
+     lo invierte para todo lo que esté adentro. */
+  --c-strong: var(--text-strong);
+  --c-body:   var(--text-body);
+  --c-muted:  var(--text-muted);
+  --c-accent: var(--text-accent);
+  --c-brand:  var(--text-brand);
+  --c-line:   var(--border-hair);
+}
+
+.is-dark {
+  --c-strong: var(--neutral-0);
+  --c-body:   rgba(244, 240, 232, 0.86);
+  --c-muted:  var(--text-on-dark-muted);
+  --c-accent: var(--wood-300);
+  --c-brand:  var(--wood-300);
+  --c-line:   var(--border-on-dark);
+  color: var(--c-body);
+}
+
+.t-display,
+.t-h1,
+.t-h2,
+.t-h3,
+.t-h4 {
+  font-family: var(--font-display);
+  color: var(--c-strong);
+  margin: 0;
+  text-wrap: balance;
+}
+.t-display { font-size: var(--fs-display); font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; }
+.t-h1      { font-size: var(--fs-h1);      font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; }
+.t-h2      { font-size: var(--fs-h2);      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
+.t-h3      { font-size: var(--fs-h3);      font-weight: 700; line-height: 1.2;  letter-spacing: -0.015em; }
+.t-h4      { font-size: var(--fs-h4);      font-weight: 600; line-height: 1.3;  letter-spacing: -0.01em; }
+
+.t-lead,
+.t-body,
+.t-small {
+  font-family: var(--font-serif);
+  color: var(--c-body);
+  margin: 0;
+}
+.t-lead  { font-size: var(--fs-lead);  line-height: 1.6; }
+.t-body  { font-size: var(--fs-body);  line-height: 1.7; }
+.t-small { font-size: var(--fs-small); line-height: 1.6; }
+
+.t-eyebrow,
+.t-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+.t-eyebrow { font-size: var(--fs-eyebrow); letter-spacing: 0.18em; color: var(--c-brand); }
+.t-label   { font-size: var(--fs-label);   letter-spacing: 0.14em; color: var(--c-muted); }
+
+.t-stat {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--fs-stat);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--c-strong);
+}
+
+.t-muted  { color: var(--c-muted); }
+.t-accent { color: var(--c-accent); }
+
+/* Medida de lectura: ninguna línea de texto corrido pasa de ~70 caracteres. */
+.measure    { max-width: 40rem; }
+.measure-sm { max-width: 32rem; }
+
+/* Fotografía con zoom suave al pasar el cursor sobre su enlace. */
+.hf-zoom img { transition: transform var(--dur-slow) var(--ease-out); }
+.hf-zoom:hover img { transform: scale(1.045); }
+
+/* Tarjeta de unidad: sombra y elevación en hover sin JavaScript. */
+.hf-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 1px var(--border-hair), var(--shadow-sm);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.hf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: inset 0 0 0 1px var(--border-hair), var(--shadow-lg);
+}
+
+/* A quién sirve: el panel se monta sobre la foto; en celular baja y
+   sólo se encima un poco. */
+.hf-audiencia-media { padding-bottom: var(--space-9); }
+@media (max-width: 860px) {
+  .hf-audiencia-media { padding-bottom: 0; }
+  .hf-audiencia-panel {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin: calc(var(--space-8) * -1) var(--space-4) 0;
+  }
+}
+
+/* Hero del home: texto + mosaico de las cuatro unidades. */
+.hf-hero-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--space-10);
+  align-items: end;
+}
+.hf-mosaico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 220px 160px 220px;
+  gap: var(--space-3);
+}
+.hf-mosaico-tile[data-i="0"] { grid-row: 1 / 3; }
+.hf-mosaico-tile[data-i="1"] { grid-row: 1 / 2; }
+.hf-mosaico-tile[data-i="2"] { grid-row: 2 / 4; }
+.hf-mosaico-tile[data-i="3"] { grid-row: 3 / 4; grid-column: 1; }
+.hf-mosaico-tile[data-i="2"] { grid-column: 2; }
+
+@media (max-width: 1080px) {
+  .hf-hero-home { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+  .hf-mosaico { grid-template-rows: 180px 180px; }
+  .hf-mosaico-tile[data-i] { grid-row: auto; grid-column: auto; }
+}
+@media (max-width: 560px) {
+  .hf-mosaico { grid-template-rows: 150px 150px; gap: var(--space-2); }
+  .hf-mosaico-frente { display: none; }
+}
+
 /* ── Reset y página ───────────────────────────────────────── */
 *,
 *::before,
@@ -293,9 +471,20 @@ a {
 }
 
 @media (max-width: 860px) {
-  :root { --gutter-x: var(--space-5); }
-  .hf-section { padding-block: var(--space-10); }
+  :root {
+    --gutter-x: var(--space-5);
+    --section-y: var(--space-10);
+    --hero-bottom: var(--space-9);
+    --gap-block: var(--space-7);
+  }
   .hf-grid-2  { grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --section-y: var(--space-9);
+    --hero-top: calc(72px + var(--space-9));
+  }
 }
 
 @media (max-width: 720px) {

@@ -1,12 +1,10 @@
-/* Landing · bloque 03 — Las unidades de negocio.
-   Una tarjeta por unidad, con salida a su página. El orden es el
-   canónico de `lib/empresas.ts`, y cuántas son sale del arreglo. */
+/* Landing · las unidades de negocio.
+   Una tarjeta con fotografía por unidad, con salida a su página. El
+   orden es el canónico de `lib/empresas.ts`. */
 import React from "react";
-import { Card } from "@/components/ui/Card";
-import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { EMPRESAS, enLetrasCapital } from "@/lib/empresas";
-import { conCursivas } from "@/lib/tipografia";
+import { UnidadCard } from "@/components/site/UnidadCard";
+import { EMPRESAS } from "@/lib/empresas";
 
 export function Empresas() {
   return (
@@ -14,78 +12,12 @@ export function Empresas() {
       <div className="hf-container">
         <SectionHeading
           eyebrow="Unidades de negocio"
-          title={`${enLetrasCapital(EMPRESAS.length)} especialistas. Todo el sector inmobiliario.`}
-          maxWidth="820px"
+          title="Una unidad especialista para cada frente."
+          lead="Entra por la unidad que resuelve tu oportunidad de hoy y queda respaldado por todo el grupo."
         />
-
-        {/* Cuatro unidades, retícula de 2×2: `hf-grid-2` es la columna
-            doble del sistema y se pliega sola a una columna en móvil. */}
-        <div className="hf-grid-2" style={{ marginTop: "var(--space-8)" }}>
+        <div className="hf-grid-2" style={{ marginTop: "var(--gap-block)", gap: "var(--space-6)" }}>
           {EMPRESAS.map((e) => (
-            <Card key={e.slug} interactive href={`/unidades/${e.slug}`} padding="var(--space-6)">
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "var(--space-5)" }}>
-                <Icon name={e.icono} size={24} color="var(--green-700)" stroke={1.4} />
-                <span
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontWeight: 600,
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--text-accent)",
-                  }}
-                >
-                  {e.frente}
-                </span>
-              </div>
-
-              <h3
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "23px",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.15,
-                  color: "var(--text-strong)",
-                  margin: "0 0 var(--space-3)",
-                }}
-              >
-                {e.nombre}
-              </h3>
-
-              <p
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "16px",
-                  lineHeight: 1.6,
-                  color: "var(--text-body)",
-                  margin: 0,
-                  flex: 1,
-                }}
-              >
-                {conCursivas(e.tarjeta)}
-              </p>
-
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  marginTop: "var(--space-6)",
-                  paddingTop: "var(--space-4)",
-                  borderTop: "1px solid var(--border-hair)",
-                  fontFamily: "var(--font-sans)",
-                  fontWeight: 600,
-                  fontSize: "12px",
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "var(--text-brand)",
-                }}
-              >
-                Ir a {e.nombre}
-                <Icon name="arrow-right" size={15} />
-              </span>
-            </Card>
+            <UnidadCard key={e.slug} empresa={e} />
           ))}
         </div>
       </div>

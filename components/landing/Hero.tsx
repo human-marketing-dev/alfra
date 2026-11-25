@@ -1,82 +1,94 @@
 /* Landing · bloque 01 — Hero.
-   Antetítulo, titular, subtitular y dos botones, tal como los fija la
-   Landing Corporativa v1.0. El titular es la idea rectora del brief. */
+   Titular con la idea rectora a la izquierda y, a la derecha, un mosaico
+   con la fotografía de las cuatro unidades: el pilar 01 (cobertura
+   integral) se ve antes de leerse. En pantallas angostas el mosaico pasa
+   abajo del texto. */
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { EMPRESAS, enLetras } from "@/lib/empresas";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
-import { DarkBackdrop } from "@/components/site/DarkBackdrop";
+import { HeroFoto } from "@/components/site/HeroFoto";
+
+const BOTON_CONTORNO: React.CSSProperties = {
+  color: "var(--neutral-0)",
+  boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)",
+};
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      style={{
-        position: "relative",
-        display: "flex",
-        alignItems: "flex-end",
-        minHeight: "clamp(560px, 88vh, 900px)",
-        overflow: "hidden",
-        marginTop: "-84px",
-      }}
-    >
-      <DarkBackdrop />
-
+    <HeroFoto bajoHeader id="top">
       <div
-        className="hf-container"
-        style={{ position: "relative", paddingTop: "168px", paddingBottom: "var(--space-10)" }}
+        className="hf-container hf-hero-home"
+        style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
-        <div style={{ maxWidth: "980px" }}>
-          <Eyebrow tone="onDark" rule style={{ marginBottom: "var(--space-5)" }}>
-            Grupo Inmobiliario en Monterrey
+        <div>
+          <Eyebrow rule style={{ marginBottom: "var(--gap-eyebrow)" }}>
+            Grupo inmobiliario integral · Monterrey
           </Eyebrow>
-
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 800,
-              fontSize: "clamp(40px, 6.4vw, 84px)",
-              lineHeight: 1.02,
-              letterSpacing: "-0.03em",
-              color: "var(--neutral-0)",
-              margin: "0 0 var(--space-5)",
-              textWrap: "balance",
-            }}
-          >
-            Convertimos oportunidades inmobiliarias en negocio.
-          </h1>
-
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(17px, 1.8vw, 21px)",
-              lineHeight: 1.6,
-              color: "rgba(244,240,232,0.86)",
-              maxWidth: "660px",
-              margin: "0 0 var(--space-7)",
-            }}
-          >
+          <h1 className="t-display">Convertimos oportunidades inmobiliarias en negocio.</h1>
+          <p className="t-lead measure-sm" style={{ marginTop: "var(--gap-title)" }}>
             ALFRA Grupo Inmobiliario opera {enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría
             inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Cada oportunidad tiene adentro una
             unidad que la ejecuta.
           </p>
-
-          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--space-7)" }}>
             <Button variant="inverse" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
               Ver las unidades
             </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              href="/#contacto"
-              style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
-            >
+            <Button variant="ghost" size="lg" href="/contacto" style={BOTON_CONTORNO}>
               Solicita información
             </Button>
           </div>
         </div>
+
+        <div className="hf-mosaico" aria-label="Unidades de negocio">
+          {EMPRESAS.map((e, i) => (
+            <Link
+              key={e.slug}
+              href={`/unidades/${e.slug}`}
+              className="hf-zoom hf-mosaico-tile"
+              data-i={i}
+              style={{ position: "relative", overflow: "hidden", borderRadius: "var(--radius-sm)", display: "block" }}
+            >
+              {e.heroImagen && (
+                <Image
+                  src={e.heroImagen.src}
+                  alt={e.heroImagen.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1080px) 50vw, 22vw"
+                  style={{ objectFit: "cover", objectPosition: e.heroImagen.posicion ?? "60% 50%" }}
+                />
+              )}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(180deg, rgba(16,32,24,0.05) 30%, rgba(16,32,24,0.85) 100%)",
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  left: "var(--space-4)",
+                  right: "var(--space-4)",
+                  bottom: "var(--space-4)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                }}
+              >
+                <span className="t-label t-accent hf-mosaico-frente">{e.frente}</span>
+                <span className="t-h4">{e.nombre.replace(/^ALFRA /, "")}</span>
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
-    </section>
+    </HeroFoto>
   );
 }

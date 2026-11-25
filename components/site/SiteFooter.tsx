@@ -12,25 +12,12 @@ export function SiteFooter() {
   const correo = correoHref();
   const telefono = telefonoHref();
 
-  const heading: React.CSSProperties = {
-    fontFamily: "var(--font-sans)",
-    fontWeight: 600,
-    fontSize: "11px",
-    letterSpacing: "0.16em",
-    textTransform: "uppercase",
-    color: "rgba(244,240,232,0.5)",
-    marginBottom: "var(--space-4)",
-  };
-
-  const item: React.CSSProperties = {
-    fontFamily: "var(--font-serif)",
-    fontSize: "15px",
-    color: "var(--text-on-dark-muted)",
-    textDecoration: "none",
-  };
+  const heading: React.CSSProperties = { marginBottom: "var(--space-4)" };
+  const item: React.CSSProperties = { textDecoration: "none", color: "var(--c-muted)" };
 
   return (
     <footer
+      className="is-dark"
       style={{
         background: "var(--neutral-900)",
         color: "var(--text-on-dark)",
@@ -44,26 +31,17 @@ export function SiteFooter() {
         >
           <div>
             <Logo marca="alfra-grupo" fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "16px",
-                lineHeight: 1.65,
-                color: "var(--text-on-dark-muted)",
-                margin: 0,
-                maxWidth: "480px",
-              }}
-            >
+            <p className="t-small t-muted" style={{ maxWidth: "480px" }}>
               {BOILERPLATE.corto}
             </p>
           </div>
 
           <div className="hf-grid-2" style={{ gap: "var(--space-6)" }}>
             <div>
-              <div style={heading}>Unidades de negocio</div>
+              <div className="t-label" style={heading}>Unidades de negocio</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {EMPRESAS.map((e) => (
-                  <Link key={e.slug} href={`/unidades/${e.slug}`} style={item}>
+                  <Link key={e.slug} href={`/unidades/${e.slug}`} className="t-small" style={item}>
                     {e.nombre}
                   </Link>
                 ))}
@@ -71,26 +49,26 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <div style={heading}>Contacto</div>
+              <div className="t-label" style={heading}>Contacto</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {correo && (
-                  <a href={correo} style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                  <a href={correo} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
                     <Icon name="mail" size={16} color="var(--wood-300)" />
                     {CONTACTO.correo}
                   </a>
                 )}
                 {telefono && (
-                  <a href={telefono} style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                  <a href={telefono} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
                     <Icon name="phone" size={16} color="var(--wood-300)" />
                     {CONTACTO.telefono}
                   </a>
                 )}
-                <span style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                <span className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
                   <Icon name="map-pin" size={16} color="var(--wood-300)" />
                   {CONTACTO.ciudad}
                 </span>
-                <Link href="/contacto" style={{ ...item, color: "var(--wood-300)" }}>
-                  Empieza por una conversación
+                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--wood-300)" }}>
+                  Solicita información
                 </Link>
               </div>
             </div>
@@ -107,7 +85,7 @@ export function SiteFooter() {
             gap: "var(--space-4)",
           }}
         >
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(244,240,232,0.45)" }}>
+          <span className="t-label" style={{ letterSpacing: "0.08em", color: "rgba(244,240,232,0.45)" }}>
             © {new Date().getFullYear()} {GRUPO.nombre}
           </span>
         </div>

@@ -33,7 +33,7 @@ export function Select({ label, hint, id, options, containerStyle = {}, ...rest 
           style={{
             fontFamily: "var(--font-sans)",
             fontWeight: 600,
-            fontSize: "11px",
+            fontSize: "var(--fs-label)",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--text-muted)",
@@ -83,7 +83,7 @@ export function Select({ label, hint, id, options, containerStyle = {}, ...rest 
       </div>
 
       {hint && (
-        <span style={{ fontFamily: "var(--font-serif)", fontSize: "13px", color: "var(--text-muted)" }}>{hint}</span>
+        <span style={{ fontFamily: "var(--font-serif)", fontSize: "var(--fs-small)", color: "var(--text-muted)" }}>{hint}</span>
       )}
     </div>
   );

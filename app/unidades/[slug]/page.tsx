@@ -42,7 +42,7 @@ export default async function Page({ params }: PageProps<"/unidades/[slug]">) {
       <Argumento empresa={empresa} />
       <Servicios empresa={empresa} />
       <Audiencia empresa={empresa} />
-      <OtrasEmpresas excluir={empresa.slug} />
+      <OtrasEmpresas excluir={empresa.slug} fondo={empresa.argumentoCentral ? "var(--bg-page-alt)" : "var(--bg-page)"} />
       <Cierre />
     </>
   );

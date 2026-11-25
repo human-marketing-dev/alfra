@@ -83,19 +83,10 @@ export function Formulario() {
         >
           <Icon name="check" size={22} color="var(--green-700)" />
         </span>
-        <h2
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: "26px",
-            letterSpacing: "-0.02em",
-            color: "var(--text-strong)",
-            margin: 0,
-          }}
-        >
+        <h2 className="t-h3">
           Gracias.
         </h2>
-        <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", lineHeight: 1.6, color: "var(--text-body)", margin: 0 }}>
+        <p className="t-body">
           Abrimos tu programa de correo con la solicitud lista. Envíala y te conectamos con la unidad del grupo que
           resuelve tu proyecto.
         </p>
@@ -140,7 +131,7 @@ export function Formulario() {
       </Button>
 
       {!destino && (
-        <span style={{ fontFamily: "var(--font-serif)", fontSize: "14px", color: "var(--text-muted)" }}>
+        <span className="t-small t-muted">
           El buzón de contacto del grupo está por confirmar. En cuanto se defina, el envío queda activo.
         </span>
       )}
