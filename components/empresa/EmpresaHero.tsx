@@ -12,8 +12,8 @@ import { conCursivas } from "@/lib/tipografia";
 
 export function EmpresaHero({ empresa }: { empresa: Empresa }) {
   return (
-    <HeroFoto foto={empresa.heroImagen} bajoHeader priority className="hf-hero-unidad">
-      <div className="hf-container" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
+    <HeroFoto foto={empresa.heroImagen} bajoHeader priority>
+      <div className="hf-container hf-hero-pantalla" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
         <Link
           href="/#unidades"
           className="t-label"
@@ -21,7 +21,8 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            marginBottom: "var(--gap-block)",
+            marginBottom: "auto",
+            paddingBottom: "var(--gap-stack)",
             textDecoration: "none",
           }}
         >

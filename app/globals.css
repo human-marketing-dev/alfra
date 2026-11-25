@@ -221,8 +221,8 @@
   --gap-item:    var(--space-3);  /* 12 · dentro de una tarjeta */
   --pad-card:    var(--space-6);  /* 32 · relleno interior de tarjetas y paneles */
   --header-h:    84px;
-  --hero-top:    calc(var(--header-h) + var(--section-y));
-  --hero-bottom: var(--section-y);
+  --hero-top:    calc(var(--header-h) + var(--space-8)); /* header + 48 */
+  --hero-bottom: var(--space-9);                          /* 64 */
 
   /* Color contextual: cada clase .t-* lo toma de aquí, y `.is-dark`
      lo invierte para todo lo que esté adentro. */
@@ -532,19 +532,25 @@
   .hf-presencia-mapa { min-height: 340px; order: -1; }
 }
 
-/* Hero de unidad: las cuatro páginas miden exactamente lo mismo en
-   cada ancho. La altura es fija por tramo y cabe el texto más largo de
-   las cuatro; el sobrante queda abajo. Si un titular nuevo no cabe,
-   se sube --hero-unidad-h del tramo (ver DESIGN.md). */
-.hf-hero-unidad { height: var(--hero-unidad-h); }
-:root { --hero-unidad-h: 860px; }
-@media (max-width: 1080px) { :root { --hero-unidad-h: 780px; } }
-@media (max-width: 860px)  { :root { --hero-unidad-h: 790px; } }
-@media (max-width: 560px)  { :root { --hero-unidad-h: 920px; } }
-
-/* Hero del home: texto + mosaico de las cuatro unidades. */
-.hf-hero-inicio {
-  min-height: min(100svh, 920px);
+/* Heros a la altura de la pantalla (inicio y unidades).
+   El hero mide exactamente el alto visible (100svh) entre un mínimo y
+   un máximo; el header transparente va encima. El mínimo de cada tramo
+   cabe el texto más largo de las cuatro unidades, así que en una misma
+   pantalla los cuatro heros miden lo mismo. El contenido se alinea
+   abajo; el enlace de regreso, arriba. Ver DESIGN.md. */
+:root {
+  --hero-min: 600px;
+  --hero-max: 960px;
+}
+@media (max-width: 1080px) { :root { --hero-min: 620px; } }
+@media (max-width: 860px)  { :root { --hero-min: 640px; } }
+@media (max-width: 560px)  { :root { --hero-min: 760px; } }
+@media (max-width: 400px)  { :root { --hero-min: 800px; } }
+@media (max-width: 340px)  { :root { --hero-min: 830px; } }
+.hf-hero-pantalla {
+  /* min-height (no height) para que un texto nuevo más largo nunca
+     se desborde: crecería ese hero y se nota en la revisión. */
+  min-height: clamp(var(--hero-min), 100svh, var(--hero-max));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -681,6 +687,8 @@ a {
     --gap-columns: var(--space-7);  /* 40 */
     --pad-card: var(--space-5);     /* 24 */
     --header-h: 72px;
+    --hero-top: calc(var(--header-h) + var(--space-6));  /* header + 32 */
+    --hero-bottom: var(--space-7);  /* 40 */
   }
 }
 

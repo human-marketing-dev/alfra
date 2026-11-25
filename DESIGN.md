@@ -37,9 +37,10 @@ Base de 8 px (`--space-1` … `--space-12`), pero **los componentes no usan `--s
 | `--gap-item` | dentro de una tarjeta (etiqueta, título, texto) | 12 | 12 | 12 |
 | `--pad-card` | relleno de tarjetas, paneles y formulario | 32 | 32 | 24 |
 
-Heros: `--hero-top` = alto del header + `--section-y`; `--hero-bottom` = `--section-y`.
+Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 64 px (40 en móvil).
 
-- **Hero de unidad con altura fija** (`.hf-hero-unidad`, `--hero-unidad-h`): las cuatro páginas de unidad miden exactamente lo mismo en cada ancho — 860 px (escritorio), 780 px (≤1080), 790 px (≤860), 920 px (≤560). La altura cabe el texto más largo de las cuatro; si un titular nuevo no cabe, se sube el valor del tramo.
+- **Heros a la altura de la pantalla** (`.hf-hero-pantalla`, inicio y las cuatro unidades): miden el alto visible, `clamp(--hero-min, 100svh, --hero-max)`, con el header transparente encima, así que el hero completo con sus botones cabe en pantalla. Tope de 960 px. El mínimo por tramo (600 px escritorio, 620 ≤1080, 640 ≤860, 760 ≤560, 800 ≤400, 830 ≤340) cabe el texto más largo de las cuatro unidades, por eso en una misma pantalla los cuatro heros miden lo mismo. Si un titular nuevo no cabe, se ajusta el relleno o se sube `--hero-min` del tramo, nunca la tipografía. Probado en 1920×1080, 1440×900, 1440×800, 1366×768, 1280×720 y móviles.
+- El header no lleva `border`: su línea inferior es `box-shadow`, porque un borde suma 1 px al alto y deja una franja blanca sobre el hero.
 
 ## Componentes base
 

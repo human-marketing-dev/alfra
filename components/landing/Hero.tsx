@@ -19,10 +19,10 @@ export function Hero() {
   return (
     <HeroFoto bajoHeader priority id="top" foto={HERO_INICIO.foto} video={HERO_INICIO.video}>
       <div
-        className="hf-container hf-hero-inicio"
+        className="hf-container hf-hero-pantalla"
         style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
-        <div className="hf-enter" style={{ maxWidth: "880px" }}>
+        <div className="hf-enter" style={{ maxWidth: "1040px" }}>
           <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
             Grupo inmobiliario integral · Monterrey
           </Eyebrow>

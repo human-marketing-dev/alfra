@@ -84,8 +84,10 @@ export function SiteHeader() {
         background: scrolled || menu ? "rgba(255,255,255,0.88)" : "transparent",
         backdropFilter: scrolled || menu ? "saturate(120%) blur(12px)" : "none",
         WebkitBackdropFilter: scrolled || menu ? "saturate(120%) blur(12px)" : "none",
-        borderBottom: `1px solid ${scrolled || menu ? "var(--border-hair)" : "transparent"}`,
-        transition: "background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out)",
+        // Línea inferior como sombra, no como borde: un borde suma 1px al
+        // alto del header y el hero (que sube -84px) dejaría una franja.
+        boxShadow: scrolled || menu ? "inset 0 -1px 0 var(--border-hair)" : "none",
+        transition: "background var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out)",
       }}
     >
       <div
