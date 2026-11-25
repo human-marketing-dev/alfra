@@ -1,7 +1,7 @@
 "use client";
 
 /* ALFRA Input — a hairline-bordered field with an uppercase label. Square
-   edges; focus brings a wood-tone ring. Pass `as="textarea"` for multiline. */
+   edges; focus brings a blue ring. Pass `as="textarea"` for multiline. */
 import React from "react";
 
 export interface InputProps {

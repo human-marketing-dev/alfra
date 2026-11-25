@@ -22,7 +22,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
           <SectionHeading eyebrow="A quién sirve" title={conCursivas(promesa)} maxWidth="620px" />
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--gap-stack)", marginTop: "var(--gap-block)" }}>
             {quien && (
-              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--wood-400)" }}>
+              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--brand-400)" }}>
                 <div className="t-label" style={{ marginBottom: "var(--space-2)" }}>
                   Quién es
                 </div>
@@ -30,7 +30,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
               </div>
             )}
             {busca && (
-              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--wood-400)" }}>
+              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--brand-400)" }}>
                 <div className="t-label" style={{ marginBottom: "var(--space-2)" }}>
                   Qué busca
                 </div>

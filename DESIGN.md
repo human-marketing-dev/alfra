@@ -18,7 +18,7 @@ Los tokens y clases están en `app/globals.css`. Ningún componente escribe tama
 | `.t-label` | Etiqueta de dato | 11 px, tracking 0.14em | Montserrat 600 |
 | `.t-stat` | Cifras | 36 → 56 px | IBM Plex Mono |
 
-El color sale del contexto: dentro de `.is-dark` todo se invierte solo (blanco, crema y madera).
+El color sale del contexto: dentro de `.is-dark` todo se invierte solo (blancos y azul claro).
 
 ## Espaciado
 
@@ -39,13 +39,14 @@ Base de 8 px (`--space-1` … `--space-12`). Saltos fijos:
 
 ## Color
 
-- **Azul de marca `#2563EB`** (`--brand-700`): botones, enlaces, iconos y acentos. Hover `--brand-800` (`#1D4ED8`).
-- **Azul marino** (`--brand-900` `#142B6B`, `--brand-950` `#0B1634`): fondos oscuros de heros, pilares y cierre, y el velo sobre las fotos.
-- **Escala completa** `--brand-50` … `--brand-950` para fondos suaves (50–200) y estados.
-- **Madera** (`--wood-*`) como acento secundario: antetítulos sobre oscuro, halos del mapa.
-- **Neutros cálidos**: crema `--neutral-50`, carbón `--neutral-900`.
+Paleta solo de azules y blancos; no hay acentos cálidos.
 
-Contraste: blanco sobre `#2563EB` es 5.2:1 y `#2563EB` sobre crema es ≈4.7:1, ambos AA para texto normal. Radios mínimos (2–4 px), sombras bajas.
+- **Azul de marca `#2563EB`** (`--brand-700`): botones, enlaces, iconos, antetítulos y acentos. Hover `--brand-800` (`#1D4ED8`).
+- **Azul claro** (`--brand-300` `#93B4FD`): antetítulos, etiquetas e iconos sobre fondos oscuros; halos del mapa.
+- **Azul marino** (`--brand-950` `#0B1634`, `--neutral-900` `#0F1A33`): heros, pilares, cierre, pie y velo sobre fotos.
+- **Blancos y grises azulados**: blanco `--neutral-0`, página `--neutral-50` `#F6F8FC`, alterno `--neutral-100` `#EDF1F8`, líneas `--neutral-200`, texto `--neutral-800`.
+
+Contraste: blanco sobre `#2563EB` 5.2:1 y `#2563EB` sobre `#F6F8FC` ≈4.9:1, ambos AA. Radios mínimos (2–4 px), sombras bajas en azul marino.
 
 ## Mapa de presencia
 

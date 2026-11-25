@@ -4,7 +4,7 @@
 
    MapLibre GL con el estilo «Positron» de OpenFreeMap: mapa vectorial
    libre, sin API key ni cuota de pago (datos © OpenStreetMap). Al
-   cargar, el estilo se tiñe con la paleta crema/azul del sistema.
+   cargar, el estilo se tiñe con la paleta blanca/azul del sistema.
    Los marcadores son elementos propios (`.hf-pin`) y la lista de al
    lado controla el mapa: al elegir una ubicación, el mapa vuela a ella.
 
@@ -21,11 +21,11 @@ const ESTILO = "https://tiles.openfreemap.org/styles/positron";
 /* Capas de Positron que se tiñen con la paleta. Si el estilo cambia de
    nombres, simplemente no se tiñen: nada se rompe. */
 const TINTES: Array<[string, string, string]> = [
-  ["background", "background-color", "#F4F0E8"],
+  ["background", "background-color", "#F6F8FC"],
   ["water", "fill-color", "#C9D8F2"],
-  ["landcover_wood", "fill-color", "#E4E8EC"],
-  ["park", "fill-color", "#E4E8EC"],
-  ["landuse_residential", "fill-color", "#EFEAE0"],
+  ["landcover_wood", "fill-color", "#E8EEF6"],
+  ["park", "fill-color", "#E8EEF6"],
+  ["landuse_residential", "fill-color", "#EEF2F8"],
 ];
 
 export function MapaPresencia({ ubicaciones }: { ubicaciones: Ubicacion[] }) {
@@ -152,7 +152,7 @@ export function MapaPresencia({ ubicaciones }: { ubicaciones: Ubicacion[] }) {
             }}
           >
             <span style={{ display: "flex", alignItems: "center", gap: "10px" }} className="t-label">
-              <Icon name="map-pin" size={18} color="var(--wood-300)" />
+              <Icon name="map-pin" size={18} color="var(--brand-300)" />
               {estado === "cargando" ? "Cargando mapa" : ubicaciones.map((u) => u.nombre).join(" · ")}
             </span>
           </div>

@@ -14,7 +14,7 @@ import { HeroFoto } from "@/components/site/HeroFoto";
 
 const BOTON_CONTORNO: React.CSSProperties = {
   color: "var(--neutral-0)",
-  boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)",
+  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)",
 };
 
 export function Hero() {

@@ -8,7 +8,7 @@ const TONES: Record<Tone, { bg: string; fg: string; line: string }> = {
   neutral: { bg: "var(--neutral-100)", fg: "var(--neutral-700)", line: "var(--border-line)" },
   brand: { bg: "var(--brand-50)", fg: "var(--brand-700)", line: "var(--brand-200)" },
   forest: { bg: "var(--brand-700)", fg: "var(--neutral-0)", line: "transparent" },
-  wood: { bg: "var(--wood-100)", fg: "var(--wood-700)", line: "var(--wood-200)" },
+  wood: { bg: "var(--brand-100)", fg: "var(--brand-800)", line: "var(--brand-200)" },
   charcoal: { bg: "var(--neutral-900)", fg: "var(--neutral-50)", line: "transparent" },
   outline: { bg: "transparent", fg: "var(--text-strong)", line: "var(--border-strong)" },
 };

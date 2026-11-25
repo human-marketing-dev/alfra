@@ -22,7 +22,7 @@
    De cada marca ALFRA llegaron tres tintas —negro, blanco y color— y,
    aparte del logotipo completo, el isotipo suelto; de la matriz llegó
    además el lockup con la casa (`Alfra_Grupo_logo_casa_*`, un apilado
-   de ratio 1.60). El sistema es monocromo sobre fondo crema o carbón,
+   de ratio 1.60). El sistema es monocromo sobre fondo blanco o azul marino,
    así que aquí sólo entran negro y blanco del logotipo completo. El
    resto sigue en `public/logos/` para cuando haga falta.
 
@@ -35,7 +35,7 @@
    lleguen los nuevos, se agregan como una entrada más. */
 
 export interface Logo {
-  /** Versión para fondos claros —crema, superficie. */
+  /** Versión para fondos claros —blanco, superficie. */
   sobreClaro: string;
   /** Versión para fondos oscuros —hero, paneles azules, pie. */
   sobreOscuro: string;

@@ -47,7 +47,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 boxShadow: "inset 0 0 0 1px var(--c-line)",
               }}
             >
-              <Icon name={empresa.icono} size={22} color="var(--wood-300)" stroke={1.4} />
+              <Icon name={empresa.icono} size={22} color="var(--brand-300)" stroke={1.4} />
             </span>
             <span className="t-h3">{empresa.nombre}</span>
           </div>
@@ -69,7 +69,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 variant="ghost"
                 size="lg"
                 href="#servicios"
-                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
+                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)" }}
               >
                 Qué resuelve
               </Button>

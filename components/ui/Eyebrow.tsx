@@ -12,10 +12,10 @@ export interface EyebrowProps {
 }
 
 const COLOR: Record<NonNullable<EyebrowProps["tone"]>, string | undefined> = {
-  brand: undefined, // var(--c-brand): azul sobre claro, madera sobre oscuro
+  brand: undefined, // var(--c-brand): azul sobre claro, azul claro sobre oscuro
   muted: "var(--c-muted)",
   wood: "var(--c-accent)",
-  onDark: "var(--wood-300)",
+  onDark: "var(--brand-300)",
 };
 
 export function Eyebrow({ children, tone = "brand", as = "div", className = "", style = {} }: EyebrowProps) {

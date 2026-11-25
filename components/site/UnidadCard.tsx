@@ -34,7 +34,7 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
           />
         ) : (
           <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center" }}>
-            <Icon name={empresa.icono} size={40} color="var(--wood-300)" stroke={1.2} />
+            <Icon name={empresa.icono} size={40} color="var(--brand-300)" stroke={1.2} />
           </div>
         )}
         <div

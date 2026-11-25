@@ -32,7 +32,7 @@ export function Cierre({ foto }: { foto?: FotoFondo }) {
               target="_blank"
               rel="noopener noreferrer"
               leftIcon={<Icon name="message-circle" size={16} />}
-              style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
+              style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)" }}
             >
               Escribir por WhatsApp
             </Button>

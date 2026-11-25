@@ -53,21 +53,21 @@ export function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {correo && (
                   <a href={correo} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="mail" size={16} color="var(--wood-300)" />
+                    <Icon name="mail" size={16} color="var(--brand-300)" />
                     {CONTACTO.correo}
                   </a>
                 )}
                 {telefono && (
                   <a href={telefono} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="phone" size={16} color="var(--wood-300)" />
+                    <Icon name="phone" size={16} color="var(--brand-300)" />
                     {CONTACTO.telefono}
                   </a>
                 )}
                 <span className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                  <Icon name="map-pin" size={16} color="var(--wood-300)" />
+                  <Icon name="map-pin" size={16} color="var(--brand-300)" />
                   {CONTACTO.ciudad}
                 </span>
-                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--wood-300)" }}>
+                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--brand-300)" }}>
                   Solicita información
                 </Link>
               </div>
@@ -85,7 +85,7 @@ export function SiteFooter() {
             gap: "var(--space-4)",
           }}
         >
-          <span className="t-label" style={{ letterSpacing: "0.08em", color: "rgba(244,240,232,0.45)" }}>
+          <span className="t-label" style={{ letterSpacing: "0.08em", color: "rgba(255,255,255,0.45)" }}>
             © {new Date().getFullYear()} {GRUPO.nombre}
           </span>
         </div>
