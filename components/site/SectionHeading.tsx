@@ -1,6 +1,7 @@
-/* Encabezado de sección — el par antetítulo + titular que usan todos los
-   bloques. Centraliza la escala tipográfica para que la jerarquía sea la
-   misma en la landing y en las páginas de empresa. */
+/* Encabezado de sección — antetítulo + titular + entrada opcional.
+   Es el único lugar donde se arma esa terna: la jerarquía y los saltos
+   (--gap-eyebrow, --gap-title) salen del sistema de app/globals.css. El
+   color se adapta solo dentro de un contenedor `.is-dark`. */
 import React from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
@@ -8,43 +9,55 @@ export interface SectionHeadingProps {
   eyebrow?: React.ReactNode;
   title: React.ReactNode;
   lead?: React.ReactNode;
-  onDark?: boolean;
+  align?: "left" | "center";
   maxWidth?: string;
+  /** Nivel del titular. h2 por defecto; h1 sólo en heros. */
+  as?: "h1" | "h2";
+  /** "split": titular a la izquierda y entrada a la derecha (escritorio). */
+  layout?: "stack" | "split";
   style?: React.CSSProperties;
 }
 
-export function SectionHeading({ eyebrow, title, lead, onDark = false, maxWidth = "720px", style = {} }: SectionHeadingProps) {
+export function SectionHeading({
+  eyebrow,
+  title,
+  lead,
+  align = "left",
+  maxWidth = "760px",
+  as = "h2",
+  layout = "stack",
+  style = {},
+}: SectionHeadingProps) {
+  const Titulo = as;
+  if (layout === "split" && lead && align === "left") {
+    return (
+      <div className="hf-heading-split" data-reveal style={style}>
+        <div style={{ maxWidth }}>
+          {eyebrow && <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>{eyebrow}</Eyebrow>}
+          <Titulo className="t-h2">{title}</Titulo>
+        </div>
+        <p className="t-lead" style={{ maxWidth: "460px" }}>{lead}</p>
+      </div>
+    );
+  }
   return (
-    <div style={{ maxWidth, ...style }}>
+    <div
+      data-reveal
+      style={{
+        maxWidth,
+        marginInline: align === "center" ? "auto" : undefined,
+        textAlign: align,
+        ...style,
+      }}
+    >
       {eyebrow && (
-        <Eyebrow tone={onDark ? "onDark" : "brand"} rule style={{ marginBottom: "var(--space-4)" }}>
+        <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
           {eyebrow}
         </Eyebrow>
       )}
-      <h2
-        style={{
-          fontFamily: "var(--font-display)",
-          fontWeight: 700,
-          fontSize: "clamp(30px, 4vw, 52px)",
-          lineHeight: 1.06,
-          letterSpacing: "-0.02em",
-          color: onDark ? "var(--text-on-dark)" : "var(--text-strong)",
-          margin: lead ? "0 0 var(--space-4)" : 0,
-          textWrap: "balance",
-        }}
-      >
-        {title}
-      </h2>
+      <Titulo className="t-h2">{title}</Titulo>
       {lead && (
-        <p
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(17px, 1.5vw, 19px)",
-            lineHeight: 1.65,
-            color: onDark ? "var(--text-on-dark-muted)" : "var(--text-body)",
-            margin: 0,
-          }}
-        >
+        <p className="t-lead" style={{ marginTop: "var(--gap-title)" }}>
           {lead}
         </p>
       )}

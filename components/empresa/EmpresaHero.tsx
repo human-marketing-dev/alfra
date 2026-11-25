@@ -1,62 +1,27 @@
-/* Página de empresa — hero.
-   Ubica a la empresa en su frente del sector antes de decir nada más,
-   como pide el principio 05 del sistema verbal, y lleva la línea de
-   endoso del grupo que fija el brief §4. */
+/* Página de unidad — hero.
+   Breve a propósito: regreso a las unidades, nombre, titular, entrada y
+   llamadas a la acción. El frente del sector ya lo dicen la tarjeta y el
+   menú; la foto de la unidad va de fondo. */
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
-import { Logo } from "@/components/site/Logo";
-import { altoFirma } from "@/lib/logos";
-import { DarkBackdrop } from "@/components/site/DarkBackdrop";
-import { GRUPO } from "@/lib/grupo";
+import { HeroFoto } from "@/components/site/HeroFoto";
 import type { Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function EmpresaHero({ empresa }: { empresa: Empresa }) {
   return (
-    <section style={{ position: "relative", overflow: "hidden", marginTop: "-84px" }}>
-      <DarkBackdrop />
-      {/* Con fotografía, la imagen va sobre el fondo verde y un velo del
-          mismo verde la oscurece hacia la izquierda, donde vive el texto. */}
-      {empresa.heroImagen && (
-        <>
-          <Image
-            src={empresa.heroImagen.src}
-            alt={empresa.heroImagen.alt}
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: empresa.heroImagen.posicion ?? "60% 50%" }}
-          />
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(90deg, rgba(16,32,24,0.93) 0%, rgba(16,32,24,0.8) 42%, rgba(16,32,24,0.5) 100%), linear-gradient(180deg, rgba(16,32,24,0.35) 0%, rgba(16,32,24,0.1) 40%, rgba(16,32,24,0.7) 100%)",
-            }}
-          />
-        </>
-      )}
-
-      <div className="hf-container" style={{ position: "relative", paddingTop: "148px", paddingBottom: "var(--space-10)" }}>
+    <HeroFoto foto={empresa.heroImagen} bajoHeader priority className="hf-hero-unidad">
+      <div className="hf-container" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
         <Link
           href="/#unidades"
+          className="t-label"
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            marginBottom: "var(--space-7)",
-            fontFamily: "var(--font-sans)",
-            fontWeight: 600,
-            fontSize: "12px",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "rgba(244,240,232,0.7)",
+            marginBottom: "var(--gap-block)",
             textDecoration: "none",
           }}
         >
@@ -64,77 +29,32 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           Las unidades
         </Link>
 
-        <div style={{ maxWidth: "940px" }}>
-          <Eyebrow tone="onDark" rule style={{ marginBottom: "var(--space-4)" }}>
-            {empresa.frente}
-          </Eyebrow>
-
-          {/* Con logo entregado manda el logo; si no, el lockup tipográfico.
-              Hoy ninguna unidad tiene logotipo con su nombre nuevo, así
-              que todas usan este respaldo hasta que lleguen. */}
-          {empresa.logo ? (
-            <Logo
-              marca={empresa.logo}
-              fondo="oscuro"
-              alto={altoFirma(empresa.logo)}
-              priority
-              style={{ marginBottom: "var(--space-6)" }}
-            />
-          ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "var(--space-5)" }}>
-              <Icon name={empresa.icono} size={30} color="var(--wood-300)" stroke={1.4} />
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "clamp(20px, 2.4vw, 26px)",
-                  letterSpacing: "-0.01em",
-                  color: "var(--neutral-0)",
-                }}
-              >
-                {empresa.nombre}
-              </span>
-            </div>
-          )}
-
-          {/* Titular y resumen marcados «confirmar» quedan vacíos: se
-              omiten en lugar de dejar un hueco con su margen. */}
-          {empresa.titular && (
-            <h1
+        <div className="hf-enter" style={{ maxWidth: "940px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--gap-item)", marginBottom: "var(--gap-stack)" }}>
+            <span
               style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "clamp(34px, 5.4vw, 68px)",
-                lineHeight: 1.04,
-                letterSpacing: "-0.03em",
-                color: "var(--neutral-0)",
-                margin: "0 0 var(--space-5)",
-                textWrap: "balance",
+                width: 44,
+                height: 44,
+                display: "grid",
+                placeItems: "center",
+                borderRadius: "var(--radius-xs)",
+                boxShadow: "inset 0 0 0 1px var(--c-line)",
               }}
             >
-              {empresa.titular}
-            </h1>
-          )}
+              <Icon name={empresa.icono} size={22} color="var(--brand-300)" stroke={1.4} />
+            </span>
+            <span className="t-h3">{empresa.nombre}</span>
+          </div>
+
+          {empresa.titular && <h1 className="t-h1">{empresa.titular}</h1>}
 
           {empresa.resumen && (
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "clamp(17px, 1.7vw, 20px)",
-                lineHeight: 1.6,
-                color: "rgba(244,240,232,0.86)",
-                maxWidth: "640px",
-                margin: "0 0 var(--space-7)",
-              }}
-            >
+            <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
               {conCursivas(empresa.resumen)}
             </p>
           )}
 
-          {/* El sitio no enlaza a sitios externos: las unidades viven aquí.
-              «Qué resuelve» sólo aparece si hay servicios que ver —sin
-              ellos el ancla no lleva a nada. */}
-          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
             <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
               Solicita información
             </Button>
@@ -143,30 +63,14 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 variant="ghost"
                 size="lg"
                 href="#servicios"
-                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
+                style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)" }}
               >
                 Qué resuelve
               </Button>
             )}
           </div>
-
-          <div
-            style={{
-              marginTop: "var(--space-8)",
-              paddingTop: "var(--space-5)",
-              borderTop: "1px solid var(--border-on-dark)",
-              fontFamily: "var(--font-sans)",
-              fontWeight: 600,
-              fontSize: "11px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--wood-300)",
-            }}
-          >
-            {GRUPO.lineaRespaldo}
-          </div>
         </div>
       </div>
-    </section>
+    </HeroFoto>
   );
 }

@@ -1,41 +1,30 @@
-/* ALFRA Eyebrow — the wide-tracked uppercase overline derived from the
-   "DESARROLLOS" treatment. Optionally prefixed with a short rule. */
+/* ALFRA Eyebrow — antetítulo en versales con tracking amplio, sin
+   regla decorativa. El tamaño y el color vienen de `.t-eyebrow`
+   (app/globals.css); `tone` sólo lo cambia cuando hace falta. */
 import React from "react";
 
 export interface EyebrowProps {
   children?: React.ReactNode;
   tone?: "brand" | "muted" | "wood" | "onDark";
-  rule?: boolean;
   as?: React.ElementType;
+  className?: string;
   style?: React.CSSProperties;
 }
 
-export function Eyebrow({ children, tone = "brand", rule = false, as = "div", style = {} }: EyebrowProps) {
-  const color =
-    tone === "muted"
-      ? "var(--text-muted)"
-      : tone === "wood"
-        ? "var(--text-accent)"
-        : tone === "onDark"
-          ? "var(--wood-300)"
-          : "var(--text-brand)";
+const COLOR: Record<NonNullable<EyebrowProps["tone"]>, string | undefined> = {
+  brand: undefined, // var(--c-brand): azul sobre claro, azul claro sobre oscuro
+  muted: "var(--c-muted)",
+  wood: "var(--c-accent)",
+  onDark: "var(--brand-300)",
+};
+
+export function Eyebrow({ children, tone = "brand", as = "div", className = "", style = {} }: EyebrowProps) {
   const Tag: React.ElementType = as;
   return (
     <Tag
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "12px",
-        fontFamily: "var(--font-sans)",
-        fontWeight: 600,
-        fontSize: "12px",
-        letterSpacing: "0.18em",
-        textTransform: "uppercase",
-        color,
-        ...style,
-      }}
+      className={`t-eyebrow ${className}`}
+      style={{ display: "block", color: COLOR[tone], ...style }}
     >
-      {rule && <span style={{ width: "28px", height: "1px", background: "currentColor", opacity: 0.55, flex: "none" }} />}
       {children}
     </Tag>
   );

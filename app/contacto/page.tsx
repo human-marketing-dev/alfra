@@ -2,14 +2,14 @@
 
    Es la ruta única para quien llega sin destino definido: recoge la
    solicitud, la clasifica por frente del sector y de ahí sale la
-   conexión con la unidad que la ejecuta. El bloque de cierre de la
-   landing y el header apuntan aquí. */
+   conexión con la unidad que la ejecuta. */
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { DarkBackdrop } from "@/components/site/DarkBackdrop";
+import { HeroFoto } from "@/components/site/HeroFoto";
 import { Formulario } from "@/components/contacto/Formulario";
 import { DatosDirectos } from "@/components/contacto/DatosDirectos";
 import { OtrasEmpresas } from "@/components/empresa/OtrasEmpresas";
+import { empresaPorSlug } from "@/lib/empresas";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -20,81 +20,31 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <section style={{ position: "relative", overflow: "hidden", marginTop: "-84px" }}>
-        <DarkBackdrop />
-
-        <div
-          className="hf-container"
-          style={{ position: "relative", paddingTop: "160px", paddingBottom: "var(--space-9)" }}
-        >
+      <HeroFoto foto={empresaPorSlug("alfra-asesores-inmobiliarios")?.heroImagen} bajoHeader priority>
+        <div className="hf-container" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
           <div style={{ maxWidth: "820px" }}>
-            <Eyebrow tone="onDark" rule style={{ marginBottom: "var(--space-5)" }}>
+            <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
               Contacto
             </Eyebrow>
-            <h1
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "clamp(38px, 5.6vw, 72px)",
-                lineHeight: 1.03,
-                letterSpacing: "-0.03em",
-                color: "var(--neutral-0)",
-                margin: "0 0 var(--space-5)",
-                textWrap: "balance",
-              }}
-            >
-              Empieza por una conversación.
-            </h1>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "clamp(17px, 1.7vw, 20px)",
-                lineHeight: 1.6,
-                color: "rgba(244,240,232,0.86)",
-                maxWidth: "640px",
-                margin: 0,
-              }}
-            >
-              Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve. Si
-              todavía no sabes por dónde entrar, escríbenos igual: para eso está el grupo completo.
+            <h1 className="t-h1">Solicita información.</h1>
+            <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
+              Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve. Si todavía
+              no sabes por dónde entrar, escríbenos igual: para eso está el grupo completo.
             </p>
           </div>
         </div>
-      </section>
+      </HeroFoto>
 
       <section className="hf-section" style={{ background: "var(--bg-page)" }}>
         <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
           <div>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "clamp(26px, 2.6vw, 34px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                color: "var(--text-strong)",
-                margin: "0 0 var(--space-4)",
-              }}
-            >
-              Cuéntanos qué tienes en mente.
-            </h2>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "17px",
-                lineHeight: 1.65,
-                color: "var(--text-body)",
-                margin: "0 0 var(--space-7)",
-                maxWidth: "460px",
-              }}
-            >
-              Marca el frente que más se parece a tu proyecto y la solicitud llega a la unidad que lo atiende. Si no
-              es claro cuál, deja la opción abierta y lo resolvemos en la primera conversación.
+            <h2 className="t-h2">Cuéntanos qué tienes en mente.</h2>
+            <p className="t-body measure-sm" style={{ marginTop: "var(--gap-title)", marginBottom: "var(--gap-actions)" }}>
+              Marca el frente que más se parece a tu proyecto y la solicitud llega a la unidad que lo atiende. Si no es
+              claro cuál, deja la opción abierta y lo resolvemos en la primera conversación.
             </p>
-
             <DatosDirectos />
           </div>
-
           <Formulario />
         </div>
       </section>

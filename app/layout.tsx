@@ -3,6 +3,7 @@ import { Montserrat, Spectral, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { Reveal } from "@/components/site/Reveal";
 import { EMPRESAS, enLetras } from "@/lib/empresas";
 
 /* Las tres familias del design system. Se exponen como variables CSS y
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <Reveal />
       </body>
     </html>
   );

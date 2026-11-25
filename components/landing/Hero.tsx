@@ -1,82 +1,47 @@
 /* Landing · bloque 01 — Hero.
-   Antetítulo, titular, subtitular y dos botones, tal como los fija la
-   Landing Corporativa v1.0. El titular es la idea rectora del brief. */
+   Titular con la idea rectora sobre un video de fondo a pantalla
+   completa (ruta en `HERO_INICIO`, lib/grupo.ts). Mientras el video no
+   exista, se ve la foto de respaldo con el mismo velo azul marino. */
 import React from "react";
 import { EMPRESAS, enLetras } from "@/lib/empresas";
+import { HERO_INICIO } from "@/lib/grupo";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
-import { DarkBackdrop } from "@/components/site/DarkBackdrop";
+import { HeroFoto } from "@/components/site/HeroFoto";
+
+const BOTON_CONTORNO: React.CSSProperties = {
+  color: "var(--neutral-0)",
+  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)",
+};
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      style={{
-        position: "relative",
-        display: "flex",
-        alignItems: "flex-end",
-        minHeight: "clamp(560px, 88vh, 900px)",
-        overflow: "hidden",
-        marginTop: "-84px",
-      }}
-    >
-      <DarkBackdrop />
-
+    <HeroFoto bajoHeader priority id="top" foto={HERO_INICIO.foto} video={HERO_INICIO.video}>
       <div
-        className="hf-container"
-        style={{ position: "relative", paddingTop: "168px", paddingBottom: "var(--space-10)" }}
+        className="hf-container hf-hero-inicio"
+        style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
-        <div style={{ maxWidth: "980px" }}>
-          <Eyebrow tone="onDark" rule style={{ marginBottom: "var(--space-5)" }}>
-            Grupo Inmobiliario en Monterrey
+        <div className="hf-enter" style={{ maxWidth: "880px" }}>
+          <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
+            Grupo inmobiliario integral · Monterrey
           </Eyebrow>
-
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 800,
-              fontSize: "clamp(40px, 6.4vw, 84px)",
-              lineHeight: 1.02,
-              letterSpacing: "-0.03em",
-              color: "var(--neutral-0)",
-              margin: "0 0 var(--space-5)",
-              textWrap: "balance",
-            }}
-          >
-            Convertimos oportunidades inmobiliarias en negocio.
-          </h1>
-
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(17px, 1.8vw, 21px)",
-              lineHeight: 1.6,
-              color: "rgba(244,240,232,0.86)",
-              maxWidth: "660px",
-              margin: "0 0 var(--space-7)",
-            }}
-          >
+          <h1 className="t-display">Convertimos oportunidades inmobiliarias en negocio.</h1>
+          <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
             ALFRA Grupo Inmobiliario opera {enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría
             inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Cada oportunidad tiene adentro una
             unidad que la ejecuta.
           </p>
-
-          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
             <Button variant="inverse" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
               Ver las unidades
             </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              href="/#contacto"
-              style={{ color: "var(--neutral-0)", boxShadow: "inset 0 0 0 1px rgba(244,240,232,0.4)" }}
-            >
+            <Button variant="ghost" size="lg" href="/contacto" style={BOTON_CONTORNO}>
               Solicita información
             </Button>
           </div>
         </div>
       </div>
-    </section>
+    </HeroFoto>
   );
 }

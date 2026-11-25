@@ -1,68 +1,65 @@
-/* Página de empresa — qué resuelve.
-   Los frentes de trabajo de la unidad, numerados, con el mismo
-   tratamiento de retícula del sistema. Sin servicios confirmados en
-   `lib/empresas.ts`, la sección no se pinta. */
+/* Página de unidad — qué resuelve.
+   Las capacidades de la unidad como tarjetas numeradas. La retícula se
+   ajusta a cuántas son (3 o 4). Sin servicios confirmados, no se pinta. */
 import React from "react";
+import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { enLetras, type Empresa } from "@/lib/empresas";
 import { conCursivas } from "@/lib/tipografia";
 
 export function Servicios({ empresa }: { empresa: Empresa }) {
-  if (empresa.servicios.length === 0) return null;
+  const n = empresa.servicios.length;
+  if (n === 0) return null;
 
   return (
-    <section id="servicios" className="hf-section" style={{ background: "var(--bg-page)" }}>
+    <section
+      id="servicios"
+      className="hf-section"
+      style={{ background: empresa.argumentoCentral ? "var(--bg-page-alt)" : "var(--bg-page)" }}
+    >
       <div className="hf-container">
-        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en ${enLetras(empresa.servicios.length)} capacidades.`} />
+        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en ${enLetras(n)} capacidades.`} />
 
-        <div
-          className={empresa.servicios.length === 3 ? "hf-grid-3" : "hf-grid-4"}
-          style={{ marginTop: "var(--space-8)", gap: 0, borderTop: "1px solid var(--border-hair)" }}
-        >
+        <div className={n === 3 ? "hf-grid-3" : "hf-grid-4"} data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {empresa.servicios.map((s, i) => (
             <div
               key={s.titulo}
+              className="hf-tile"
               style={{
-                padding: "var(--space-6) var(--space-5) var(--space-6) 0",
-                paddingLeft: i > 0 ? "var(--space-5)" : 0,
-                borderRight: i < empresa.servicios.length - 1 ? "1px solid var(--border-hair)" : "none",
+                background: "var(--surface)",
+                borderRadius: "var(--radius-sm)",
+                padding: "var(--pad-card)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "var(--gap-item)",
               }}
             >
-              <span
+              <div
                 style={{
-                  display: "block",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  color: "var(--text-accent)",
-                  marginBottom: "var(--space-5)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "var(--gap-item)",
                 }}
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 600,
-                  fontSize: "20px",
-                  letterSpacing: "-0.01em",
-                  lineHeight: 1.2,
-                  color: "var(--text-strong)",
-                  margin: "0 0 10px",
-                }}
-              >
-                {conCursivas(s.titulo)}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "15px",
-                  lineHeight: 1.6,
-                  color: "var(--text-body)",
-                  margin: 0,
-                }}
-              >
-                {conCursivas(s.descripcion)}
-              </p>
+                <span className="t-stat" style={{ fontSize: "var(--fs-h3)", color: "var(--text-accent)" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  style={{
+                    width: 36,
+                    height: 36,
+                    display: "grid",
+                    placeItems: "center",
+                    borderRadius: "var(--radius-xs)",
+                    background: "var(--brand-50)",
+                  }}
+                >
+                  <Icon name="check" size={16} color="var(--brand-700)" />
+                </span>
+              </div>
+              <h3 className="t-h4">{conCursivas(s.titulo)}</h3>
+              <p className="t-small">{conCursivas(s.descripcion)}</p>
             </div>
           ))}
         </div>

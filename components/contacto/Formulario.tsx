@@ -61,7 +61,7 @@ export function Formulario() {
           background: "var(--surface)",
           boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-md)",
           borderRadius: "var(--radius-sm)",
-          padding: "var(--space-7)",
+          padding: "var(--pad-card)",
           minHeight: "420px",
           display: "flex",
           flexDirection: "column",
@@ -75,27 +75,18 @@ export function Formulario() {
             width: "48px",
             height: "48px",
             borderRadius: "999px",
-            background: "var(--green-50)",
+            background: "var(--brand-50)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Icon name="check" size={22} color="var(--green-700)" />
+          <Icon name="check" size={22} color="var(--brand-700)" />
         </span>
-        <h2
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: "26px",
-            letterSpacing: "-0.02em",
-            color: "var(--text-strong)",
-            margin: 0,
-          }}
-        >
+        <h2 className="t-h3">
           Gracias.
         </h2>
-        <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", lineHeight: 1.6, color: "var(--text-body)", margin: 0 }}>
+        <p className="t-body">
           Abrimos tu programa de correo con la solicitud lista. Envíala y te conectamos con la unidad del grupo que
           resuelve tu proyecto.
         </p>
@@ -113,7 +104,7 @@ export function Formulario() {
         background: "var(--surface)",
         boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-md)",
         borderRadius: "var(--radius-sm)",
-        padding: "var(--space-7)",
+        padding: "var(--pad-card)",
         display: "flex",
         flexDirection: "column",
         gap: "var(--space-4)",
@@ -140,7 +131,7 @@ export function Formulario() {
       </Button>
 
       {!destino && (
-        <span style={{ fontFamily: "var(--font-serif)", fontSize: "14px", color: "var(--text-muted)" }}>
+        <span className="t-small t-muted">
           El buzón de contacto del grupo está por confirmar. En cuanto se defina, el envío queda activo.
         </span>
       )}

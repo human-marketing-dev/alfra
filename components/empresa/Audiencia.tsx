@@ -1,11 +1,9 @@
-/* Página de empresa — a quién sirve.
-   Toma el público del brief §5 y §6 que corresponde a esta unidad: quién es,
-   qué busca y qué le dice ALFRA. El panel lateral lleva el modelo de
-   referencia y, cuando existen, las pruebas publicables.
-
-   Con la audiencia todavía marcada «confirmar» en `lib/empresas.ts`, la
-   sección entera no se pinta: nada se inventa ni queda en hueco. */
+/* Página de unidad — a quién sirve.
+   Texto a la izquierda (promesa, quién es, qué busca) y, a la derecha,
+   la fotografía de la unidad con el modelo de referencia y las pruebas
+   publicables montados encima. Lo marcado «confirmar» no se pinta. */
 import React from "react";
+import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import type { Empresa } from "@/lib/empresas";
@@ -14,88 +12,97 @@ import { conCursivas } from "@/lib/tipografia";
 export function Audiencia({ empresa }: { empresa: Empresa }) {
   const { promesa, quien, busca } = empresa.audiencia;
   if (!promesa && !quien && !busca && !empresa.modeloReferencia) return null;
-
-  const label: React.CSSProperties = {
-    fontFamily: "var(--font-sans)",
-    fontWeight: 600,
-    fontSize: "11px",
-    letterSpacing: "0.14em",
-    textTransform: "uppercase",
-    color: "var(--text-muted)",
-    marginBottom: "var(--space-2)",
-  };
-
-  const body: React.CSSProperties = {
-    fontFamily: "var(--font-serif)",
-    fontSize: "17px",
-    lineHeight: 1.65,
-    color: "var(--text-body)",
-    margin: 0,
-  };
+  const foto = empresa.heroImagen;
+  const fondo = empresa.argumentoCentral ? "var(--bg-page)" : "var(--bg-page-alt)";
 
   return (
-    <section className="hf-section" style={{ background: "var(--bg-page-alt)" }}>
-      <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
+    <section className="hf-section" style={{ background: fondo }}>
+      <div className="hf-container hf-grid-2" style={{ alignItems: "center" }}>
         <div>
           <SectionHeading eyebrow="A quién sirve" title={conCursivas(promesa)} maxWidth="620px" />
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", marginTop: "var(--space-7)" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--gap-stack)", marginTop: "var(--gap-block)" }}>
             {quien && (
-              <div>
-                <div style={label}>Quién es</div>
-                <p style={body}>{conCursivas(quien)}</p>
+              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--brand-400)" }}>
+                <div className="t-label" style={{ marginBottom: "var(--space-2)" }}>
+                  Quién es
+                </div>
+                <p className="t-body">{conCursivas(quien)}</p>
               </div>
             )}
             {busca && (
-              <div>
-                <div style={label}>Qué busca</div>
-                <p style={body}>{conCursivas(busca)}</p>
+              <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--brand-400)" }}>
+                <div className="t-label" style={{ marginBottom: "var(--space-2)" }}>
+                  Qué busca
+                </div>
+                <p className="t-body">{conCursivas(busca)}</p>
               </div>
             )}
-
           </div>
         </div>
 
-        <div
-          style={{
-            background: "var(--surface)",
-            boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-sm)",
-            borderRadius: "var(--radius-sm)",
-            padding: "var(--space-7)",
-          }}
-        >
-          {empresa.modeloReferencia && (
-            <>
-              <div style={label}>Modelo de referencia</div>
-              <p
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 600,
-                  fontSize: "20px",
-                  lineHeight: 1.3,
-                  letterSpacing: "-0.01em",
-                  color: "var(--text-strong)",
-                  margin: 0,
-                }}
-              >
-                {empresa.modeloReferencia}
-              </p>
-            </>
+        <div className={foto ? "hf-audiencia-media" : undefined} style={{ position: "relative" }}>
+          {foto && (
+            <div
+              style={{
+                position: "relative",
+                aspectRatio: "4 / 3",
+                borderRadius: "var(--radius-md)",
+                overflow: "hidden",
+                boxShadow: "var(--shadow-md)",
+              }}
+            >
+              <Image
+                src={foto.src}
+                alt={foto.alt}
+                fill
+                sizes="(max-width: 860px) 100vw, 50vw"
+                style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
+              />
+            </div>
           )}
 
-          {empresa.pruebas.length > 0 && (
-            <div style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-6)", borderTop: "1px solid var(--border-hair)" }}>
-              <div style={label}>Capacidad instalada</div>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-                {empresa.pruebas.map((p) => (
-                  <li key={p} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <Icon name="check" size={17} color="var(--green-700)" style={{ marginTop: "4px" }} />
-                    <span style={{ fontFamily: "var(--font-serif)", fontSize: "16px", lineHeight: 1.55, color: "var(--text-body)" }}>
-                      {p}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          {(empresa.modeloReferencia || empresa.pruebas.length > 0) && (
+            <div
+              className={foto ? "hf-audiencia-panel" : undefined}
+              style={{
+                position: foto ? "absolute" : "static",
+                left: "var(--space-6)",
+                right: "var(--space-6)",
+                bottom: 0,
+                background: "var(--surface)",
+                boxShadow: "inset 0 0 0 1px var(--border-hair), var(--shadow-lg)",
+                borderRadius: "var(--radius-sm)",
+                padding: "var(--pad-card)",
+              }}
+            >
+              {empresa.modeloReferencia && (
+                <>
+                  <div className="t-label" style={{ marginBottom: "var(--space-2)" }}>
+                    Modelo
+                  </div>
+                  <p className="t-h4">{empresa.modeloReferencia}</p>
+                </>
+              )}
+              {empresa.pruebas.length > 0 && (
+                <ul
+                  style={{
+                    listStyle: "none",
+                    margin: "var(--gap-stack) 0 0",
+                    padding: "var(--gap-stack) 0 0",
+                    borderTop: "1px solid var(--border-hair)",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                    gap: "var(--gap-item) var(--gap-stack)",
+                  }}
+                >
+                  {empresa.pruebas.map((p) => (
+                    <li key={p} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+                      <Icon name="check" size={16} color="var(--brand-700)" style={{ marginTop: "4px", flex: "none" }} />
+                      <span className="t-small">{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>

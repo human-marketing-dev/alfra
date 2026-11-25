@@ -1,7 +1,7 @@
 "use client";
 
 /* Header pegajoso: transparente sobre el hero oscuro, se vuelve barra
-   crema al hacer scroll. El contenido va dentro de .hf-container, así que
+   blanca al hacer scroll. El contenido va dentro de .hf-container, así que
    se alinea al mismo eje de 1450px que el resto del sitio.
 
    «Unidades» abre un panel con todas: se despliega al pasar el cursor
@@ -19,7 +19,7 @@ import { GRUPO } from "@/lib/grupo";
 const ENLACE: React.CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontWeight: 600,
-  fontSize: "12px",
+  fontSize: "var(--fs-eyebrow)",
   letterSpacing: "0.12em",
   textTransform: "uppercase",
   textDecoration: "none",
@@ -73,7 +73,7 @@ export function SiteHeader() {
   };
 
   const onDark = !scrolled && !menu;
-  const color = onDark ? "rgba(244,240,232,0.92)" : "var(--text-body)";
+  const color = onDark ? "rgba(255,255,255,0.92)" : "var(--text-body)";
 
   return (
     <header
@@ -81,7 +81,7 @@ export function SiteHeader() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: scrolled || menu ? "rgba(251,249,244,0.88)" : "transparent",
+        background: scrolled || menu ? "rgba(255,255,255,0.88)" : "transparent",
         backdropFilter: scrolled || menu ? "saturate(120%) blur(12px)" : "none",
         WebkitBackdropFilter: scrolled || menu ? "saturate(120%) blur(12px)" : "none",
         borderBottom: `1px solid ${scrolled || menu ? "var(--border-hair)" : "transparent"}`,
@@ -105,7 +105,7 @@ export function SiteHeader() {
           style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
         >
           {/* Las dos versiones se montan a la vez y se cruzan por opacidad:
-              así el cambio al pasar a barra crema no espera a una descarga. */}
+              así el cambio al pasar a barra blanca no espera a una descarga. */}
           <span style={{ position: "relative", display: "block", lineHeight: 0 }}>
             <Logo marca="alfra-grupo" fondo="claro" alto={30} priority />
             <Logo
@@ -184,7 +184,7 @@ export function SiteHeader() {
                       borderTop: "1px solid var(--border-hair)",
                       fontFamily: "var(--font-sans)",
                       fontWeight: 600,
-                      fontSize: "11px",
+                      fontSize: "var(--fs-label)",
                       letterSpacing: "0.14em",
                       textTransform: "uppercase",
                       color: "var(--text-brand)",
@@ -316,13 +316,13 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
         transition: "background var(--dur-fast) var(--ease-out)",
       }}
     >
-      <Icon name={empresa.icono} size={19} color="var(--green-700)" stroke={1.4} />
+      <Icon name={empresa.icono} size={19} color="var(--brand-700)" stroke={1.4} />
       <span style={{ display: "flex", flexDirection: "column", gap: "3px", minWidth: 0 }}>
         <span
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 600,
-            fontSize: "14px",
+            fontSize: "var(--fs-small)",
             letterSpacing: "-0.005em",
             color: "var(--text-strong)",
             lineHeight: 1.25,
@@ -334,7 +334,7 @@ function EnlaceEmpresa({ empresa, onNavigate }: { empresa: Empresa; onNavigate: 
           style={{
             fontFamily: "var(--font-sans)",
             fontWeight: 600,
-            fontSize: "10px",
+            fontSize: "var(--fs-label)",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--text-accent)",

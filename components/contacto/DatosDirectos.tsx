@@ -12,33 +12,15 @@ export function DatosDirectos() {
     { icono: "map-pin", etiqueta: "Sede", valor: CONTACTO.ciudad, href: null },
   ].filter((v) => v.valor && (v.href !== null || v.etiqueta === "Sede"));
 
-  const etiqueta: React.CSSProperties = {
-    fontFamily: "var(--font-sans)",
-    fontWeight: 600,
-    fontSize: "11px",
-    letterSpacing: "0.14em",
-    textTransform: "uppercase",
-    color: "var(--text-muted)",
-    marginBottom: "3px",
-  };
-
-  const valor: React.CSSProperties = {
-    fontFamily: "var(--font-serif)",
-    fontSize: "17px",
-    lineHeight: 1.4,
-    color: "var(--text-strong)",
-    textDecoration: "none",
-  };
-
   return (
     <div style={{ borderTop: "1px solid var(--border-hair)" }}>
       {vias.map((v) => {
         const contenido = (
           <>
-            <Icon name={v.icono} size={19} color="var(--green-700)" stroke={1.5} style={{ marginTop: "5px" }} />
+            <Icon name={v.icono} size={19} color="var(--brand-700)" stroke={1.5} style={{ marginTop: "5px" }} />
             <span style={{ display: "flex", flexDirection: "column" }}>
-              <span style={etiqueta}>{v.etiqueta}</span>
-              <span style={valor}>{v.valor}</span>
+              <span className="t-label" style={{ marginBottom: "3px" }}>{v.etiqueta}</span>
+              <span className="t-body" style={{ color: "var(--text-strong)" }}>{v.valor}</span>
             </span>
           </>
         );

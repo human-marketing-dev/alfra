@@ -1,7 +1,7 @@
 "use client";
 
 /* ALFRA Input — a hairline-bordered field with an uppercase label. Square
-   edges; focus brings a wood-tone ring. Pass `as="textarea"` for multiline. */
+   edges; focus brings a blue ring. Pass `as="textarea"` for multiline. */
 import React from "react";
 
 export interface InputProps {
@@ -44,7 +44,7 @@ export function Input({
           style={{
             fontFamily: "var(--font-sans)",
             fontWeight: 600,
-            fontSize: "11px",
+            fontSize: "var(--fs-label)",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--text-muted)",
@@ -78,7 +78,7 @@ export function Input({
         {...rest}
       />
       {(hint || error) && (
-        <span style={{ fontFamily: "var(--font-serif)", fontSize: "13px", color: error ? "var(--critical)" : "var(--text-muted)" }}>
+        <span style={{ fontFamily: "var(--font-serif)", fontSize: "var(--fs-small)", color: error ? "var(--critical)" : "var(--text-muted)" }}>
           {error || hint}
         </span>
       )}

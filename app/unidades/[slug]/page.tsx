@@ -9,6 +9,7 @@ import { EmpresaHero } from "@/components/empresa/EmpresaHero";
 import { Servicios } from "@/components/empresa/Servicios";
 import { Argumento } from "@/components/empresa/Argumento";
 import { Audiencia } from "@/components/empresa/Audiencia";
+import { Presencia } from "@/components/empresa/Presencia";
 import { OtrasEmpresas } from "@/components/empresa/OtrasEmpresas";
 import { Cierre } from "@/components/landing/Cierre";
 
@@ -42,7 +43,8 @@ export default async function Page({ params }: PageProps<"/unidades/[slug]">) {
       <Argumento empresa={empresa} />
       <Servicios empresa={empresa} />
       <Audiencia empresa={empresa} />
-      <OtrasEmpresas excluir={empresa.slug} />
+      <Presencia empresa={empresa} fondo={empresa.argumentoCentral ? "var(--bg-page-alt)" : "var(--bg-page)"} />
+      <OtrasEmpresas excluir={empresa.slug} fondo={empresa.argumentoCentral ? "var(--bg-page)" : "var(--bg-page-alt)"} />
       <Cierre />
     </>
   );
