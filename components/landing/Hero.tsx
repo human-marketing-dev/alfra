@@ -1,7 +1,7 @@
 /* Landing · bloque 01 — Hero.
-   Titular con la idea rectora sobre un video de fondo a pantalla
-   completa (ruta en `HERO_INICIO`, lib/grupo.ts). Mientras el video no
-   exista, se ve la foto de respaldo con el mismo velo azul marino. */
+   Titular con la idea rectora en el bloque azul marino y, al lado, el
+   video (ruta en `HERO_INICIO`, lib/grupo.ts). Mientras el video no
+   exista, se ve la foto de respaldo. */
 import React from "react";
 import { EMPRESAS, enLetras } from "@/lib/empresas";
 import { HERO_INICIO } from "@/lib/grupo";
@@ -22,7 +22,7 @@ export function Hero() {
         className="hf-container hf-hero-pantalla"
         style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}
       >
-        <div className="hf-enter" style={{ maxWidth: "1040px" }}>
+        <div className="hf-enter hf-hero-texto">
           <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
             Grupo inmobiliario integral · Monterrey
           </Eyebrow>

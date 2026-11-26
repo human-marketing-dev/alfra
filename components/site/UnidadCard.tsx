@@ -37,14 +37,6 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
             <Icon name={empresa.icono} size={40} color="var(--brand-300)" stroke={1.2} />
           </div>
         )}
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(180deg, rgba(11,22,52,0) 45%, rgba(11,22,52,0.55) 100%)",
-          }}
-        />
         <span
           style={{
             position: "absolute",

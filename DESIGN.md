@@ -41,7 +41,7 @@ Base de 8 px (`--space-1` … `--space-12`), pero **los componentes no usan `--s
 
 Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 64 px (40 en móvil).
 
-- **Heros a la altura de la pantalla** (`.hf-hero-pantalla`, inicio y las cuatro unidades): miden el alto visible, `clamp(--hero-min, 100svh, --hero-max)`, con el header transparente encima, así que el hero completo con sus botones cabe en pantalla. Tope de 960 px. El mínimo por tramo (600 px escritorio, 620 ≤1080, 640 ≤860, 760 ≤560, 800 ≤400, 830 ≤340) cabe el texto más largo de las cuatro unidades, por eso en una misma pantalla los cuatro heros miden lo mismo. Si un titular nuevo no cabe, se ajusta el relleno o se sube `--hero-min` del tramo, nunca la tipografía. Probado en 1920×1080, 1440×900, 1440×800, 1366×768, 1280×720 y móviles.
+- **Heros a la altura de la pantalla** (en escritorio; en ≤1080 el bloque de texto usa `--hero-texto-min` y la foto va debajo) (`.hf-hero-pantalla`, inicio y las cuatro unidades): miden el alto visible, `clamp(--hero-min, 100svh, --hero-max)`, con el header transparente encima, así que el hero completo con sus botones cabe en pantalla. Tope de 960 px. El mínimo por tramo (600 px escritorio, 620 ≤1080, 640 ≤860, 760 ≤560, 800 ≤400, 830 ≤340) cabe el texto más largo de las cuatro unidades, por eso en una misma pantalla los cuatro heros miden lo mismo. Si un titular nuevo no cabe, se ajusta el relleno o se sube `--hero-min` del tramo, nunca la tipografía. Probado en 1920×1080, 1440×900, 1440×800, 1366×768, 1280×720 y móviles.
 - El header no lleva `border`: su línea inferior es `box-shadow`, porque un borde suma 1 px al alto y deja una franja blanca sobre el hero.
 
 ## Logotipo y SEO
@@ -53,7 +53,7 @@ Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 
 ## Componentes base
 
 - `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna. `layout="split"` pone la entrada a la derecha del titular en escritorio (encabezado editorial).
-- `HeroFoto`: panel oscuro con foto y/o video (`video`) y velo azul marino (heros, pilares, cierre). El video (`VideoFondo`) va silenciado y en bucle; si no existe o el usuario pide reducir movimiento, queda la foto.
+- `HeroFoto`: panel oscuro con foto o video. **Las fotos no llevan velos ni degradados**: en los heros (`disposicion="dividida"`, por defecto) el texto va en un bloque azul marino sólido y la foto limpia a la derecha (40 % del ancho, a sangre y debajo del header); en ≤1080 la foto pasa abajo del texto. La única excepción es la banda del último CTA (`disposicion="fondo"`), con la foto detrás y velo. Los pilares del home ponen la foto limpia junto a los tres pilares; las tarjetas muestran la foto sin degradado.
 - **Hero del inicio**: video de fondo en `public/video/hero-inicio.mp4` (ruta en `HERO_INICIO`, `lib/grupo.ts`). Para cambiarlo basta con subir el archivo con ese nombre.
 - `UnidadCard`: tarjeta de unidad con foto (`completa` / `compacta`).
 - `Button` (sube 2 px en hover), `Eyebrow`, `Stat`, `Icon`.

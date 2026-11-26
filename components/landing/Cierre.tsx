@@ -12,7 +12,7 @@ export function Cierre({ foto }: { foto?: FotoFondo }) {
   const whatsapp = whatsappHref();
 
   return (
-    <HeroFoto id="contacto" foto={foto} velo="pleno" tone="charcoal">
+    <HeroFoto id="contacto" foto={foto} disposicion="fondo" tone="charcoal">
       <div className="hf-container hf-section">
         <SectionHeading
           eyebrow="Contacto"

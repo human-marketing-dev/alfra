@@ -1,10 +1,11 @@
 /* Landing · pilares del grupo (Brief Maestro §3).
    Se publican los tres pilares con prueba confirmada; el de sinergia
-   espera casos reales («confirmar casos»). */
+   espera casos reales («confirmar casos»). La foto va limpia, sin velo,
+   al lado de los pilares sobre azul marino sólido. */
 import React from "react";
+import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { HeroFoto } from "@/components/site/HeroFoto";
 import { empresaPorSlug } from "@/lib/empresas";
 
 const PILARES = [
@@ -30,31 +31,49 @@ const PILARES = [
 export function Pilares() {
   const foto = empresaPorSlug("alfra-desarrollo-industrial")?.heroImagen;
   return (
-    <HeroFoto foto={foto} velo="pleno">
-      <div className="hf-container hf-section">
+    <section className="is-dark hf-section" style={{ background: "var(--brand-950)" }}>
+      <div className="hf-container">
         <SectionHeading eyebrow="Cómo trabajamos" title="Cobertura, especialización | y capacidad de ejecución." />
-        <div className="hf-grid-3" data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
-          {PILARES.map((p, i) => (
-            <div key={p.titulo} style={{ paddingTop: "var(--pad-card)", borderTop: "1px solid var(--c-line)" }}>
+        <div className="hf-pilares" style={{ marginTop: "var(--gap-block)" }}>
+          {foto && (
+            <div className="hf-pilares-foto" data-reveal>
+              <Image
+                src={foto.src}
+                alt={foto.alt}
+                fill
+                sizes="(max-width: 860px) 100vw, 50vw"
+                style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
+              />
+            </div>
+          )}
+          <div data-reveal-group style={{ display: "flex", flexDirection: "column" }}>
+            {PILARES.map((p, i) => (
               <div
+                key={p.titulo}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  marginBottom: "var(--pad-card)",
+                  display: "grid",
+                  gridTemplateColumns: "auto 1fr",
+                  gap: "var(--gap-stack)",
+                  padding: "var(--pad-card) 0",
+                  borderTop: "1px solid var(--c-line)",
+                  borderBottom: i === PILARES.length - 1 ? "1px solid var(--c-line)" : undefined,
                 }}
               >
                 <Icon name={p.icono} size={30} color="var(--brand-300)" stroke={1.3} />
-                <span className="t-label">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: "var(--gap-item)" }}>
+                    <h3 className="t-h3" style={{ marginBottom: "var(--gap-item)" }}>
+                      {p.titulo}
+                    </h3>
+                    <span className="t-label">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <p className="t-small">{p.texto}</p>
+                </div>
               </div>
-              <h3 className="t-h3" style={{ marginBottom: "var(--gap-item)" }}>
-                {p.titulo}
-              </h3>
-              <p className="t-small">{p.texto}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </HeroFoto>
+    </section>
   );
 }

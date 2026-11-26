@@ -23,7 +23,7 @@ export default function Page() {
     <>
       <HeroFoto foto={empresaPorSlug("alfra-asesores-inmobiliarios")?.heroImagen} bajoHeader priority>
         <div className="hf-container" style={{ paddingTop: "var(--hero-top)", paddingBottom: "var(--hero-bottom)" }}>
-          <div style={{ maxWidth: "820px" }}>
+          <div className="hf-enter hf-hero-texto">
             <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
               Contacto
             </Eyebrow>

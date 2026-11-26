@@ -556,6 +556,68 @@
   .hf-presencia-mapa { min-height: 340px; order: -1; }
 }
 
+/* Pilares: foto limpia a la izquierda y los tres pilares a la derecha. */
+.hf-pilares {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--gap-columns);
+  align-items: stretch;
+}
+.hf-pilares-foto { position: relative; min-height: 420px; overflow: hidden; }
+@media (max-width: 860px) {
+  .hf-pilares { grid-template-columns: minmax(0, 1fr); }
+  .hf-pilares-foto { min-height: 0; aspect-ratio: 4 / 3; }
+}
+
+/* Hero dividido: texto en bloque azul marino sólido y foto limpia a la
+   derecha, a sangre hasta el borde de la pantalla, empezando debajo del
+   header (así el menú nunca queda sobre la foto). En ≤860 la foto pasa
+   abajo del texto, a todo el ancho. Sin velos ni degradados. */
+.hf-hero-texto { max-width: 940px; }
+.hf-hero-dividido.con-media .hf-hero-texto {
+  max-width: min(940px, calc(60vw - max(var(--gutter-x), (100vw - var(--container-page)) / 2) - var(--space-8)));
+}
+.hf-hero-media {
+  position: absolute;
+  top: 84px;
+  right: 0;
+  bottom: 0;
+  width: 40vw;
+  overflow: hidden;
+  background: var(--brand-900);
+}
+/* En escritorio la columna de texto es más angosta, así que el hero
+   dividido usa rellenos más cortos para caber en pantallas bajas. */
+@media (min-width: 1081px) {
+  .hf-hero-dividido.con-media {
+    --hero-top: calc(84px + var(--space-6));
+    --hero-bottom: var(--space-8);
+    --gap-actions: var(--space-6);
+  }
+}
+@media (min-width: 1081px) and (max-height: 760px) {
+  .hf-hero-dividido.con-media {
+    --hero-top: calc(84px + var(--space-5));
+    --hero-bottom: var(--space-7);
+  }
+}
+
+/* En ≤1080 la foto pasa abajo del texto; el bloque de texto ya no mide
+   la pantalla sino un mínimo fijo por tramo (--hero-texto-min) que cabe
+   el texto más largo de las cuatro unidades: así siguen midiendo igual. */
+:root { --hero-texto-min: 660px; }
+@media (max-width: 560px) { :root { --hero-texto-min: 780px; } }
+@media (max-width: 400px) { :root { --hero-texto-min: 830px; } }
+@media (max-width: 340px) { :root { --hero-texto-min: 860px; } }
+@media (max-width: 1080px) {
+  .hf-hero-dividido.con-media .hf-hero-texto { max-width: 940px; }
+  .hf-hero-dividido.con-media .hf-hero-pantalla { min-height: var(--hero-texto-min); }
+  .hf-hero-media { position: relative; top: auto; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 560px) {
+  .hf-hero-media { aspect-ratio: 4 / 3; }
+}
+
 /* Heros a la altura de la pantalla (inicio y unidades).
    El hero mide exactamente el alto visible (100svh) entre un mínimo y
    un máximo; el header transparente va encima. El mínimo de cada tramo
