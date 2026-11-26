@@ -4,6 +4,7 @@ import { AVISO_DE_PRIVACIDAD } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: AVISO_DE_PRIVACIDAD.titulo,
+  alternates: { canonical: "/aviso-de-privacidad" },
   description: AVISO_DE_PRIVACIDAD.descripcion,
 };
 

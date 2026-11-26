@@ -21,7 +21,7 @@ export function Cierre({ foto }: { foto?: FotoFondo }) {
           maxWidth="820px"
         />
         <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-          <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
+          <Button variant="accent" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
             Solicita información
           </Button>
           {whatsapp && (

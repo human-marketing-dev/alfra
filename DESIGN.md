@@ -4,19 +4,21 @@ Los tokens y clases están en `app/globals.css`. Ningún componente escribe tama
 
 ## Tipografía
 
+Una sola familia: **Object Sans** (archivos locales en `app/fonts/`, cargados con `next/font/local` en `app/layout.tsx`). Sólo hay dos pesos, Regular y Heavy, con sus itálicas: un `font-weight` de 100–650 usa Regular y de 651–900 usa Heavy. Los alias `--font-display/sans/serif/mono` apuntan todos a ella.
+
 | Clase | Uso | Tamaño (móvil → escritorio) | Familia |
 | :-- | :-- | :-- | :-- |
-| `.t-display` | Titular del home | 44 → 88 px | Montserrat 800 |
-| `.t-h1` | Titular de página (unidad, contacto) | 38 → 68 px | Montserrat 800 |
-| `.t-h2` | Titular de sección | 30 → 52 px | Montserrat 700 |
-| `.t-h3` | Titular de tarjeta / bloque | 20 → 24 px | Montserrat 700 |
-| `.t-h4` | Subtítulo menor | 17 → 18 px | Montserrat 600 |
-| `.t-lead` | Entrada bajo un titular | 18 → 21 px | Spectral |
-| `.t-body` | Texto corrido | 17 px | Spectral |
-| `.t-small` | Texto de tarjeta, notas | 15 px | Spectral |
-| `.t-eyebrow` | Antetítulo en versales, sin línea decorativa | 12 px, tracking 0.18em | Montserrat 600 |
-| `.t-label` | Etiqueta de dato | 11 px, tracking 0.14em | Montserrat 600 |
-| `.t-stat` | Cifras | 36 → 56 px | IBM Plex Mono |
+| `.t-display` | Titular del home | 44 → 88 px | Object Sans Heavy |
+| `.t-h1` | Titular de página (unidad, contacto) | 38 → 68 px | Object Sans Heavy |
+| `.t-h2` | Titular de sección | 30 → 52 px | Object Sans Heavy |
+| `.t-h3` | Titular de tarjeta / bloque | 20 → 24 px | Object Sans Heavy |
+| `.t-h4` | Subtítulo menor | 17 → 18 px | Object Sans Regular |
+| `.t-lead` | Entrada bajo un titular | 18 → 21 px | Object Sans Regular |
+| `.t-body` | Texto corrido | 17 px | Object Sans Regular |
+| `.t-small` | Texto de tarjeta, notas | 15 px | Object Sans Regular |
+| `.t-eyebrow` | Antetítulo en versales, sin línea decorativa | 12 px, tracking 0.18em | Object Sans Regular |
+| `.t-label` | Etiqueta de dato | 11 px, tracking 0.14em | Object Sans Regular |
+| `.t-stat` | Cifras | 36 → 56 px | Object Sans Heavy, cifras tabulares |
 
 El color sale del contexto: dentro de `.is-dark` todo se invierte solo (blancos y azul claro).
 
@@ -42,6 +44,12 @@ Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 
 - **Heros a la altura de la pantalla** (`.hf-hero-pantalla`, inicio y las cuatro unidades): miden el alto visible, `clamp(--hero-min, 100svh, --hero-max)`, con el header transparente encima, así que el hero completo con sus botones cabe en pantalla. Tope de 960 px. El mínimo por tramo (600 px escritorio, 620 ≤1080, 640 ≤860, 760 ≤560, 800 ≤400, 830 ≤340) cabe el texto más largo de las cuatro unidades, por eso en una misma pantalla los cuatro heros miden lo mismo. Si un titular nuevo no cabe, se ajusta el relleno o se sube `--hero-min` del tramo, nunca la tipografía. Probado en 1920×1080, 1440×900, 1440×800, 1366×768, 1280×720 y móviles.
 - El header no lleva `border`: su línea inferior es `box-shadow`, porque un borde suma 1 px al alto y deja una franja blanca sobre el hero.
 
+## Logotipo y SEO
+
+- Logotipo vigente: `ALFRA` con la escuadra verde, en `public/logos/alfra/` (webp sin fondo). El sitio usa `alfra-marca-*` (sin la línea «Agencia Inmobiliaria»); `alfra-logo-*` es el archivo completo. Registro en `lib/logos.ts`.
+- Favicon e iconos: `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png`. Imagen para compartir: `app/opengraph-image.png` (y `twitter-image.png`).
+- Metadatos: `metadataBase`, canónicas, Open Graph y Twitter por página; datos estructurados `Organization` en el layout; `app/sitemap.ts` y `app/robots.ts`. La URL pública sale de `NEXT_PUBLIC_SITE_URL` (`lib/sitio.ts`); hay que definirla en producción.
+
 ## Componentes base
 
 - `SectionHeading`: antetítulo + titular + entrada. Es el único lugar donde se arma esa terna. `layout="split"` pone la entrada a la derecha del titular en escritorio (encabezado editorial).
@@ -60,7 +68,9 @@ Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 
 
 ## Color
 
-Paleta solo de azules y blancos; no hay acentos cálidos.
+Azules y blancos, más un acento verde.
+
+- **Verde de marca `#B1FC00`** (`--verde`, hover `--verde-600`, texto encima `--verde-ink`): la escuadra del logotipo. Sólo sobre fondos oscuros o como relleno: antetítulos e iconos sobre azul marino, botón principal de los heros y del cierre (`Button variant="accent"`), selección de texto. Nunca como texto sobre fondo claro (contraste 1.2:1).
 
 - **Azul de marca `#2563EB`** (`--brand-700`): botones, enlaces, iconos, antetítulos y acentos. Hover `--brand-800` (`#1D4ED8`).
 - **Azul claro** (`--brand-300` `#93B4FD`): antetítulos, etiquetas e iconos sobre fondos oscuros; halos del mapa.

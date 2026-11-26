@@ -5,7 +5,7 @@
 import React from "react";
 import Link from "next/link";
 
-type Variant = "primary" | "secondary" | "ghost" | "inverse" | "warm";
+type Variant = "primary" | "secondary" | "ghost" | "inverse" | "warm" | "accent";
 type Size = "sm" | "md" | "lg";
 
 const SIZES: Record<Size, { padding: string; fontSize: string; height: string; tracking: string }> = {
@@ -24,6 +24,9 @@ function variantStyle(variant: Variant): React.CSSProperties {
       return { background: "var(--neutral-0)", color: "var(--neutral-900)", boxShadow: "none" };
     case "warm":
       return { background: "var(--brand-500)", color: "var(--neutral-0)", boxShadow: "none" };
+    case "accent":
+      // Verde de marca: botón principal sobre fondos oscuros.
+      return { background: "var(--verde)", color: "var(--verde-ink)", boxShadow: "none" };
     case "primary":
     default:
       return { background: "var(--brand-700)", color: "var(--neutral-0)", boxShadow: "none" };
@@ -92,6 +95,7 @@ export function Button({
     e.currentTarget.style.transform = "translateY(-2px)";
     if (variant === "primary") e.currentTarget.style.background = "var(--brand-800)";
     else if (variant === "warm") e.currentTarget.style.background = "var(--brand-700)";
+    else if (variant === "accent") e.currentTarget.style.background = "var(--verde-600)";
     else e.currentTarget.style.background = "var(--neutral-100)";
   };
   const onLeave = (e: React.MouseEvent<HTMLElement>) => {

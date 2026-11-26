@@ -7,9 +7,9 @@
    del design system de STRATA y se usan aquí tal cual. El contenido
    y la nomenclatura son de ALFRA; de STRATA sólo se toma el diseño.
 
-   Las familias tipográficas se inyectan desde `app/layout.tsx` con
-   next/font (Montserrat, Spectral, IBM Plex Mono) y llegan aquí como
-   --font-montserrat / --font-spectral / --font-plex-mono.
+   La tipografía es Object Sans (archivos locales en app/fonts/), que
+   `app/layout.tsx` carga con next/font/local y llega aquí como
+   --font-object-sans.
    ───────────────────────────────────────────────────────────── */
 
 :root {
@@ -42,6 +42,14 @@
   --brand-800: #1D4ED8;
   --brand-900: #142B6B;
   --brand-950: #0B1634;
+
+  /* ── Verde — acento de marca (#B1FC00) ──────────────────
+     El verde de la escuadra del logotipo. Es un acento, no un color
+     de texto sobre fondos claros (contraste 1.2:1 sobre blanco): va
+     sobre azul marino o azul, o como relleno con texto marino encima. */
+  --verde:      #B1FC00;
+  --verde-600: #9BE000; /* hover de rellenos verdes */
+  --verde-ink: #0B1634; /* texto sobre verde */
 
   /* ── Estado ───────────────────────────────────────────── */
   --positive: #1D4ED8;
@@ -79,10 +87,12 @@
   --focus-ring:   var(--brand-500);
 
   /* ── Familias ─────────────────────────────────────────── */
-  --font-display: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
-  --font-sans:    var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
-  --font-serif:   var(--font-spectral), Georgia, "Times New Roman", serif;
-  --font-mono:    var(--font-plex-mono), "SFMono-Regular", Menlo, monospace;
+  /* Una sola familia: Object Sans. Los cuatro alias se conservan para
+     que los componentes no cambien; todos apuntan a la misma fuente. */
+  --font-display: var(--font-object-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-sans:    var(--font-object-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-serif:   var(--font-object-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    var(--font-object-sans), "Helvetica Neue", Arial, sans-serif;
 
   /* ── Pesos ────────────────────────────────────────────── */
   --weight-light:    300;
@@ -178,8 +188,8 @@
 
    Única fuente de tamaños de texto del sitio. Ningún componente
    escribe un `fontSize` a mano: usa una de las clases `.t-*` de abajo.
-   Montserrat para titulares y etiquetas, Spectral para texto corrido,
-   IBM Plex Mono para cifras.
+   Todo en Object Sans: Heavy para titulares y cifras, Regular para
+   texto corrido y etiquetas.
 
    Escala (fluida entre 390px y 1440px de ancho):
      display  44 → 88   titular del home
@@ -239,7 +249,7 @@
   --c-body:   rgba(255, 255, 255, 0.86);
   --c-muted:  var(--text-on-dark-muted);
   --c-accent: var(--brand-300);
-  --c-brand:  var(--brand-300);
+  --c-brand:  var(--verde);
   --c-line:   var(--border-on-dark);
   color: var(--c-body);
 }
@@ -283,7 +293,8 @@
 
 .t-stat {
   font-family: var(--font-mono);
-  font-weight: 500;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
   font-size: var(--fs-stat);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -546,7 +557,7 @@
 @media (max-width: 860px)  { :root { --hero-min: 640px; } }
 @media (max-width: 560px)  { :root { --hero-min: 760px; } }
 @media (max-width: 400px)  { :root { --hero-min: 800px; } }
-@media (max-width: 340px)  { :root { --hero-min: 830px; } }
+@media (max-width: 340px)  { :root { --hero-min: 860px; } }
 .hf-hero-pantalla {
   /* min-height (no height) para que un texto nuevo más largo nunca
      se desborde: crecería ese hero y se nota en la revisión. */
@@ -586,7 +597,8 @@ a {
 }
 
 ::selection {
-  background: var(--brand-200);
+  background: var(--verde);
+  color: var(--verde-ink);
 }
 
 /* Las secciones ancladas libran el header pegajoso. */

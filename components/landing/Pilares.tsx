@@ -44,7 +44,7 @@ export function Pilares() {
                   marginBottom: "var(--pad-card)",
                 }}
               >
-                <Icon name={p.icono} size={30} color="var(--brand-300)" stroke={1.3} />
+                <Icon name={p.icono} size={30} color="var(--verde)" stroke={1.3} />
                 <span className="t-label">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <h3 className="t-h3" style={{ marginBottom: "var(--gap-item)" }}>

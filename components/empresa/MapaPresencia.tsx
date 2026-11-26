@@ -152,7 +152,7 @@ export function MapaPresencia({ ubicaciones }: { ubicaciones: Ubicacion[] }) {
             }}
           >
             <span style={{ display: "flex", alignItems: "center", gap: "10px" }} className="t-label">
-              <Icon name="map-pin" size={18} color="var(--brand-300)" />
+              <Icon name="map-pin" size={18} color="var(--verde)" />
               {estado === "cargando" ? "Cargando mapa" : ubicaciones.map((u) => u.nombre).join(" · ")}
             </span>
           </div>

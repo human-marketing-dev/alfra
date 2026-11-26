@@ -46,9 +46,22 @@ export interface Logo {
 }
 
 const dir = "/logos/recortado";
+const dirAlfra = "/logos/alfra";
 
 export const LOGOS = {
-  /** La matriz. Firma el header y el pie, no una página de empresa. */
+  /** Logotipo vigente (nov 2026): «ALFRA» con la escuadra verde. Firma
+      el header y el pie. Sale del logotipo entregado sin la línea
+      inferior, que dice «Agencia Inmobiliaria» (nombre fuera de uso).
+      Los archivos completos, con esa línea, están en
+      `public/logos/alfra/alfra-logo-*.webp`. */
+  alfra: {
+    sobreClaro: `${dirAlfra}/alfra-marca-negro.webp`,
+    sobreOscuro: `${dirAlfra}/alfra-marca-blanco.webp`,
+    ratio: 3.976,
+    forma: "horizontal",
+    alt: "ALFRA Grupo Inmobiliario",
+  },
+  /** Logotipo anterior de la matriz. Ya no se usa en el sitio. */
   "alfra-grupo": {
     sobreClaro: `${dir}/alfra-grupo-negro.png`,
     sobreOscuro: `${dir}/alfra-grupo-blanco.png`,

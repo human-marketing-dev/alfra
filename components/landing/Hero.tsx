@@ -33,7 +33,7 @@ export function Hero() {
             unidad que la ejecuta.
           </p>
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-            <Button variant="inverse" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
+            <Button variant="accent" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
               Ver las unidades
             </Button>
             <Button variant="ghost" size="lg" href="/contacto" style={BOTON_CONTORNO}>

@@ -109,11 +109,11 @@ export function SiteHeader() {
           {/* Las dos versiones se montan a la vez y se cruzan por opacidad:
               así el cambio al pasar a barra blanca no espera a una descarga. */}
           <span style={{ position: "relative", display: "block", lineHeight: 0 }}>
-            <Logo marca="alfra-grupo" fondo="claro" alto={30} priority />
+            <Logo marca="alfra" fondo="claro" alto={26} priority />
             <Logo
-              marca="alfra-grupo"
+              marca="alfra"
               fondo="oscuro"
-              alto={30}
+              alto={26}
               priority
               style={{
                 position: "absolute",

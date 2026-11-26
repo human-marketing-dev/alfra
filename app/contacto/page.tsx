@@ -13,6 +13,7 @@ import { empresaPorSlug } from "@/lib/empresas";
 
 export const metadata: Metadata = {
   title: "Contacto",
+  alternates: { canonical: "/contacto" },
   description:
     "Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad de ALFRA Grupo Inmobiliario que lo resuelve. Monterrey, Nuevo León.",
 };

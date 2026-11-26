@@ -42,7 +42,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 boxShadow: "inset 0 0 0 1px var(--c-line)",
               }}
             >
-              <Icon name={empresa.icono} size={22} color="var(--brand-300)" stroke={1.4} />
+              <Icon name={empresa.icono} size={22} color="var(--verde)" stroke={1.4} />
             </span>
             <span className="t-h3">{empresa.nombre}</span>
           </div>
@@ -56,7 +56,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           )}
 
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-            <Button variant="inverse" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
+            <Button variant="accent" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
               Solicita información
             </Button>
             {empresa.servicios.length > 0 && (

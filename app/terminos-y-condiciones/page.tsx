@@ -4,6 +4,7 @@ import { TERMINOS_Y_CONDICIONES } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: TERMINOS_Y_CONDICIONES.titulo,
+  alternates: { canonical: "/terminos-y-condiciones" },
   description: TERMINOS_Y_CONDICIONES.descripcion,
 };
 

@@ -3,6 +3,7 @@
    capacidades que resuelve, el público al que sirve y la salida al resto
    del grupo. El contenido vive en `lib/empresas.ts`. */
 import type { Metadata } from "next";
+import { OG_BASE } from "@/lib/sitio";
 import { notFound } from "next/navigation";
 import { EMPRESAS, empresaPorSlug } from "@/lib/empresas";
 import { EmpresaHero } from "@/components/empresa/EmpresaHero";
@@ -26,9 +27,15 @@ export async function generateMetadata({ params }: PageProps<"/unidades/[slug]">
   const empresa = empresaPorSlug(slug);
   if (!empresa) return {};
 
+  const title = `${empresa.nombre} · ${empresa.frente}`;
+  const url = `/unidades/${empresa.slug}`;
+  const images = empresa.heroImagen ? [{ url: empresa.heroImagen.src, alt: empresa.heroImagen.alt }] : undefined;
   return {
-    title: `${empresa.nombre} · ${empresa.frente}`,
+    title,
     description: empresa.resumen,
+    alternates: { canonical: url },
+    openGraph: { ...OG_BASE, url, title, description: empresa.resumen, images },
+    twitter: { card: "summary_large_image", title, description: empresa.resumen, images },
   };
 }
 

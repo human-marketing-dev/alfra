@@ -30,7 +30,7 @@ export function SiteFooter() {
           style={{ paddingBottom: "var(--space-9)", borderBottom: "1px solid var(--border-on-dark)", alignItems: "start" }}
         >
           <div>
-            <Logo marca="alfra-grupo" fondo="oscuro" alto={46} style={{ marginBottom: "var(--space-5)" }} />
+            <Logo marca="alfra" fondo="oscuro" alto={40} style={{ marginBottom: "var(--space-5)" }} />
             <p className="t-small t-muted" style={{ maxWidth: "480px" }}>
               {BOILERPLATE.corto}
             </p>
@@ -53,21 +53,21 @@ export function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {correo && (
                   <a href={correo} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="mail" size={16} color="var(--brand-300)" />
+                    <Icon name="mail" size={16} color="var(--verde)" />
                     {CONTACTO.correo}
                   </a>
                 )}
                 {telefono && (
                   <a href={telefono} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="phone" size={16} color="var(--brand-300)" />
+                    <Icon name="phone" size={16} color="var(--verde)" />
                     {CONTACTO.telefono}
                   </a>
                 )}
                 <span className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                  <Icon name="map-pin" size={16} color="var(--brand-300)" />
+                  <Icon name="map-pin" size={16} color="var(--verde)" />
                   {CONTACTO.ciudad}
                 </span>
-                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--brand-300)" }}>
+                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--verde)" }}>
                   Solicita información
                 </Link>
               </div>
