@@ -95,6 +95,10 @@ export function SiteFooter() {
             <Link href="/terminos-y-condiciones" className="t-small" style={item}>
               Términos y condiciones
             </Link>
+            {/* Crédito de la agencia: único enlace externo del sitio. */}
+            <a href="https://humanmarketing.mx" target="_blank" rel="noopener" className="t-small" style={item}>
+              SEO by Human Marketing
+            </a>
           </nav>
         </div>
       </div>
