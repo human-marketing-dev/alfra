@@ -20,8 +20,8 @@ export function OtrasEmpresas({ excluir, eyebrow = "El resto del grupo", title, 
   const titular =
     title ??
     (excluir
-      ? `Las otras ${enLetras(otras.length)} unidades de ${GRUPO.nombreCorto}.`
-      : `Las ${enLetras(otras.length)} unidades de ${GRUPO.nombreCorto}.`);
+      ? `Las otras ${enLetras(otras.length)} | unidades de ${GRUPO.nombreCorto}.`
+      : `Las ${enLetras(otras.length)} | unidades de ${GRUPO.nombreCorto}.`);
 
   return (
     <section className="hf-section" style={{ background: fondo }}>

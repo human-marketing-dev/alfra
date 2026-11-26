@@ -105,7 +105,7 @@ export const EMPRESAS: Empresa[] = [
     nombre: "ALFRA Asesores Inmobiliarios",
     nombreCorto: "ALFRA Asesores Inmobiliarios",
     frente: "Asesoría y comercialización",
-    titular: "La solución ideal para tu necesidad, con todo el mercado a la vista.",
+    titular: "La solución ideal para tu necesidad, | con todo el mercado a la vista.",
     resumen:
       "Compra, venta y renta de inmuebles con inteligencia de mercado y un inventario amplio gracias a nuestro trabajo directo con desarrolladores.",
     tarjeta:
@@ -136,7 +136,7 @@ export const EMPRESAS: Empresa[] = [
       // «confirmar» si también atiende el segmento corporativo e industrial.
       quien: "Familias, profesionales e inversionistas que compran, venden o rentan propiedad.",
       busca: "Elegir con criterio, con opciones suficientes y con respaldo institucional.",
-      promesa: "Te ayudamos a encontrar la solución ideal para tu necesidad.",
+      promesa: "Te ayudamos a encontrar | la solución ideal para tu necesidad.",
     },
     // «confirmar» — tamaño de inventario, desarrolladores, operaciones cerradas.
     pruebas: [],
@@ -159,7 +159,7 @@ export const EMPRESAS: Empresa[] = [
     nombre: "ALFRA Desarrollo Industrial",
     nombreCorto: "ALFRA Desarrollo Industrial",
     frente: "Desarrollo y construcción industrial",
-    titular: "Tu operación industrial, construida llave en mano.",
+    titular: "Tu operación industrial, | construida llave en mano.",
     resumen:
       "Ejecutamos proyectos industriales de principio a fin, de la ingeniería a la entrega lista para operar: naves, centros de distribución y complejos logísticos.",
     tarjeta:
@@ -187,7 +187,7 @@ export const EMPRESAS: Empresa[] = [
       quien:
         "Empresas nacionales y extranjeras que construyen, amplían o reubican su operación industrial o logística, y desarrolladores industriales.",
       busca: "Un interlocutor que resuelva el proyecto completo, de la ingeniería a la entrega, con plazos y control.",
-      promesa: "Construimos tu operación industrial llave en mano, con control total de la obra.",
+      promesa: "Construimos tu operación industrial llave en mano, | con control total de la obra.",
     },
     pruebas: [
       "Más de una década de experiencia en construcción industrial",
@@ -214,7 +214,7 @@ export const EMPRESAS: Empresa[] = [
     nombre: "ALFRA Desarrollo Residencial",
     nombreCorto: "ALFRA Desarrollo Residencial",
     frente: "Desarrollo y construcción residencial",
-    titular: "Tu terreno y tu casa en una sola compra. Así ahorras.",
+    titular: "Tu terreno y tu casa en una sola compra. | Así ahorras.",
     resumen:
       "Vendemos terreno y construcción como una sola compra, con un solo proveedor y financiamiento bancario. Ahorras los márgenes que suma la compra tradicional.",
     tarjeta:
@@ -222,7 +222,7 @@ export const EMPRESAS: Empresa[] = [
     // «confirmar» — nombre propio del modelo. Se describe sin nombre.
     modeloReferencia: "Terreno, construcción y financiamiento con un solo proveedor",
     argumentoCentral: {
-      titulo: "Quitamos intermediarios, no calidad.",
+      titulo: "Quitamos intermediarios, | no calidad.",
       parrafos: [
         "En la compra tradicional compras un terreno, contratas a un arquitecto y después a una constructora, y cada uno suma su margen. Además, el proyecto suele subestimar el costo real de los materiales y termina rediseñándose.",
         "Con ALFRA Desarrollo Residencial todo el proceso queda con un solo proveedor, que construye para ti al mismo precio que le cobraría a una inmobiliaria. De ahí sale el ahorro.",
@@ -253,7 +253,7 @@ export const EMPRESAS: Empresa[] = [
       quien:
         "Familias establecidas y parejas jóvenes que quieren una casa propia para vivir, con un presupuesto definido y, por lo general, con crédito bancario.",
       busca: "Certeza de precio, un proceso sencillo y una casa a su estilo sin salirse del presupuesto.",
-      promesa: "Tu terreno y tu casa en una sola compra, con un solo proveedor y financiamiento bancario.",
+      promesa: "Tu terreno y tu casa en una sola compra, | con un solo proveedor y financiamiento bancario.",
     },
     // «confirmar» — casas construidas que ALFRA pueda comunicar como propias.
     pruebas: [],
@@ -280,7 +280,7 @@ export const EMPRESAS: Empresa[] = [
     nombre: "ALFRA Capital",
     nombreCorto: "ALFRA Capital",
     frente: "Inversión",
-    titular: "Tu portafolio inmobiliario, con todo el grupo detrás.",
+    titular: "Tu portafolio inmobiliario, | con todo el grupo detrás.",
     resumen:
       "Estructuramos y gestionamos portafolios inmobiliarios para family offices y patrimonios familiares, con evaluación de oportunidades y acompañamiento de cada operación.",
     tarjeta:
@@ -306,7 +306,7 @@ export const EMPRESAS: Empresa[] = [
       quien: "Family offices y patrimonios familiares que buscan construir o diversificar un portafolio inmobiliario.",
       busca: "Rendimiento con respaldo, visibilidad de cada activo y claridad sobre el horizonte.",
       promesa:
-        "Construimos tu portafolio inmobiliario con la lectura de mercado y la capacidad de ejecución de todo el grupo.",
+        "Construimos tu portafolio inmobiliario | con la lectura de mercado y la capacidad de ejecución de todo el grupo.",
     },
     // «confirmar» — esquemas, ticket de entrada, horizontes de referencia.
     pruebas: [],

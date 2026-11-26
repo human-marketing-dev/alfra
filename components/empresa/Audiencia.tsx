@@ -19,7 +19,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
     <section className="hf-section" style={{ background: fondo }}>
       <div className="hf-container hf-grid-2" style={{ alignItems: "center" }}>
         <div>
-          <SectionHeading eyebrow="A quién sirve" title={conCursivas(promesa)} maxWidth="620px" />
+          <SectionHeading eyebrow="A quién sirve" title={promesa} maxWidth="620px" />
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--gap-stack)", marginTop: "var(--gap-block)" }}>
             {quien && (
               <div style={{ paddingLeft: "var(--space-5)", borderLeft: "2px solid var(--brand-400)" }}>

@@ -16,12 +16,12 @@ export function Cierre({ foto }: { foto?: FotoFondo }) {
       <div className="hf-container hf-section">
         <SectionHeading
           eyebrow="Contacto"
-          title="Traes una oportunidad. La ejecuta todo el grupo."
+          title="Traes una oportunidad. | La ejecuta todo el grupo."
           lead="Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve."
           maxWidth="820px"
         />
         <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-          <Button variant="accent" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
+          <Button variant="primary" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
             Solicita información
           </Button>
           {whatsapp && (

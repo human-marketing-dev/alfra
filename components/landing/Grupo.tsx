@@ -12,7 +12,7 @@ export function Grupo() {
     <section id="grupo" className="hf-section" style={{ background: "var(--bg-page)" }}>
       <div className="hf-container hf-grid-2" style={{ alignItems: "end" }}>
         <div>
-          <SectionHeading eyebrow="Conoce nuestro grupo" title="Cada oportunidad pide un especialista." />
+          <SectionHeading eyebrow="Conoce nuestro grupo" title="Cada oportunidad | pide un especialista." />
           <p className="t-body measure" style={{ marginTop: "var(--gap-title)" }}>
             El sector inmobiliario abarca frentes muy distintos entre sí. Comprar o rentar una propiedad, construir una
             operación industrial, construir una casa e invertir en un portafolio requieren equipos, métodos y experiencia

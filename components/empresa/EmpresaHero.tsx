@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { HeroFoto } from "@/components/site/HeroFoto";
 import type { Empresa } from "@/lib/empresas";
-import { conCursivas } from "@/lib/tipografia";
+import { conCursivas, dosPesos } from "@/lib/tipografia";
 
 export function EmpresaHero({ empresa }: { empresa: Empresa }) {
   return (
@@ -42,12 +42,12 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
                 boxShadow: "inset 0 0 0 1px var(--c-line)",
               }}
             >
-              <Icon name={empresa.icono} size={22} color="var(--verde)" stroke={1.4} />
+              <Icon name={empresa.icono} size={22} color="var(--brand-300)" stroke={1.4} />
             </span>
             <span className="t-h3">{empresa.nombre}</span>
           </div>
 
-          {empresa.titular && <h1 className="t-h1">{empresa.titular}</h1>}
+          {empresa.titular && <h1 className="t-h1 t-dos-pesos">{dosPesos(empresa.titular)}</h1>}
 
           {empresa.resumen && (
             <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
@@ -56,7 +56,7 @@ export function EmpresaHero({ empresa }: { empresa: Empresa }) {
           )}
 
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-            <Button variant="accent" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
+            <Button variant="primary" size="lg" href="/contacto" rightIcon={<Icon name="arrow-right" size={16} />}>
               Solicita información
             </Button>
             {empresa.servicios.length > 0 && (

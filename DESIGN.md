@@ -70,9 +70,10 @@ Heros: `--hero-top` = alto del header + 48 px (32 en móvil); `--hero-bottom` = 
 
 Azules y blancos, más un acento verde.
 
-- **Verde de marca `#B1FC00`** (`--verde`, hover `--verde-600`, texto encima `--verde-ink`): la escuadra del logotipo. Sólo sobre fondos oscuros o como relleno: antetítulos e iconos sobre azul marino, botón principal de los heros y del cierre (`Button variant="accent"`), selección de texto. Nunca como texto sobre fondo claro (contraste 1.2:1).
+- **Verde de marca `#AFE517`** (`--verde`, hover `--verde-600`, texto encima `--verde-ink`): la escuadra del logotipo. Se usa con moderación y sólo sobre fondos oscuros: la segunda línea de los titulares a dos pesos sobre azul marino, el logotipo y la selección de texto. Los botones van en azul. Nunca como texto sobre fondo claro (contraste 1.4:1 sobre blanco); ahí el destacado de los titulares va en azul.
+- **Titulares a dos pesos**: «parte fina | parte destacada» en los textos (ver `dosPesos` en `lib/tipografia.tsx` y `.t-dos-pesos`). La primera parte va en Object Sans Regular y la segunda en Heavy, en su propia línea y en el color destacado (`--c-destacado`: verde sobre oscuro, azul sobre claro).
 
-- **Azul de marca `#2563EB`** (`--brand-700`): botones, enlaces, iconos, antetítulos y acentos. Hover `--brand-800` (`#1D4ED8`).
+- **Azul de marca `#2563EB`** (`--brand-700`): botones (también sobre fondos oscuros), enlaces, iconos, antetítulos y acentos. Hover `--brand-800` (`#1D4ED8`).
 - **Azul claro** (`--brand-300` `#93B4FD`): antetítulos, etiquetas e iconos sobre fondos oscuros; halos del mapa.
 - **Azul marino** (`--brand-950` `#0B1634`, `--neutral-900` `#0F1A33`): heros, pilares, cierre, pie y velo sobre fotos.
 - **Blancos y grises azulados**: blanco `--neutral-0`, página `--neutral-50` `#F6F8FC`, alterno `--neutral-100` `#EDF1F8`, líneas `--neutral-200`, texto `--neutral-800`.

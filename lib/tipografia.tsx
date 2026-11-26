@@ -17,3 +17,29 @@ export function conCursivas(texto: string): React.ReactNode {
     i % 2 === 1 ? <em key={i}>{parte}</em> : <React.Fragment key={i}>{parte}</React.Fragment>,
   );
 }
+
+/* Titulares a dos pesos: «primera parte | segunda parte».
+   Lo que va antes de « | » se pinta en Regular; lo que va después, en
+   Heavy, en una línea propia y en el color destacado (verde sobre
+   fondos oscuros, azul sobre claros). Sin « | » el titular sale entero
+   en Heavy, como siempre. Ver `.t-dos-pesos` en globals.css. */
+const SEPARADOR = /\s*\|\s*/;
+
+export function tieneDosPesos(texto: string): boolean {
+  return SEPARADOR.test(texto);
+}
+
+export function dosPesos(texto: string): React.ReactNode {
+  const [fino, ...resto] = texto.split(SEPARADOR);
+  if (resto.length === 0) return conCursivas(texto);
+  return (
+    <>
+      {conCursivas(fino)} <strong>{conCursivas(resto.join(" "))}</strong>
+    </>
+  );
+}
+
+/** El titular sin la marca « | », para metadatos y textos planos. */
+export function textoPlano(texto: string): string {
+  return texto.split(SEPARADOR).join(" ");
+}

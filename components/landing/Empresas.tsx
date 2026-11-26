@@ -12,7 +12,7 @@ export function Empresas() {
       <div className="hf-container">
         <SectionHeading
           eyebrow="Unidades de negocio"
-          title="Una unidad especialista para cada frente."
+          title="Una unidad especialista | para cada frente."
           layout="split"
           lead="Entra por la unidad que resuelve tu oportunidad de hoy y queda respaldado por todo el grupo."
         />

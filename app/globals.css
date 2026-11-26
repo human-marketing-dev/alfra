@@ -43,12 +43,12 @@
   --brand-900: #142B6B;
   --brand-950: #0B1634;
 
-  /* ── Verde — acento de marca (#B1FC00) ──────────────────
+  /* ── Verde — acento de marca (#AFE517) ──────────────────
      El verde de la escuadra del logotipo. Es un acento, no un color
-     de texto sobre fondos claros (contraste 1.2:1 sobre blanco): va
+     de texto sobre fondos claros (contraste 1.4:1 sobre blanco): va
      sobre azul marino o azul, o como relleno con texto marino encima. */
-  --verde:      #B1FC00;
-  --verde-600: #9BE000; /* hover de rellenos verdes */
+  --verde:      #AFE517;
+  --verde-600: #9BCC0E; /* hover de rellenos verdes */
   --verde-ink: #0B1634; /* texto sobre verde */
 
   /* ── Estado ───────────────────────────────────────────── */
@@ -240,6 +240,7 @@
   --c-body:   var(--text-body);
   --c-muted:  var(--text-muted);
   --c-accent: var(--text-accent);
+  --c-destacado: var(--brand-700);
   --c-brand:  var(--text-brand);
   --c-line:   var(--border-hair);
 }
@@ -249,7 +250,8 @@
   --c-body:   rgba(255, 255, 255, 0.86);
   --c-muted:  var(--text-on-dark-muted);
   --c-accent: var(--brand-300);
-  --c-brand:  var(--verde);
+  --c-destacado: var(--verde);
+  --c-brand:  var(--brand-300);
   --c-line:   var(--border-on-dark);
   color: var(--c-body);
 }
@@ -413,6 +415,17 @@
   .hf-legal-indice { position: static; }
 }
 
+/* Titular a dos pesos («fino | destacado», ver lib/tipografia.tsx):
+   primera parte en Regular y la segunda en Heavy, en su propia línea y
+   en el color destacado: verde sobre oscuro, azul sobre claro. */
+.t-dos-pesos { font-weight: 400; letter-spacing: -0.025em; }
+.t-dos-pesos strong {
+  display: block;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--c-destacado);
+}
+
 /* Encabezado editorial: titular a la izquierda, entrada a la derecha. */
 .hf-heading-split {
   display: grid;
@@ -556,7 +569,7 @@
 @media (max-width: 1080px) { :root { --hero-min: 620px; } }
 @media (max-width: 860px)  { :root { --hero-min: 640px; } }
 @media (max-width: 560px)  { :root { --hero-min: 760px; } }
-@media (max-width: 400px)  { :root { --hero-min: 800px; } }
+@media (max-width: 400px)  { :root { --hero-min: 830px; } }
 @media (max-width: 340px)  { :root { --hero-min: 860px; } }
 .hf-hero-pantalla {
   /* min-height (no height) para que un texto nuevo más largo nunca

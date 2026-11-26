@@ -53,21 +53,21 @@ export function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {correo && (
                   <a href={correo} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="mail" size={16} color="var(--verde)" />
+                    <Icon name="mail" size={16} color="var(--brand-300)" />
                     {CONTACTO.correo}
                   </a>
                 )}
                 {telefono && (
                   <a href={telefono} className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    <Icon name="phone" size={16} color="var(--verde)" />
+                    <Icon name="phone" size={16} color="var(--brand-300)" />
                     {CONTACTO.telefono}
                   </a>
                 )}
                 <span className="t-small" style={{ ...item, display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                  <Icon name="map-pin" size={16} color="var(--verde)" />
+                  <Icon name="map-pin" size={16} color="var(--brand-300)" />
                   {CONTACTO.ciudad}
                 </span>
-                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--verde)" }}>
+                <Link href="/contacto" className="t-small" style={{ ...item, color: "var(--brand-300)" }}>
                   Solicita información
                 </Link>
               </div>

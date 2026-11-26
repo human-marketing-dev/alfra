@@ -32,7 +32,7 @@ export function Pilares() {
   return (
     <HeroFoto foto={foto} velo="pleno">
       <div className="hf-container hf-section">
-        <SectionHeading eyebrow="Cómo trabajamos" title="Cobertura, especialización y capacidad de ejecución." />
+        <SectionHeading eyebrow="Cómo trabajamos" title="Cobertura, especialización | y capacidad de ejecución." />
         <div className="hf-grid-3" data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {PILARES.map((p, i) => (
             <div key={p.titulo} style={{ paddingTop: "var(--pad-card)", borderTop: "1px solid var(--c-line)" }}>
@@ -44,7 +44,7 @@ export function Pilares() {
                   marginBottom: "var(--pad-card)",
                 }}
               >
-                <Icon name={p.icono} size={30} color="var(--verde)" stroke={1.3} />
+                <Icon name={p.icono} size={30} color="var(--brand-300)" stroke={1.3} />
                 <span className="t-label">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <h3 className="t-h3" style={{ marginBottom: "var(--gap-item)" }}>

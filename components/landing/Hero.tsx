@@ -26,14 +26,16 @@ export function Hero() {
           <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
             Grupo inmobiliario integral · Monterrey
           </Eyebrow>
-          <h1 className="t-display">Convertimos oportunidades inmobiliarias en negocio.</h1>
+          <h1 className="t-display t-dos-pesos">
+            Convertimos oportunidades <strong>inmobiliarias en negocio.</strong>
+          </h1>
           <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
             ALFRA Grupo Inmobiliario opera {enLetras(EMPRESAS.length)} unidades de negocio especializadas: asesoría
             inmobiliaria, desarrollo industrial, desarrollo residencial e inversión. Cada oportunidad tiene adentro una
             unidad que la ejecuta.
           </p>
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--gap-actions)" }}>
-            <Button variant="accent" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
+            <Button variant="primary" size="lg" href="/#unidades" rightIcon={<Icon name="arrow-down" size={16} />}>
               Ver las unidades
             </Button>
             <Button variant="ghost" size="lg" href="/contacto" style={BOTON_CONTORNO}>

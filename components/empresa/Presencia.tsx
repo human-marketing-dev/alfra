@@ -16,7 +16,7 @@ export function Presencia({ empresa, fondo }: { empresa: Empresa; fondo: string 
       <div className="hf-container">
         <SectionHeading
           eyebrow="Presencia"
-          title="Dónde operamos."
+          title="Dónde | operamos."
           layout="split"
           lead={`Las zonas donde ${empresa.nombreCorto} tiene operación hoy.`}
         />

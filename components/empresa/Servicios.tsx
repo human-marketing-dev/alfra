@@ -18,7 +18,7 @@ export function Servicios({ empresa }: { empresa: Empresa }) {
       style={{ background: empresa.argumentoCentral ? "var(--bg-page-alt)" : "var(--bg-page)" }}
     >
       <div className="hf-container">
-        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, en ${enLetras(n)} capacidades.`} />
+        <SectionHeading eyebrow="Qué resuelve" title={`El frente de ${empresa.nombreCorto}, | en ${enLetras(n)} capacidades.`} />
 
         <div className={n === 3 ? "hf-grid-3" : "hf-grid-4"} data-reveal-group style={{ marginTop: "var(--gap-block)" }}>
           {empresa.servicios.map((s, i) => (

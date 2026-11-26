@@ -27,7 +27,9 @@ export default function Page() {
             <Eyebrow style={{ marginBottom: "var(--gap-eyebrow)" }}>
               Contacto
             </Eyebrow>
-            <h1 className="t-h1">Solicita información.</h1>
+            <h1 className="t-h1 t-dos-pesos">
+              Solicita <strong>información.</strong>
+            </h1>
             <p className="t-lead measure" style={{ marginTop: "var(--gap-title)" }}>
               Cuéntanos qué proyecto tienes en mente y te conectamos con la unidad del grupo que lo resuelve. Si todavía
               no sabes por dónde entrar, escríbenos igual: para eso está el grupo completo.
@@ -39,7 +41,9 @@ export default function Page() {
       <section className="hf-section" style={{ background: "var(--bg-page)" }}>
         <div className="hf-container hf-grid-2" style={{ alignItems: "start" }}>
           <div>
-            <h2 className="t-h2">Cuéntanos qué tienes en mente.</h2>
+            <h2 className="t-h2 t-dos-pesos">
+              Cuéntanos qué <strong>tienes en mente.</strong>
+            </h2>
             <p className="t-body measure-sm" style={{ marginTop: "var(--gap-title)", marginBottom: "var(--gap-actions)" }}>
               Marca el frente que más se parece a tu proyecto y la solicitud llega a la unidad que lo atiende. Si no es
               claro cuál, deja la opción abierta y lo resolvemos en la primera conversación.
@@ -52,7 +56,7 @@ export default function Page() {
 
       <OtrasEmpresas
         eyebrow="Ir directo"
-        title="O ve directo a la unidad que resuelve tu frente."
+        title="O ve directo a la unidad | que resuelve tu frente."
         fondo="var(--bg-page-alt)"
       />
     </>
