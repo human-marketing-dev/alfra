@@ -62,7 +62,12 @@ export function HeroFoto({
           alt={foto.alt}
           fill
           priority={priority}
-          sizes={disposicion === "dividida" ? "(max-width: 860px) 100vw, 45vw" : "100vw"}
+          quality={90}
+          // En el hero dividido la foto llena una columna alta y angosta:
+          // con object-fit: cover se escala por la altura, así que se ve
+          // más ancha que la columna. Se pide casi el ancho de la pantalla
+          // para que en pantallas retina no se agrande una versión chica.
+          sizes={disposicion === "dividida" ? "(max-width: 1080px) 100vw, 80vw" : "100vw"}
           style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
         />
       )}

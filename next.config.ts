@@ -10,6 +10,12 @@ const REDIRECCIONES: [string, string][] = [
 ];
 
 const nextConfig: NextConfig = {
+  /* Fotos: 90 de calidad para las grandes (heros, pilares, tarjetas) y
+     AVIF/WebP según el navegador. Next 16 exige declarar las calidades. */
+  images: {
+    qualities: [75, 90],
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     return [
       ...REDIRECCIONES.map(([source, destination]) => ({ source, destination, permanent: true })),

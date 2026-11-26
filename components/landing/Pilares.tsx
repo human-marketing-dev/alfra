@@ -41,7 +41,8 @@ export function Pilares() {
                 src={foto.src}
                 alt={foto.alt}
                 fill
-                sizes="(max-width: 860px) 100vw, 50vw"
+                quality={90}
+                sizes="(max-width: 860px) 100vw, 60vw"
                 style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
               />
             </div>

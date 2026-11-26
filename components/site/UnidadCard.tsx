@@ -29,6 +29,7 @@ export function UnidadCard({ empresa, variante = "completa" }: { empresa: Empres
             src={foto.src}
             alt=""
             fill
+            quality={90}
             sizes={compacta ? "(max-width: 720px) 100vw, 33vw" : "(max-width: 860px) 100vw, 50vw"}
             style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
           />

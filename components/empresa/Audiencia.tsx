@@ -55,6 +55,7 @@ export function Audiencia({ empresa }: { empresa: Empresa }) {
                 src={foto.src}
                 alt={foto.alt}
                 fill
+                quality={90}
                 sizes="(max-width: 860px) 100vw, 50vw"
                 style={{ objectFit: "cover", objectPosition: foto.posicion ?? "60% 50%" }}
               />
